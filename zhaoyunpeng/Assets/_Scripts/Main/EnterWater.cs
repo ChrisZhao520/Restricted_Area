@@ -24,11 +24,12 @@ public class EnterWater : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_player = GetComponent<Player>();
+        objs = GameObject.FindGameObjectWithTag("WaterAudio");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        objs = GameObject.FindGameObjectWithTag("WaterAudio");
+        
 
         if (GetComponent<Transform>().position.y <= 1.28f) {
 

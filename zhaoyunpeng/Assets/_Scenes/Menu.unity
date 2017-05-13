@@ -227,6 +227,115 @@ MonoBehaviour:
   audios: {fileID: 1295643933}
   lights: {fileID: 0}
   cameras: {fileID: 0}
+--- !u!1 &80833534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 80833536}
+  - component: {fileID: 80833535}
+  m_Layer: 5
+  m_Name: HighlightedAudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &80833535
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 80833534}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c224d1812b108a64e8f1b58145be866d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &80833536
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 80833534}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -149.48607, y: 26.018497, z: 90}
+  m_LocalScale: {x: 0.19244999, y: 0.19244999, z: 0.19244999}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &102447727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 291583616}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &320532998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1046063569}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &408244515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 2036635990}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &532179960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,6 +3136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1105072782}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &595787728
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1157606711}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &817953358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,6 +5335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1317122066}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &825505366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5547,6 +5662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 796226404}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &848040934
 GameObject:
   m_ObjectHideFlags: 0
@@ -5607,7 +5723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849608238
 GameObject:
@@ -5964,6 +6080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1648745507}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &872043701
 GameObject:
   m_ObjectHideFlags: 0
@@ -6647,7 +6764,7 @@ RectTransform:
   - {fileID: 69384506}
   - {fileID: 659320131}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7071,6 +7188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1851723508}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &1177797884
 GameObject:
   m_ObjectHideFlags: 0
@@ -7696,6 +7814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1405711081}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &1377425043
 GameObject:
   m_ObjectHideFlags: 0
@@ -7912,6 +8031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 647944451}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &1405711081
 GameObject:
   m_ObjectHideFlags: 0
@@ -11226,7 +11346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!1 &1586475256
 GameObject:
@@ -11647,6 +11767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 408244515}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &1617439916
 GameObject:
   m_ObjectHideFlags: 0
@@ -11734,6 +11855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Highlighted: {fileID: 1506545459}
+  highlightedAudio: {fileID: 80833534}
 --- !u!1 &1645491597
 GameObject:
   m_ObjectHideFlags: 0
@@ -11772,7 +11894,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648055213
 GameObject:

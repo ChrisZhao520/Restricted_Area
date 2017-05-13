@@ -7,12 +7,23 @@ using UnityEngine.EventSystems;
 public class ActiveSystem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject Highlighted;
+    public GameObject highlightedAudio;
+
+    private AudioSource HighlightedAudioSource;
+
+    void Start()
+    {
+        HighlightedAudioSource = highlightedAudio.GetComponent<AudioSource>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         //Debug.Log(gameObject.GetComponent<Text>().color);
         /*GameObject.Find("Text").GetComponent<Text>().color = new Color(150, 150, 150);
         gameObject.GetComponent<Text>().color = new Color(150, 150, 150);*/
+
+        HighlightedAudioSource.Play();
+
         Highlighted.SetActive(true);
     }
 
