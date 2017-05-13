@@ -14,7 +14,7 @@ public class NewGame : MonoBehaviour {
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = false;
         }
-        StartCoroutine(WaitAndPrint(2.0f));
+        StartCoroutine(WaitAndPrint(1.0f));
     }
 
     IEnumerator WaitAndPrint(float waitTime)
