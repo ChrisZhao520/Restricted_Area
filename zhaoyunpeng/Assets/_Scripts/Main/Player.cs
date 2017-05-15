@@ -20,8 +20,6 @@ public class Player : MonoBehaviour {
     public AudioClip[] m_FootstepSounds;        
     public AudioClip m_JumpSound;               
     public AudioClip m_LandSound;
-    public GameObject gunlight;
-    
 
     private Vector3 m_movDirection = Vector3.zero;
 
@@ -36,6 +34,8 @@ public class Player : MonoBehaviour {
     float m_shootTimer = 0;
     private AudioSource m_AudioSource;
     private float t = 0;                                     // 计算饱食度的中间变量
+
+    public GameObject PauseMenu;
 
     void Start()
     {
@@ -161,6 +161,18 @@ public class Player : MonoBehaviour {
         {
             gameObject.GetComponent<CharacterController>().height = 1.0f;
             m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + 0.4f * 0.75f), m_transform.position.z);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == false)
+        {
+            //Time.timeScale = 0;
+            Screen.lockCursor = false;
+            PauseMenu.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true)
+        {
+            Screen.lockCursor = true;
+            PauseMenu.SetActive(false);
         }
 
 

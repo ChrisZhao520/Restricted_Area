@@ -7,6 +7,8 @@ public class panel_manager : MonoBehaviour {
 	public Animator startButton;
 	public Animator loadlistButton;
 	public Animator loadpanleButton;
+    public Animator savelistButton;
+    public Animator savepanleButton;
 	public Animator setlistButton;
 	public Animator helplistButton;
 	public Animator aboutlistButton;
@@ -52,6 +54,24 @@ public class panel_manager : MonoBehaviour {
         startButton.SetBool("ishidden", false);
         loadlistButton.SetBool("ishidden", true);
         loadpanleButton.SetBool("ishidden", true);
+        StartCoroutine(WaitAndPrint(0.3f));
+    }
+    public void opensave()
+    {
+        HighlightedAudioSource.clip = NoneClip;
+        ButtonAudioSource.Play();
+        startButton.SetBool("ishidden", true);
+        savelistButton.SetBool("ishidden", false);
+        savepanleButton.SetBool("ishidden", false);
+        StartCoroutine(WaitAndPrint(0.3f));
+    }
+    public void closedsave()
+    {
+        HighlightedAudioSource.clip = NoneClip;
+        ButtonAudioSource.Play();
+        startButton.SetBool("ishidden", false);
+        savelistButton.SetBool("ishidden", true);
+        savepanleButton.SetBool("ishidden", true);
         StartCoroutine(WaitAndPrint(0.3f));
     }
 

@@ -28,7 +28,12 @@ public class NewGame : MonoBehaviour {
     IEnumerator WaitAndPrint(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        //等待之后执行的动作  
+        //等待之后执行的动作
+        foreach (Transform child in objs.transform)
+        {
+            //Debug.Log(child.GetComponent<Button>().interactable);
+            child.GetComponent<Button>().interactable = true;
+        }
         SceneManager.LoadScene("Main");
     }
 }
