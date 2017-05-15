@@ -1,0 +1,1 @@
+To use this wet model, create a copy of the default folder and replace the textures with the ones you've found in this folder. Enjoy :D
