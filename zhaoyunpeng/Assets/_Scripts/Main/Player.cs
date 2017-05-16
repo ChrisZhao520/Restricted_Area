@@ -15,7 +15,6 @@ public class Player : MonoBehaviour {
     public float hgyTime;                                    // 每隔几秒饱食度递减
     public float hgyRunValue;                                // 跑步每隔几秒饱食度递减    
     public int hgyValue;                                     // 饱食度递减的值
-      
 
     public AudioClip[] m_FootstepSounds;        
     public AudioClip m_JumpSound;               
@@ -30,12 +29,10 @@ public class Player : MonoBehaviour {
     Transform m_muzzlepoint;                                 // 射线
     public LayerMask m_layer;
     public Transform m_fx;
-    public AudioClip m_audio;
+    public AudioClip m_audio;                                // 枪声
     float m_shootTimer = 0;
     private AudioSource m_AudioSource;
     private float t = 0;                                     // 计算饱食度的中间变量
-
-    public GameObject PauseMenu;
 
     void Start()
     {
@@ -52,10 +49,13 @@ public class Player : MonoBehaviour {
         m_muzzlepoint = m_camTeansform.FindChild("M16/weapon/muzzlepoint").transform;
 
         m_AudioSource = GetComponent<AudioSource>();
+
+        
     }
 
     void Update()
     {
+        
         if (m_life <= 0)
         {
             return;
@@ -163,17 +163,7 @@ public class Player : MonoBehaviour {
             m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + 0.4f * 0.75f), m_transform.position.z);
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == false)
-        {
-            //Time.timeScale = 0;
-            Screen.lockCursor = false;
-            PauseMenu.SetActive(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true)
-        {
-            Screen.lockCursor = true;
-            PauseMenu.SetActive(false);
-        }
+        
 
 
 
