@@ -145,7 +145,7 @@ public class Player : MonoBehaviour {
             xm += m_movSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))                    // 跳跃
+        if (Input.GetKeyDown(KeyCode.Space) && m_ch.isGrounded == true)                    // 跳跃
         {
             PlayJumpSound();
             m_movDirection.y = m_jumpSpeed;

@@ -18,7 +18,7 @@ public class GameMenuManager : MonoBehaviour
 	void Start () 
     {
         ButtonAudioSource = ButtonAudio.GetComponent<AudioSource>();
-        m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
 	}
 
     void Update()
