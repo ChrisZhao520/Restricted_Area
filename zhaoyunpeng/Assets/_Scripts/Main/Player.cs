@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour {
 
@@ -8,8 +9,9 @@ public class Player : MonoBehaviour {
     public CharacterController m_ch;
     public float m_movSpeed = 7.0f;                          // 角色移动速度
     public float m_runSpeed = 10.0f;                         // 角色奔跑速度
-    public float m_gravity = 8.0f;                           // 重力
-    public float m_jumpSpeed = 12.0f;                        // 跳跃速度
+    public float m_gravity = 2.0f;                           // 重力
+    public float m_jumpSpeed = 8.0f;                         // 跳跃速度
+    public float m_StickToGroundForce = 10.0f;               // 跳跃时角色受的力
     public int m_life = 100;                                 // 生命值
     public int m_hungry = 100;                               // 饱食度 
     public float hgyTime;                                    // 每隔几秒饱食度递减
@@ -20,8 +22,11 @@ public class Player : MonoBehaviour {
     public AudioClip m_JumpSound;               
     public AudioClip m_LandSound;
 
-    private Vector3 m_movDirection = Vector3.zero;
+    private bool m_Jump;
+    private bool m_Jumping;
+    private bool m_PreviouslyGrounded;
 
+    private Vector3 m_movDirection = Vector3.zero;
     private Transform m_camTeansform;
     private Vector3 m_camRot;                                // 摄像机旋转
     private float m_camHeight = 1f;
@@ -38,14 +43,17 @@ public class Player : MonoBehaviour {
     {
         m_transform = this.transform;
         m_ch = this.GetComponent<CharacterController>();
-        
+        m_Jumping = false;
+
         m_camTeansform = Camera.main.transform;              // 获取摄像机
         Vector3 pos = m_transform.position;
         pos.y += m_camHeight;
         m_camTeansform.position = pos;
         m_camTeansform.rotation = m_transform.rotation;
         m_camRot = m_camTeansform.eulerAngles;
+
         Screen.lockCursor = true;
+
         m_muzzlepoint = m_camTeansform.FindChild("M16/weapon/muzzlepoint").transform;
 
         m_AudioSource = GetComponent<AudioSource>();
@@ -61,6 +69,27 @@ public class Player : MonoBehaviour {
             return;
         }
         Control();
+
+        if (!m_Jump)
+        {
+            m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+        }
+
+        if (!m_PreviouslyGrounded && m_ch.isGrounded)
+        {
+            //StartCoroutine(m_JumpBob.DoBobCycle());
+
+            //PlayLandingSound();
+            m_movDirection.y = 0f;
+            m_Jumping = false;
+        }
+        if (!m_ch.isGrounded && !m_Jumping && m_PreviouslyGrounded)
+        {
+            m_movDirection.y = 0f;
+        }
+
+        m_PreviouslyGrounded = m_ch.isGrounded;
+
 
         if (t >= hgyTime)
         {
@@ -92,7 +121,9 @@ public class Player : MonoBehaviour {
         }
 
     }
+    void FixedUpdate() { 
 
+}
     void Control()
     {
         float rh = Input.GetAxis("Mouse X");                    // 获得鼠标水平滑动的距离
@@ -145,17 +176,21 @@ public class Player : MonoBehaviour {
             xm += m_movSpeed * Time.deltaTime;
         }
 
-        /*if (m_ch.isGrounded == true)
+        if (m_ch.isGrounded)                                    // 跳跃
         {
-            Debug.Log("123");
-        }*/
+            m_movDirection.y = -m_StickToGroundForce;
 
-        if (Input.GetKeyDown(KeyCode.Space) && m_ch.isGrounded == true)                    // 跳跃
+            if (m_Jump)
+            {
+                PlayJumpSound();
+                m_movDirection.y = m_jumpSpeed;
+                m_Jump = false;
+                m_Jumping = true;
+            }
+        }
+        else
         {
-            
-            PlayJumpSound();
-            m_movDirection.y = m_jumpSpeed;
-            
+            m_movDirection += Physics.gravity * m_gravity * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl))               // 蹲
@@ -168,22 +203,6 @@ public class Player : MonoBehaviour {
             gameObject.GetComponent<CharacterController>().height = 1.0f;
             m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + 0.4f * 0.75f), m_transform.position.z);
         }
-
-        
-
-
-
-
-        /*if (Input.GetMouseButtonDown(0)&& GameObject.FindGameObjectWithTag("Particle System").GetComponent<ParticleSystem>())                            // 射击
-        {
-            gunlight.active = true;
-            GameObject.FindGameObjectWithTag("Particle System").GetComponent<ParticleSystem>().Play();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            gunlight.active = false;
-            GameObject.FindGameObjectWithTag("Particle System").GetComponent<ParticleSystem>().Stop();
-        }*/
             
         m_movDirection.y -= m_gravity * Time.deltaTime;
         m_ch.Move(m_transform.TransformDirection(new Vector3(xm, ym, zm)));
@@ -199,22 +218,6 @@ public class Player : MonoBehaviour {
             Screen.lockCursor = false;
         }
     }
-
-    /*private void PlayFootStepAudio()
-    {
-        if (!m_ch.isGrounded)
-        {
-            return;
-        }
-        // pick & play a random footstep sound from the array,
-        // excluding sound at index 0
-        int n = Random.Range(1, m_FootstepSounds.Length);
-        m_AudioSource.clip = m_FootstepSounds[n];
-        m_AudioSource.PlayOneShot(m_AudioSource.clip);
-        // move picked sound to index 0 so it's not picked next time
-        m_FootstepSounds[n] = m_FootstepSounds[0];
-        m_FootstepSounds[0] = m_AudioSource.clip;
-    }*/
 
     private void PlayJumpSound()
     {

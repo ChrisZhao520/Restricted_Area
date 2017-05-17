@@ -32680,8 +32680,9 @@ MonoBehaviour:
   m_ch: {fileID: 1107997665}
   m_movSpeed: 7
   m_runSpeed: 10
-  m_gravity: 10
-  m_jumpSpeed: 12
+  m_gravity: 2
+  m_jumpSpeed: 8
+  m_StickToGroundForce: 10
   m_life: 100
   m_hungry: 100
   hgyTime: 10
@@ -32749,7 +32750,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107997662}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b99e5be65d3e97a4db9a31904934982b, type: 3}
   m_Name: 
@@ -53555,7 +53556,7 @@ RectTransform:
   m_GameObject: {fileID: 1857100411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999995, y: 0.9999995, z: 0.9999995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1830100561}
   - {fileID: 1332733415}
