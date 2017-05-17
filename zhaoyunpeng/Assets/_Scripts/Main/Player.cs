@@ -70,7 +70,7 @@ public class Player : MonoBehaviour {
         t += Time.deltaTime;
         
         m_shootTimer -= Time.deltaTime;
-        if (Input.GetMouseButton(0) && m_shootTimer <= 0)
+        if (Input.GetMouseButton(0) && m_shootTimer < 0 && Time.timeScale != 0)
         {
             m_shootTimer = 0.1F;
             m_AudioSource.PlayOneShot(m_audio);
@@ -145,8 +145,14 @@ public class Player : MonoBehaviour {
             xm += m_movSpeed * Time.deltaTime;
         }
 
+        /*if (m_ch.isGrounded == true)
+        {
+            Debug.Log("123");
+        }*/
+
         if (Input.GetKeyDown(KeyCode.Space) && m_ch.isGrounded == true)                    // 跳跃
         {
+            
             PlayJumpSound();
             m_movDirection.y = m_jumpSpeed;
             

@@ -45,7 +45,7 @@ public class panel_manager : MonoBehaviour {
 	public void openload () {
         timer = 1;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",true);
@@ -58,7 +58,7 @@ public class panel_manager : MonoBehaviour {
     {
         timer = 0;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
         startButton.SetBool("ishidden", false);
@@ -71,7 +71,7 @@ public class panel_manager : MonoBehaviour {
     {
         timer = 2;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
         startButton.SetBool("ishidden", true);
@@ -84,7 +84,7 @@ public class panel_manager : MonoBehaviour {
     {
         timer = 0;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
         startButton.SetBool("ishidden", false);
@@ -97,7 +97,7 @@ public class panel_manager : MonoBehaviour {
 	public void openset(){
         timer = 3;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",true);
@@ -109,7 +109,7 @@ public class panel_manager : MonoBehaviour {
 	public void openhelp(){
         timer = 4;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",true);
@@ -121,7 +121,7 @@ public class panel_manager : MonoBehaviour {
 	public void openabout(){
         timer = 5;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",true);
@@ -134,7 +134,7 @@ public class panel_manager : MonoBehaviour {
 	public void closedset(){
         timer = 0;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",false);
@@ -146,7 +146,7 @@ public class panel_manager : MonoBehaviour {
 	public void closedhelp(){
         timer = 0;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",false);
@@ -158,7 +158,7 @@ public class panel_manager : MonoBehaviour {
 	public void closedabout(){
         timer = 0;
 
-        HighlightedAudioSource.clip = NoneClip;
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		startButton.SetBool ("ishidden",false);
@@ -168,9 +168,9 @@ public class panel_manager : MonoBehaviour {
         StartCoroutine(WaitAndPrint(0.3f));
 	}
 	public void openaudios(){
-        
 
-        HighlightedAudioSource.clip = NoneClip;
+
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		audios.gameObject.SetActive (true);
@@ -180,9 +180,9 @@ public class panel_manager : MonoBehaviour {
         StartCoroutine(WaitAndPrint(0.3f));
 	}
 	public void openlights(){
-        
 
-        HighlightedAudioSource.clip = NoneClip;
+
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		audios.gameObject.SetActive (false);
@@ -192,9 +192,9 @@ public class panel_manager : MonoBehaviour {
         StartCoroutine(WaitAndPrint(0.3f));
 	}
 	public void opencameras(){
-        
 
-        HighlightedAudioSource.clip = NoneClip;
+
+        HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
 		audios.gameObject.SetActive (false);

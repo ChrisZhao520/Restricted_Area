@@ -97,6 +97,7 @@ public class GameTime : MonoBehaviour {
             //Debug.Log(_survialday);
         }
         //Debug.Log(_timeOfDay);
+        //Debug.Log(Time.realtimeSinceStartup);
 
         // 根据时间控制户外灯光的效果
         if (!_isMorning && _timeOfDay > morningLight && _timeOfDay < nightLight)

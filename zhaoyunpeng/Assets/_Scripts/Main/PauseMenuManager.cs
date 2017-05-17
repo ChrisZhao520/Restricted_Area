@@ -11,9 +11,8 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject objs;
     public GameObject PauseMenu;
     public GameObject ButtonAudio;
+    public GameObject BGMAudio;
     public GameObject Highlighted;
-    public AudioClip NoneClip;
-    public AudioClip gunClip;
 
     public float menuTimer;
 
@@ -31,18 +30,19 @@ public class PauseMenuManager : MonoBehaviour
         //Debug.Log(menuTimer);
         if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == false && menuTimer == 0)
         {
-            //Time.timeScale = 0;
-            m_player.m_audio = NoneClip;
+            Time.timeScale = 0;                             // 暂停
+            //m_player.m_transform.rotation
 
-            
+            BGMAudio.GetComponent<AudioSource>().Pause();
             Screen.lockCursor = false;
             PauseMenu.SetActive(true);
         }
         else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && menuTimer == 0)
         {
-            m_player.m_audio = gunClip;
 
-            
+            Time.timeScale = 1;                             // 继续
+
+            BGMAudio.GetComponent<AudioSource>().Play();
             Screen.lockCursor = true;
             PauseMenu.SetActive(false);
         }
@@ -76,16 +76,17 @@ public class PauseMenuManager : MonoBehaviour
     public void RtnGame()
     {
         ButtonAudioSource.Play();
+        BGMAudio.GetComponent<AudioSource>().Play();
         foreach (Transform child in objs.transform)
         {
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = false;
         }
 
+        Time.timeScale = 1;                             // 继续
+
         Screen.lockCursor = true;
         PauseMenu.SetActive(false);
-
-        m_player.m_audio = gunClip;
 
         foreach (Transform child in objs.transform)
         {
@@ -103,6 +104,8 @@ public class PauseMenuManager : MonoBehaviour
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = false;
         }
+        Time.timeScale = 1;                             // 继续
+
         StartCoroutine(WaitAndPrint(1));
         
     }
