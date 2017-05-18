@@ -63,7 +63,7 @@ public class EnterWater : MonoBehaviour {
             enterwater.SetActive(false);
 
             m_player.m_movSpeed = 7;
-            m_player.m_runSpeed = 8;
+            m_player.m_runSpeed = 10;
             m_player.m_gravity = 2;
             m_player.m_jumpSpeed = 10;
             m_player.m_FootstepSounds[0] = footstep01;

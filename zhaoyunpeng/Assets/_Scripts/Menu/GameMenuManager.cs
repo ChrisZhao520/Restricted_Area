@@ -17,6 +17,7 @@ public class GameMenuManager : MonoBehaviour
     
 	void Start () 
     {
+        Screen.lockCursor = false;
         ButtonAudioSource = ButtonAudio.GetComponent<AudioSource>();
         
 	}

@@ -9,6 +9,7 @@ public class Delay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Screen.lockCursor = true;
         StartCoroutine(WaitAndPrintSlider(2.0f));
         StartCoroutine(WaitAndPrintLoading(3.0f));
 	}

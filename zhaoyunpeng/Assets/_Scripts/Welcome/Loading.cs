@@ -13,6 +13,7 @@ public class Loading : MonoBehaviour {
 	void Start () {
         alpha1 = 0;
         alpha2 = 1;
+        
 	}
 	
 	// Update is called once per frame

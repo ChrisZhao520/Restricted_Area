@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     public float m_movSpeed = 7.0f;                          // 角色移动速度
     public float m_runSpeed = 10.0f;                         // 角色奔跑速度
     public float m_gravity = 2.0f;                           // 重力
-    public float m_jumpSpeed = 8.0f;                         // 跳跃速度
+    public float m_jumpSpeed = 10.0f;                        // 跳跃速度
     public float m_StickToGroundForce = 10.0f;               // 跳跃时角色受的力
     public int m_life = 100;                                 // 生命值
     public int m_hungry = 100;                               // 饱食度 
@@ -66,6 +66,7 @@ public class Player : MonoBehaviour {
         
         if (m_life <= 0)
         {
+            m_life = 0;
             return;
         }
         Control();
@@ -207,6 +208,7 @@ public class Player : MonoBehaviour {
         m_movDirection.y -= m_gravity * Time.deltaTime;
         m_ch.Move(m_transform.TransformDirection(new Vector3(xm, ym, zm)));
         m_ch.Move(m_movDirection * Time.deltaTime);
+
     }
 
     public void OnDamage(int damage)
@@ -215,6 +217,7 @@ public class Player : MonoBehaviour {
         GameManager.Instance.SetLife(m_life);
         if (m_life <= 0)
         {
+            m_life = 0;
             Screen.lockCursor = false;
         }
     }

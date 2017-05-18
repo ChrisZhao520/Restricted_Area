@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour {
         Txt_life.text = life.ToString();
         if (m_player.m_life <= 0)
         {
+            m_player.m_life = 0;
             SceneManager.LoadScene("Death");
             //Application.LoadLevel(Application.loadedLevelName);
         }
@@ -158,6 +159,7 @@ public class GameManager : MonoBehaviour {
 
         if (m_player.m_hungry <= 0)
         {
+            m_player.m_hungry = 0;
             SceneManager.LoadScene("Death");
         }
 

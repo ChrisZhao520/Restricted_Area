@@ -34,6 +34,6 @@ public class NewGame : MonoBehaviour {
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = true;
         }
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Plot");
     }
 }
