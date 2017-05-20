@@ -5,73 +5,13 @@ using UnityEngine.UI;
 
 public class quit : MonoBehaviour {
     public GameObject objs;
-    public GameObject quitWindow;
+
     public GameObject ButtonAudio;
     private AudioSource ButtonAudioSource;
 
     void Start()
     {
         ButtonAudioSource = ButtonAudio.GetComponent<AudioSource>();
-    }
-
-    void Update()
-    {
-       
-    }
-    public void QuitMenuOpen()
-    {
-        //Debug.Log("QuitMenuOpen");
-
-        ButtonAudioSource.Play();
-        quitWindow.SetActive(true);
-        
-        foreach (Transform child in objs.transform)
-        {
-            //Debug.Log(child.GetComponent<Button>().interactable);
-            child.GetComponent<Button>().interactable = false;
-            foreach (Transform childchild in child.transform)
-            {
-                if (childchild.GetComponent<ActiveSystem>())
-                {
-                    childchild.GetComponent<ActiveSystem>().enabled = false;
-                }
-                else if (childchild.GetComponent<Image>())
-                {
-                    childchild.gameObject.SetActive(false);
-                }
-            }
-        }
-    }
-
-    public void QuitMenuClose()
-    {
-        //Debug.Log("QuitMenuClose");
-
-        ButtonAudioSource.Play();
-        quitWindow.SetActive(false);
-
-        foreach (Transform child in objs.transform)
-        {
-            //Debug.Log(child.GetComponent<Button>().interactable);
-            child.GetComponent<Button>().interactable = true;
-            foreach (Transform childchild in child.transform)
-            {
-                if (childchild.GetComponent<ActiveSystem>())
-                {
-                    childchild.GetComponent<ActiveSystem>().enabled = true;
-                }
-            }
-        }
-        foreach (Transform child in quitWindow.transform)
-        {
-            foreach (Transform childchild in child.transform)
-            {
-                if (childchild.GetComponent<Image>())
-                {
-                    childchild.gameObject.SetActive(false);
-                }
-            }
-        }
     }
 
 	public void Quit () 

@@ -10,7 +10,6 @@ public class PauseMenuManager : MonoBehaviour
 
     public GameObject objs;
     public GameObject PauseMenu;
-    public GameObject quitWindow;
     public GameObject ButtonAudio;
     public GameObject BGMAudio;
     public GameObject Highlighted;
@@ -38,7 +37,7 @@ public class PauseMenuManager : MonoBehaviour
             Screen.lockCursor = false;
             PauseMenu.SetActive(true);
         }
-        else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && quitWindow.active == false && menuTimer == 0)
+        else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && menuTimer == 0)
         {
 
             Time.timeScale = 1;                             // 继续
@@ -46,10 +45,6 @@ public class PauseMenuManager : MonoBehaviour
             BGMAudio.GetComponent<AudioSource>().Play();
             Screen.lockCursor = true;
             PauseMenu.SetActive(false);
-        }
-        if (Input.GetKeyUp(KeyCode.Escape) && quitWindow.active == true && menuTimer == 0)
-        {
-            GetComponent<quit>().QuitMenuClose();
         }
         else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && menuTimer != 0)
         {
