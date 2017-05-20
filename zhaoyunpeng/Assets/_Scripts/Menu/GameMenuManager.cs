@@ -9,6 +9,7 @@ public class GameMenuManager : MonoBehaviour
     Player m_player;
 
     public GameObject objs;
+    public GameObject quitWindow;
     public GameObject ButtonAudio;
     public GameObject Highlighted;
     public float menuTimer;
@@ -26,8 +27,15 @@ public class GameMenuManager : MonoBehaviour
     {
         menuTimer = GetComponent<panel_manager>().timer;
         //Debug.Log(menuTimer);
-        
-        if (Input.GetKeyUp(KeyCode.Escape) && menuTimer != 0)
+        if (Input.GetKeyUp(KeyCode.Escape) && quitWindow.active == false && menuTimer == 0)
+        {
+            GetComponent<quit>().QuitMenuOpen();
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape) && quitWindow.active == true && menuTimer == 0)
+        {
+            GetComponent<quit>().QuitMenuClose();
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape) && menuTimer != 0 && quitWindow.active == false)
         {
 
             if (menuTimer == 1)
