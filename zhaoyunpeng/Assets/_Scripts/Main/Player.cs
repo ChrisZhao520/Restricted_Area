@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Utility;
 using UnityStandardAssets.CrossPlatformInput;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour {
 
@@ -25,11 +28,12 @@ public class Player : MonoBehaviour {
     private bool m_Jump;
     private bool m_Jumping;
     private bool m_PreviouslyGrounded;
+    private float m_Height;
 
     private Vector3 m_movDirection = Vector3.zero;
-    private Transform m_camTeansform;
+    private Transform m_camTransform;
     private Vector3 m_camRot;                                // 摄像机旋转
-    private float m_camHeight = 1f;
+    private float m_camHeight = 0.8f;
 
     Transform m_muzzlepoint;                                 // 射线
     public LayerMask m_layer;
@@ -39,22 +43,24 @@ public class Player : MonoBehaviour {
     private AudioSource m_AudioSource;
     private float t = 0;                                     // 计算饱食度的中间变量
 
+
     void Start()
     {
         m_transform = this.transform;
         m_ch = this.GetComponent<CharacterController>();
+        m_Height = m_ch.height;
         m_Jumping = false;
 
-        m_camTeansform = Camera.main.transform;              // 获取摄像机
+        m_camTransform = Camera.main.transform;              // 获取摄像机
         Vector3 pos = m_transform.position;
         pos.y += m_camHeight;
-        m_camTeansform.position = pos;
-        m_camTeansform.rotation = m_transform.rotation;
-        m_camRot = m_camTeansform.eulerAngles;
+        m_camTransform.position = pos;
+        m_camTransform.rotation = m_transform.rotation;
+        m_camRot = m_camTransform.eulerAngles;
 
         Screen.lockCursor = true;
 
-        m_muzzlepoint = m_camTeansform.FindChild("M16/weapon/muzzlepoint").transform;
+        m_muzzlepoint = m_camTransform.FindChild("M16/weapon/muzzlepoint").transform;
 
         m_AudioSource = GetComponent<AudioSource>();
 
@@ -70,7 +76,6 @@ public class Player : MonoBehaviour {
             return;
         }
         Control();
-
         if (!m_Jump)
         {
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
@@ -107,7 +112,7 @@ public class Player : MonoBehaviour {
             GameManager.Instance.SetAmmo(1);
             RaycastHit info;
             bool hit = Physics.Raycast(m_muzzlepoint.position,
-                m_camTeansform.TransformDirection(Vector3.forward), out info, 100, m_layer);
+                m_camTransform.TransformDirection(Vector3.forward), out info, 100, m_layer);
             if (hit)
             {
                 //Debug.Log("Hit");
@@ -122,23 +127,24 @@ public class Player : MonoBehaviour {
         }
 
     }
-    void FixedUpdate() { 
+    void FixedUpdate() 
+    { 
 
-}
+    }
     void Control()
     {
         float rh = Input.GetAxis("Mouse X");                    // 获得鼠标水平滑动的距离
         float rv = Input.GetAxis("Mouse Y");                    // 获得鼠标垂直滑动的距离
         m_camRot.x -= rv;
         m_camRot.y += rh;
-        m_camTeansform.eulerAngles = m_camRot;
-        Vector3 camRot = m_camTeansform.eulerAngles;
+        m_camTransform.eulerAngles = m_camRot;
+        Vector3 camRot = m_camTransform.eulerAngles;
         camRot.x = 0;
         camRot.z = 0;
         m_transform.eulerAngles = camRot;
         Vector3 pos = m_transform.position;
         pos.y += m_camHeight;
-        m_camTeansform.position = pos;
+        m_camTransform.position = pos;
 
         float xm = 0, ym = 0, zm = 0;
         ym -= m_gravity * Time.deltaTime;
@@ -196,13 +202,13 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.LeftControl))               // 蹲
         {
-            gameObject.GetComponent<CharacterController>().height = 0.4f;
-            m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y - 0.4f * 0.75f), m_transform.position.z);
+            m_ch.height = m_Height - 0.8f - m_ch.skinWidth * 2;
+            m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y - (m_Height - 0.8f) * 0.75f), m_transform.position.z);
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            gameObject.GetComponent<CharacterController>().height = 1.0f;
-            m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + 0.4f * 0.75f), m_transform.position.z);
+            m_ch.height = m_Height;
+            m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + (m_Height - 0.8f) * 0.75f), m_transform.position.z);
         }
             
         m_movDirection.y -= m_gravity * Time.deltaTime;

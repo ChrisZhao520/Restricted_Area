@@ -31,7 +31,7 @@ public class EnterWater : MonoBehaviour {
 	void Update () {
         
 
-        if (GetComponent<Transform>().position.y <= 1.28f) {
+        if (GetComponent<Transform>().position.y <= 1.5f) {
 
             enterwater.SetActive(true);
 

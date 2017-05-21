@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour {
             {
                 return;
             }
-            if (Vector3.Distance(m_transform.position, m_player.m_transform.position) < 1.5f) 
+            if (Vector3.Distance(m_transform.position, m_player.m_transform.position) < (2.0f + m_player.m_ch.skinWidth)) 
             {
                 m_ani.SetBool("attack", true);
             }
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour {
                 m_agent.SetDestination(m_player.m_transform.position);
                 m_timer = 1;
             }
-            if (Vector3.Distance(m_transform.position, m_player.m_transform.position) <= 1.5f)
+            if (Vector3.Distance(m_transform.position, m_player.m_transform.position) <= (2.0f + m_player.m_ch.skinWidth))
             {
                 m_agent.Stop();
                 m_ani.SetBool("attack", true);

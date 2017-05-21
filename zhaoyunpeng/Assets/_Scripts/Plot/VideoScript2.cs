@@ -25,8 +25,9 @@ public class VideoScript2 : MonoBehaviour
     {
         timer += Time.deltaTime;
         //Debug.Log(timer);
-        if (timer >= 76f)
+        if (timer >= 77f)
         {
+            movTexture.Stop();
             SceneManager.LoadScene("Main");
         }
         if (Input.GetKey(KeyCode.Escape)) 

@@ -67,7 +67,7 @@ public class FollowMe : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.A) && i == 2)                                      // A
                 {
-                    timer += Time.deltaTime;
+                    timer += Time.deltaTime * 1.25f;
                     //Debug.Log(timer);
 
                 }
@@ -78,7 +78,7 @@ public class FollowMe : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.D) && i == 3)                                      // D
                 {
-                    timer += Time.deltaTime;
+                    timer += Time.deltaTime * 1.25f;
                     //Debug.Log(timer);
 
                 }
