@@ -21,6 +21,9 @@ public class Player : MonoBehaviour {
     public float hgyRunValue;                                // 跑步每隔几秒饱食度递减    
     public int hgyValue;                                     // 饱食度递减的值
 
+    public float minX;                                       // 限制视野范围
+    public float maxX;                                       // 限制视野范围
+
     public AudioClip[] m_FootstepSounds;        
     public AudioClip m_JumpSound;               
     public AudioClip m_LandSound;
@@ -137,6 +140,7 @@ public class Player : MonoBehaviour {
         float rv = Input.GetAxis("Mouse Y");                    // 获得鼠标垂直滑动的距离
         m_camRot.x -= rv;
         m_camRot.y += rh;
+        m_camRot.x = Mathf.Clamp(m_camRot.x, minX, maxX);       // 限制视觉范围
         m_camTransform.eulerAngles = m_camRot;
         Vector3 camRot = m_camTransform.eulerAngles;
         camRot.x = 0;

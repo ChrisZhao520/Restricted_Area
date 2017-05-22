@@ -71,7 +71,7 @@
      <Compile Include="Assets\_Scripts\Menu\ActiveSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\GameMenuManager.cs" />
      <Compile Include="Assets\_Scripts\Menu\NewGame.cs" />
-     <Compile Include="Assets\_Scripts\Menu\ParticleSystem.cs" />
+     <Compile Include="Assets\_Scripts\Menu\ParticSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\panel_manager.cs" />
      <Compile Include="Assets\_Scripts\Menu\quit.cs" />
      <Compile Include="Assets\_Scripts\Plot\VideoScript2.cs" />
