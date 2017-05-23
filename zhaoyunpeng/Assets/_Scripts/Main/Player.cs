@@ -36,22 +36,31 @@ public class Player : MonoBehaviour {
     private Vector3 m_movDirection = Vector3.zero;
     private Transform m_camTransform;
     private Vector3 m_camRot;                                // 摄像机旋转
-    private float m_camHeight = 0.8f;
+    private float m_camHeight;
 
     Transform m_muzzlepoint;                                 // 射线
     public LayerMask m_layer;
     public Transform m_fx;
-    public AudioClip m_audio;                                // 枪声
+    public float m_shootcd;                                  // 射击距离
+    public AudioClip m_shotAudio;                            // 枪声
     float m_shootTimer = 0;
     private AudioSource m_AudioSource;
     private float t = 0;                                     // 计算饱食度的中间变量
 
+    public GameObject flashlight;
+    public GameObject flashlightaudio;
+    public AudioClip FlashAudioClip;
+    private AudioSource FlashAudioSource;
+
+    public GameObject m_backpack;
+    public float m_Raycastcd;                                // 拾取范围
 
     void Start()
     {
         m_transform = this.transform;
         m_ch = this.GetComponent<CharacterController>();
         m_Height = m_ch.height;
+        m_camHeight = m_ch.height / 2;
         m_Jumping = false;
 
         m_camTransform = Camera.main.transform;              // 获取摄像机
@@ -60,13 +69,13 @@ public class Player : MonoBehaviour {
         m_camTransform.position = pos;
         m_camTransform.rotation = m_transform.rotation;
         m_camRot = m_camTransform.eulerAngles;
-
         Screen.lockCursor = true;
-
         m_muzzlepoint = m_camTransform.FindChild("M16/weapon/muzzlepoint").transform;
 
         m_AudioSource = GetComponent<AudioSource>();
 
+        FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
+        FlashAudioSource.clip = FlashAudioClip;
         
     }
 
@@ -107,15 +116,15 @@ public class Player : MonoBehaviour {
         t += Time.deltaTime;
         
         m_shootTimer -= Time.deltaTime;
-        if (Input.GetMouseButton(0) && m_shootTimer < 0 && Time.timeScale != 0)
+        if (Input.GetMouseButton(0) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
         {
             m_shootTimer = 0.1F;
-            m_AudioSource.PlayOneShot(m_audio);
+            m_AudioSource.PlayOneShot(m_shotAudio);
             GameManager.Instance.SetAmmo(1);
             RaycastHit info;
             bool hit = Physics.Raycast(m_muzzlepoint.position,
-                m_camTransform.TransformDirection(Vector3.forward), out info, 100, m_layer);
-            if (hit)
+                m_camTransform.TransformDirection(Vector3.forward), out info, m_shootcd, m_layer);
+            if (hit)                                                // 射击
             {
                 //Debug.Log("Hit");
                 if (info.transform.tag.CompareTo("enemy") == 0)
@@ -125,6 +134,98 @@ public class Player : MonoBehaviour {
                     //Debug.Log("enemy's life -1");
                 }
                 Instantiate(m_fx, info.point, info.transform.rotation);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))                            // 打开关闭手电筒
+        {
+            //Debug.Log("H");
+
+            //Debug.Log(flashlightaudio.active);
+
+            if (flashlight.active == true)
+            {
+                //Debug.Log("Close");  
+                flashlight.active = false;
+                FlashAudioSource.Play();
+            }
+            else
+            {
+                //Debug.Log("Open");
+                flashlight.active = true;
+                FlashAudioSource.Play();
+            }
+            //Debug.Log(flashlightaudio.active);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))                            // 打开关闭背包
+        {
+            if (m_backpack.GetComponent<Canvas>().enabled == true)
+            {
+
+                Screen.lockCursor = true;
+                m_backpack.GetComponent<Canvas>().enabled = false;
+            }
+            else
+            {
+                Screen.lockCursor = false;
+                m_backpack.GetComponent<Canvas>().enabled = true;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.F))                                // 拾取道具
+        {
+
+            RaycastHit info;
+            bool hit = Physics.Raycast(m_muzzlepoint.position,
+                m_camTransform.TransformDirection(Vector3.forward), out info, m_Raycastcd);
+            if (hit)
+            {
+                //划出射线，只有在scene视图中才能看到
+                GameObject gameObj = info.collider.gameObject;
+                if (gameObj.tag == "qiang")//当射线碰撞目标为qiang类型的物品 ，执行拾取操作
+                {
+                    Debug.Log(gameObj.tag);
+                    backpack_manger.Instancce.StoreItem(0);
+                    Destroy(gameObj);
+                    return;
+                }
+                if (gameObj.tag == "mubang")
+                {
+                    //Debug.Log("pick up!");
+                    backpack_manger.Instancce.StoreItem(2);
+                    Destroy(gameObj);
+                    return;
+                }
+                if (gameObj.tag == "bishou")
+                {
+
+                    backpack_manger.Instancce.StoreItem(1);
+                    Destroy(gameObj);
+                    return;
+                }
+                if (gameObj.tag == "banzhuan")
+                {
+
+                    backpack_manger.Instancce.StoreItem(3);
+                    Destroy(gameObj);
+                    return;
+                }
+                
+                if (gameObj.tag == "pistol")
+                {
+                    
+                    backpack_manger.Instancce.StoreItem(6);
+                    Destroy(gameObj);
+                    return;
+                }
+                if (gameObj.tag == "Pistol cartridges")
+                {
+                    
+                    backpack_manger.Instancce.StoreItem(7);
+                    Destroy(gameObj);
+                    return;
+                }
             }
         }
 

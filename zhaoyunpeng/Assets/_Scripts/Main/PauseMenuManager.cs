@@ -14,6 +14,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject ButtonAudio;
     public GameObject BGMAudio;
     public GameObject Highlighted;
+    public GameObject waterAudio;
 
     public float menuTimer = 0;
 
@@ -32,7 +33,8 @@ public class PauseMenuManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == false && menuTimer == 0)
         {
             Time.timeScale = 0;                             // 暂停
-            //m_player.m_transform.rotation
+            m_player.enabled = false;
+            waterAudio.SetActive(false);
 
             BGMAudio.GetComponent<AudioSource>().Pause();
             Screen.lockCursor = false;
@@ -42,6 +44,8 @@ public class PauseMenuManager : MonoBehaviour
         {
 
             Time.timeScale = 1;                             // 继续
+            m_player.enabled = true;
+            waterAudio.SetActive(true);
 
             BGMAudio.GetComponent<AudioSource>().Play();
             Screen.lockCursor = true;
@@ -87,6 +91,9 @@ public class PauseMenuManager : MonoBehaviour
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = false;
         }
+
+        m_player.enabled = true;
+        waterAudio.SetActive(true);
 
         Time.timeScale = 1;                             // 继续
 
