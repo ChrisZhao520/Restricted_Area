@@ -55,13 +55,33 @@ public class Enemy : MonoBehaviour {
             {
                 m_timer = 1;
                 m_agent.SetDestination(m_player.m_transform.position);
-                m_ani.SetBool("run", true);
+                m_ani.SetBool("walk", true);
             }
 
+        }
+        // 如果处于走路状态
+        if (stateInfo.nameHash == Animator.StringToHash("Base Layer.walk") && !m_ani.IsInTransition(0))
+        {
+            m_ani.SetBool("walk", false);
+            m_timer -= Time.deltaTime;
+            if (m_timer < 0)
+            {
+                //Debug.Log(m_agent.speed);
+                m_agent.Resume();
+                m_agent.SetDestination(m_player.m_transform.position);
+                m_timer = 1;
+            }
+            if (Vector3.Distance(m_transform.position, m_player.m_transform.position) <= 30.0f)
+            {
+                m_agent.speed += 4;
+                m_agent.Stop();
+                m_ani.SetBool("run", true);
+            }
         }
         // 如果处于奔跑状态
         if (stateInfo.nameHash == Animator.StringToHash("Base Layer.run") && !m_ani.IsInTransition(0))
         {
+            
             m_ani.SetBool("run", false);
             m_timer -= Time.deltaTime;
             if (m_timer < 0)
@@ -70,6 +90,12 @@ public class Enemy : MonoBehaviour {
                 m_agent.Resume();
                 m_agent.SetDestination(m_player.m_transform.position);
                 m_timer = 1;
+            }
+            if (Vector3.Distance(m_transform.position, m_player.m_transform.position) > 30.0f)
+            {
+                m_agent.speed -= 4;
+                m_agent.Stop();
+                m_ani.SetBool("walk", true);
             }
             if (Vector3.Distance(m_transform.position, m_player.m_transform.position) <= (2.0f + m_player.m_ch.skinWidth))
             {

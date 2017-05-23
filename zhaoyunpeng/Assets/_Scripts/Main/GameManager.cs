@@ -141,10 +141,13 @@ public class GameManager : MonoBehaviour {
 
     public void SetLife(int life)
     {
+        if (life < 0)
+        {
+            life = 0;
+        }
         Txt_life.text = life.ToString();
         if (m_player.m_life <= 0)
         {
-            m_player.m_life = 0;
             SceneManager.LoadScene("Death");
             //Application.LoadLevel(Application.loadedLevelName);
         }
