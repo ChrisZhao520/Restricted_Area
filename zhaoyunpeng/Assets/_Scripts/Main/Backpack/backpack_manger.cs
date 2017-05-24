@@ -163,7 +163,7 @@ public class backpack_manger : MonoBehaviour {
         GameObject Parent = GameObject.FindGameObjectWithTag("boot");
         itemGo.transform.parent = Parent.transform;
         itemGo.transform.position = camera.transform.TransformPoint(0,0,1);
-        itemGo.transform.localScale =new Vector3(0.2f,0.2f,0.2f);
+        itemGo.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
         
     }
 

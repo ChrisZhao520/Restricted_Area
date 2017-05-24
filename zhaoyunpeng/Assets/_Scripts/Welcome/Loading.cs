@@ -34,7 +34,6 @@ public class Loading : MonoBehaviour {
             if (alpha2 < 0)
             {
                 alpha1 = 0;
-                alpha2 = 1;
             }
         }
         GetComponent<Text>().text = "加载中.  ";

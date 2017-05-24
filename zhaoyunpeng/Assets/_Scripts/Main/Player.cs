@@ -45,7 +45,11 @@ public class Player : MonoBehaviour {
     public AudioClip m_shotAudio;                            // 枪声
     float m_shootTimer = 0;
     private AudioSource m_AudioSource;
+
     private float t = 0;                                     // 计算饱食度的中间变量
+    private float timer1;                                // 计算奔跑时的中间变量1
+    private float timer2;                                // 计算奔跑时的中间变量2
+    private float runcd = 1f;                                 // 计算奔跑时的屏幕晃动值
 
     public GameObject flashlight;
     public GameObject flashlightaudio;
@@ -73,6 +77,9 @@ public class Player : MonoBehaviour {
         m_muzzlepoint = m_camTransform.FindChild("M16/weapon/muzzlepoint").transform;
 
         m_AudioSource = GetComponent<AudioSource>();
+
+        timer1 = 0;
+        timer2 = 0;
 
         FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
         FlashAudioSource.clip = FlashAudioClip;
@@ -158,7 +165,7 @@ public class Player : MonoBehaviour {
             //Debug.Log(flashlightaudio.active);
         }
 
-        if (Input.GetKeyDown(KeyCode.B))                            // 打开关闭背包
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.I))                            // 打开关闭背包
         {
             if (m_backpack.GetComponent<Canvas>().enabled == true)
             {
@@ -185,7 +192,7 @@ public class Player : MonoBehaviour {
                 GameObject gameObj = info.collider.gameObject;
                 if (gameObj.tag == "qiang")//当射线碰撞目标为qiang类型的物品 ，执行拾取操作
                 {
-                    Debug.Log(gameObj.tag);
+                    //Debug.Log(gameObj.tag);
                     backpack_manger.Instancce.StoreItem(0);
                     Destroy(gameObj);
                     return;
@@ -252,7 +259,7 @@ public class Player : MonoBehaviour {
 
         float xm = 0, ym = 0, zm = 0;
         ym -= m_gravity * Time.deltaTime;
-
+        
         if (Input.GetKey(KeyCode.W))                            // 前
         {
             //PlayFootStepAudio();
@@ -261,6 +268,23 @@ public class Player : MonoBehaviour {
             {
                 zm += m_runSpeed * Time.deltaTime;
                 hgyTime = hgyRunValue;
+
+                if (timer1 <= runcd)
+                {
+                    timer1 += 0.1f;
+                    timer2 = runcd;
+                    m_camTransform.Rotate(new Vector3(timer1 / 2, 0, -timer1));
+                }
+                else if (timer1 > runcd)
+                {
+                    timer2 -= 0.1f;
+                    m_camTransform.Rotate(new Vector3(timer2 / 2, 0, -timer2));
+                    if (timer2 < -runcd)
+                    {
+                        timer1 = -runcd;
+                    }
+                }                
+                
             }
             else
             {
