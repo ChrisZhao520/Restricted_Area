@@ -116,6 +116,16 @@ public class PauseMenuManager : MonoBehaviour
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = false;
         }
+        foreach (Transform child in quitWindow.transform)
+        {
+            if (child.GetComponent<Button>())
+            {
+                //Debug.Log(child.GetComponent<Button>().interactable);
+                child.GetComponent<Button>().interactable = false;
+            }
+        }
+        gameObject.GetComponent<PauseMenuManager>().enabled = false;
+
         Time.timeScale = 1;                             // 继续
 
         StartCoroutine(WaitAndPrint(1));

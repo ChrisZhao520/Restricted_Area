@@ -77,10 +77,12 @@
      <Compile Include="Assets\_Scripts\Main\GameTime.cs" />
      <Compile Include="Assets\_Scripts\Main\PauseMenuManager.cs" />
      <Compile Include="Assets\_Scripts\Main\Player.cs" />
+     <Compile Include="Assets\_Scripts\Main\StartGraduallyActive.cs" />
      <Compile Include="Assets\_Scripts\Main\Sun.cs" />
      <Compile Include="Assets\_Scripts\Main\TimedLighting.cs" />
      <Compile Include="Assets\_Scripts\Menu\ActiveSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\GameMenuManager.cs" />
+     <Compile Include="Assets\_Scripts\Menu\GraduallyActive.cs" />
      <Compile Include="Assets\_Scripts\Menu\NewGame.cs" />
      <Compile Include="Assets\_Scripts\Menu\ParticSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\panel_manager.cs" />

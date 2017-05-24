@@ -7,6 +7,7 @@ public class quit : MonoBehaviour {
     public GameObject objs;
     public GameObject quitWindow;
     public GameObject ButtonAudio;
+
     private AudioSource ButtonAudioSource;
 
     void Start()
@@ -82,6 +83,16 @@ public class quit : MonoBehaviour {
             //Debug.Log(child.GetComponent<Button>().interactable);
             child.GetComponent<Button>().interactable = false;
         }
+        foreach (Transform child in quitWindow.transform)
+        {
+            if (child.GetComponent<Button>())
+            {
+                //Debug.Log(child.GetComponent<Button>().interactable);
+                child.GetComponent<Button>().interactable = false;
+            }
+        }
+        gameObject.GetComponent<GameMenuManager>().enabled = false;
+
         StartCoroutine(WaitAndPrint(1));
 
 	}
