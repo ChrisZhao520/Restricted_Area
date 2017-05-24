@@ -15,6 +15,16 @@ TagManager:
   - enemy
   - Menu-button
   - Lamp_Close
+  - Grid
+  - Backpack
+  - mubang
+  - qiang
+  - banzhuan
+  - bishou
+  - boot
+  - tag1
+  - pistol
+  - Pistol cartridges
   layers:
   - Default
   - TransparentFX
