@@ -87,7 +87,8 @@
      <Compile Include="Assets\_Scripts\Menu\ParticSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\panel_manager.cs" />
      <Compile Include="Assets\_Scripts\Menu\quit.cs" />
-     <Compile Include="Assets\_Scripts\Plot\VideoScript2.cs" />
+     <Compile Include="Assets\_Scripts\Plot\FullScreen.cs" />
+     <Compile Include="Assets\_Scripts\Plot\VideoScript.cs" />
      <Compile Include="Assets\_Scripts\Welcome\Delay.cs" />
      <Compile Include="Assets\_Scripts\Welcome\Loading.cs" />
      <Compile Include="Assets\_Scripts\Welcome\Sliderbj.cs" />
