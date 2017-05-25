@@ -80,6 +80,7 @@
      <Compile Include="Assets\_Scripts\Main\StartGraduallyActive.cs" />
      <Compile Include="Assets\_Scripts\Main\Sun.cs" />
      <Compile Include="Assets\_Scripts\Main\TimedLighting.cs" />
+     <Compile Include="Assets\_Scripts\Main\_Player.cs" />
      <Compile Include="Assets\_Scripts\Menu\ActiveSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\GameMenuManager.cs" />
      <Compile Include="Assets\_Scripts\Menu\GraduallyActive.cs" />

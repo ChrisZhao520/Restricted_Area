@@ -5,371 +5,478 @@ using UnityEngine;
 using UnityStandardAssets.Utility;
 using UnityStandardAssets.CrossPlatformInput;
 using Random = UnityEngine.Random;
-
-public class Player : MonoBehaviour {
-
-    public Transform m_transform;
-    public CharacterController m_ch;
-    public float m_movSpeed = 7.0f;                          // 角色移动速度
-    public float m_runSpeed = 12.0f;                         // 角色奔跑速度
-    public float m_gravity = 2.0f;                           // 重力
-    public float m_jumpSpeed = 10.0f;                        // 跳跃速度
-    public float m_StickToGroundForce = 20.0f;               // 跳跃时角色受的力
-    public int m_life = 100;                                 // 生命值
-    public int m_hungry = 100;                               // 饱食度 
-    public float hgyTime;                                    // 每隔几秒饱食度递减
-    public float hgyRunValue;                                // 跑步每隔几秒饱食度递减    
-    public int hgyValue;                                     // 饱食度递减的值
-
-    public float minX;                                       // 限制视野范围
-    public float maxX;                                       // 限制视野范围
-
-    public AudioClip[] m_FootstepSounds;        
-    public AudioClip m_JumpSound;               
-    public AudioClip m_LandSound;
-
-    private bool m_Jump;
-    private bool m_Jumping;
-    private bool m_PreviouslyGrounded;
-    private float m_Height;
-
-    private Vector3 m_movDirection = Vector3.zero;
-    private Transform m_camTransform;
-    private Vector3 m_camRot;                                // 摄像机旋转
-    private float m_camHeight;
-
-    Transform m_muzzlepoint;                                 // 射线
-    public LayerMask m_layer;
-    public Transform m_fx;
-    public float m_shootcd;                                  // 射击距离
-    public AudioClip m_shotAudio;                            // 枪声
-    float m_shootTimer = 0;
-    private AudioSource m_AudioSource;
-
-    private float t = 0;                                     // 计算饱食度的中间变量
-    private float timer1;                                // 计算奔跑时的中间变量1
-    private float timer2;                                // 计算奔跑时的中间变量2
-    private float runcd = 1f;                                 // 计算奔跑时的屏幕晃动值
-
-    public GameObject flashlight;
-    public GameObject flashlightaudio;
-    public AudioClip FlashAudioClip;
-    private AudioSource FlashAudioSource;
-
-    public GameObject m_backpack;
-    public float m_Raycastcd;                                // 拾取范围
-
-    void Start()
+namespace UnityStandardAssets.Characters.FirstPerson
+{
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
+    public class Player : MonoBehaviour
     {
-        m_transform = this.transform;
-        m_ch = this.GetComponent<CharacterController>();
-        m_Height = m_ch.height;
-        m_camHeight = m_ch.height / 2;
-        m_Jumping = false;
 
-        m_camTransform = Camera.main.transform;              // 获取摄像机
-        Vector3 pos = m_transform.position;
-        pos.y += m_camHeight;
-        m_camTransform.position = pos;
-        m_camTransform.rotation = m_transform.rotation;
-        m_camRot = m_camTransform.eulerAngles;
-        Screen.lockCursor = true;
-        m_muzzlepoint = m_camTransform.FindChild("M16/weapon/muzzlepoint").transform;
+        public bool m_IsWalking;
+        public Transform m_transform;
+        public CharacterController m_ch;
+        public float m_movSpeed = 7.0f;                          // 角色移动速度
+        public float m_runSpeed = 12.0f;                         // 角色奔跑速度
+        public float m_squatSpeed = 4.0f;                        // 角色蹲走速度
+        [Range(0f, 1f)] public float m_RunstepLenghten;
+        public float m_gravity = 2.0f;                           // 重力
+        public float m_jumpSpeed = 10.0f;                        // 跳跃速度
+        public float m_StickToGroundForce = 20.0f;               // 跳跃时角色受的力
+        public int m_life = 100;                                 // 生命值
+        public int m_hungry = 100;                               // 饱食度 
+        public float hgyTime;                                    // 每隔几秒饱食度递减
+        public float hgyRunValue;                                // 跑步每隔几秒饱食度递减    
+        public int hgyValue;                                     // 饱食度递减的值
+        public MouseLook m_MouseLook;
+        public bool m_UseFovKick;
+        public FOVKick m_FovKick = new FOVKick();
+        public bool m_UseHeadBob;
+        public CurveControlledBob m_HeadBob = new CurveControlledBob();
+        public LerpControlledBob m_JumpBob = new LerpControlledBob();
+        public float m_StepInterval;
+        public AudioClip[] m_FootstepSounds;
+        public AudioClip m_JumpSound;
+        public AudioClip m_LandSound;
+        public LayerMask m_layer;
+        public Transform m_fx;
+        public float m_shootcd;                                  // 射击距离
+        public AudioClip m_shotAudio;                            // 枪声
+        public GameObject flashlight;
+        public GameObject flashlightaudio;
+        public AudioClip FlashAudioClip;
+        public GameObject m_backpack;
+        public float m_Raycastcd;                                // 拾取范围
 
-        m_AudioSource = GetComponent<AudioSource>();
+        private bool m_Jump;
+        private bool m_Jumping;
+        private bool m_PreviouslyGrounded;
+        private float m_Height;
+        private Vector2 m_Input;
+        private Vector3 m_OriginalCameraPosition;
+        private float m_StepCycle;
+        private float m_NextStep;
+        private Camera m_Camera;
+        private float t = 0;                                     // 计算饱食度的中间变量
+        private float ms = 7.0f;
+        private Vector3 m_movDirection = Vector3.zero;
+        /*private Transform m_camTransform;
+        private Vector3 m_camRot;                                // 摄像机旋转
+        private float m_camHeight;*/
+        private Transform m_muzzlepoint;                         // 射线       
+        private float m_shootTimer = 0;
+        private CollisionFlags m_CollisionFlags;
+        private AudioSource m_AudioSource;
+        private AudioSource FlashAudioSource;
 
-        timer1 = 0;
-        timer2 = 0;
-
-        FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
-        FlashAudioSource.clip = FlashAudioClip;
-        
-    }
-
-    void Update()
-    {
-        
-        if (m_life <= 0)
+        void Start()
         {
-            return;
-        }
-        Control();
-        if (!m_Jump)
-        {
-            m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-        }
-
-        if (!m_PreviouslyGrounded && m_ch.isGrounded)
-        {
-            //StartCoroutine(m_JumpBob.DoBobCycle());
-
-            //PlayLandingSound();
-            m_movDirection.y = 0f;
+            m_transform = this.transform;
+            m_ch = this.GetComponent<CharacterController>();
+            m_Camera = Camera.main;
+            m_Height = m_ch.height;
             m_Jumping = false;
-        }
-        if (!m_ch.isGrounded && !m_Jumping && m_PreviouslyGrounded)
-        {
-            m_movDirection.y = 0f;
+            m_StepCycle = 0f;
+            m_NextStep = m_StepCycle / 2f;
+            m_FovKick.Setup(m_Camera);
+            m_HeadBob.Setup(m_Camera, m_StepInterval);
+
+            /*m_camHeight = m_ch.height / 2;
+            m_camTransform = m_Camera.transform;                // 获取摄像机
+            Vector3 pos = m_transform.position;
+            pos.y += m_camHeight;
+            m_camTransform.position = pos;
+            m_camTransform.rotation = m_transform.rotation;
+            m_camRot = m_camTransform.eulerAngles;*/
+            m_OriginalCameraPosition = m_Camera.transform.localPosition;
+            Screen.lockCursor = true;
+            m_muzzlepoint = m_Camera.transform.FindChild("M16/weapon/muzzlepoint").transform;
+
+            m_AudioSource = GetComponent<AudioSource>();
+
+            /*timer1 = 0;
+            timer2 = 0;*/
+
+            FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
+            FlashAudioSource.clip = FlashAudioClip;
+
+            m_MouseLook.Init(transform, m_Camera.transform);
         }
 
-        m_PreviouslyGrounded = m_ch.isGrounded;
-
-
-        if (t >= hgyTime)
+        void Update()
         {
-            t = 0;
-            StartCoroutine(WaitAndPrintSetHgy(hgyValue));
-        }
-        t += Time.deltaTime;
-        
-        m_shootTimer -= Time.deltaTime;
-        if (Input.GetMouseButton(0) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
-        {
-            m_shootTimer = 0.1F;
-            m_AudioSource.PlayOneShot(m_shotAudio);
-            GameManager.Instance.SetAmmo(1);
-            RaycastHit info;
-            bool hit = Physics.Raycast(m_muzzlepoint.position,
-                m_camTransform.TransformDirection(Vector3.forward), out info, m_shootcd, m_layer);
-            if (hit)                                                // 射击
+            RotateView();
+
+            if (m_life <= 0)
             {
-                //Debug.Log("Hit");
-                if (info.transform.tag.CompareTo("enemy") == 0)
+                return;
+            }
+            Control();
+            if (!m_Jump)
+            {
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            }
+
+            if (!m_PreviouslyGrounded && m_ch.isGrounded)
+            {
+                StartCoroutine(m_JumpBob.DoBobCycle());
+                PlayLandingSound();
+                m_movDirection.y = 0f;
+                m_Jumping = false;
+            }
+            if (!m_ch.isGrounded && !m_Jumping && m_PreviouslyGrounded)
+            {
+                m_movDirection.y = 0f;
+            }
+
+            m_PreviouslyGrounded = m_ch.isGrounded;
+
+
+            if (t >= hgyTime)
+            {
+                t = 0;
+                StartCoroutine(WaitAndPrintSetHgy(hgyValue));
+            }
+            t += Time.deltaTime;
+
+            m_shootTimer -= Time.deltaTime;
+            if (Input.GetMouseButton(0) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            {
+                m_shootTimer = 0.1F;
+                m_AudioSource.PlayOneShot(m_shotAudio);
+                GameManager.Instance.SetAmmo(1);
+                RaycastHit info;
+                bool hit = Physics.Raycast(m_muzzlepoint.position,
+                    m_Camera.transform.TransformDirection(Vector3.forward), out info, m_shootcd, m_layer);
+                if (hit)                                                // 射击
                 {
-                    Enemy enemy = info.transform.GetComponent<Enemy>();
-                    enemy.OnDamage(1);
-                    //Debug.Log("enemy's life -1");
+                    //Debug.Log("Hit");
+                    if (info.transform.tag.CompareTo("enemy") == 0)
+                    {
+                        Enemy enemy = info.transform.GetComponent<Enemy>();
+                        enemy.OnDamage(1);
+                        //Debug.Log("enemy's life -1");
+                    }
+                    Instantiate(m_fx, info.point, info.transform.rotation);
                 }
-                Instantiate(m_fx, info.point, info.transform.rotation);
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.H))                            // 打开关闭手电筒
-        {
-            //Debug.Log("H");
-
-            //Debug.Log(flashlightaudio.active);
-
-            if (flashlight.active == true)
+            if (Input.GetKeyDown(KeyCode.H))                            // 打开关闭手电筒
             {
-                //Debug.Log("Close");  
-                flashlight.active = false;
-                FlashAudioSource.Play();
+                //Debug.Log("H");
+
+                //Debug.Log(flashlightaudio.active);
+
+                if (flashlight.active == true)
+                {
+                    //Debug.Log("Close");  
+                    flashlight.active = false;
+                    FlashAudioSource.Play();
+                }
+                else
+                {
+                    //Debug.Log("Open");
+                    flashlight.active = true;
+                    FlashAudioSource.Play();
+                }
+                //Debug.Log(flashlightaudio.active);
+            }
+
+            if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.I))                            // 打开关闭背包
+            {
+                if (m_backpack.GetComponent<Canvas>().enabled == true)
+                {
+
+                    Screen.lockCursor = true;
+                    m_backpack.GetComponent<Canvas>().enabled = false;
+                }
+                else
+                {
+                    Screen.lockCursor = false;
+                    m_backpack.GetComponent<Canvas>().enabled = true;
+                }
+            }
+
+            if (Input.GetKey(KeyCode.F))                                // 拾取道具
+            {
+
+                RaycastHit info;
+                bool hit = Physics.Raycast(m_muzzlepoint.position,
+                    m_Camera.transform.TransformDirection(Vector3.forward), out info, m_Raycastcd);
+                if (hit)
+                {
+                    //划出射线，只有在scene视图中才能看到
+                    GameObject gameObj = info.collider.gameObject;
+                    if (gameObj.tag == "qiang")//当射线碰撞目标为qiang类型的物品 ，执行拾取操作
+                    {
+                        //Debug.Log(gameObj.tag);
+                        backpack_manger.Instancce.StoreItem(0);
+                        Destroy(gameObj);
+                        return;
+                    }
+                    if (gameObj.tag == "mubang")
+                    {
+                        //Debug.Log("pick up!");
+                        backpack_manger.Instancce.StoreItem(2);
+                        Destroy(gameObj);
+                        return;
+                    }
+                    if (gameObj.tag == "bishou")
+                    {
+
+                        backpack_manger.Instancce.StoreItem(1);
+                        Destroy(gameObj);
+                        return;
+                    }
+                    if (gameObj.tag == "banzhuan")
+                    {
+
+                        backpack_manger.Instancce.StoreItem(3);
+                        Destroy(gameObj);
+                        return;
+                    }
+
+                    if (gameObj.tag == "pistol")
+                    {
+
+                        backpack_manger.Instancce.StoreItem(6);
+                        Destroy(gameObj);
+                        return;
+                    }
+                    if (gameObj.tag == "Pistol cartridges")
+                    {
+
+                        backpack_manger.Instancce.StoreItem(7);
+                        Destroy(gameObj);
+                        return;
+                    }
+                }
+            }
+
+        }
+        void FixedUpdate()
+        {
+            float speed;
+            GetInput(out speed);
+
+            Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
+
+            RaycastHit hitInfo;
+            Physics.SphereCast(transform.position, m_ch.radius, Vector3.down, out hitInfo,
+                               m_ch.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+
+            m_movDirection.x = desiredMove.x * speed;
+            m_movDirection.z = desiredMove.z * speed;
+
+            if (m_ch.isGrounded)                                    // 跳跃
+            {
+                m_movDirection.y = -m_StickToGroundForce;
+
+                if (m_Jump)
+                {
+                    PlayJumpSound();
+                    m_movDirection.y = m_jumpSpeed;
+                    m_Jump = false;
+                    m_Jumping = true;
+
+                }
             }
             else
             {
-                //Debug.Log("Open");
-                flashlight.active = true;
-                FlashAudioSource.Play();
+                m_movDirection += Physics.gravity * m_gravity * Time.fixedDeltaTime;
             }
-            //Debug.Log(flashlightaudio.active);
+
+            m_CollisionFlags = m_ch.Move(m_movDirection * Time.fixedDeltaTime);
+
+            ProgressStepCycle(speed);
+            UpdateCameraPosition(speed);
+
+            m_MouseLook.UpdateCursorLock();
+        }
+        void Control()
+        {
+            /*float rh = Input.GetAxisRaw("Mouse X");                    // 获得鼠标水平滑动的距离
+            float rv = Input.GetAxisRaw("Mouse Y");                    // 获得鼠标垂直滑动的距离
+            m_camRot.x -= rv;
+            m_camRot.y += rh;
+            m_camRot.x = Mathf.Clamp(m_camRot.x, minX, maxX);       // 限制视觉范围
+            m_camTransform.eulerAngles = m_camRot;
+            Vector3 camRot = m_camTransform.eulerAngles;
+            camRot.x = 0;
+            camRot.z = 0;
+            m_transform.eulerAngles = camRot;
+            Vector3 pos = m_transform.position;
+            pos.y += m_camHeight;
+            m_camTransform.position = pos;
+
+            float xm = 0, ym = 0, zm = 0;
+            ym -= m_gravity * Time.deltaTime;*/
+
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))               // 蹲
+            {
+                m_UseHeadBob = false;
+                m_movSpeed = m_squatSpeed;
+                m_ch.height = m_Height - 0.8f - m_ch.skinWidth * 2;
+                m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y - (m_Height - 0.8f) * 0.75f), m_transform.position.z);
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                m_UseHeadBob = true;
+                m_movSpeed = ms;
+                m_ch.height = m_Height;
+                m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + (m_Height - 0.8f) * 0.75f), m_transform.position.z);
+            }
+
+            /*m_movDirection.y -= m_gravity * Time.deltaTime;
+            m_ch.Move(m_transform.TransformDirection(new Vector3(xm, ym, zm)));
+            m_ch.Move(m_movDirection * Time.deltaTime);*/
+
         }
 
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.I))                            // 打开关闭背包
+        public void OnDamage(int damage)
         {
-            if (m_backpack.GetComponent<Canvas>().enabled == true)
-            {
-
-                Screen.lockCursor = true;
-                m_backpack.GetComponent<Canvas>().enabled = false;
-            }
-            else
+            m_life -= damage;
+            GameManager.Instance.SetLife(m_life);
+            if (m_life <= 0)
             {
                 Screen.lockCursor = false;
-                m_backpack.GetComponent<Canvas>().enabled = true;
             }
         }
 
-        if (Input.GetKey(KeyCode.F))                                // 拾取道具
+        private void PlayJumpSound()
         {
-
-            RaycastHit info;
-            bool hit = Physics.Raycast(m_muzzlepoint.position,
-                m_camTransform.TransformDirection(Vector3.forward), out info, m_Raycastcd);
-            if (hit)
-            {
-                //划出射线，只有在scene视图中才能看到
-                GameObject gameObj = info.collider.gameObject;
-                if (gameObj.tag == "qiang")//当射线碰撞目标为qiang类型的物品 ，执行拾取操作
-                {
-                    //Debug.Log(gameObj.tag);
-                    backpack_manger.Instancce.StoreItem(0);
-                    Destroy(gameObj);
-                    return;
-                }
-                if (gameObj.tag == "mubang")
-                {
-                    //Debug.Log("pick up!");
-                    backpack_manger.Instancce.StoreItem(2);
-                    Destroy(gameObj);
-                    return;
-                }
-                if (gameObj.tag == "bishou")
-                {
-
-                    backpack_manger.Instancce.StoreItem(1);
-                    Destroy(gameObj);
-                    return;
-                }
-                if (gameObj.tag == "banzhuan")
-                {
-
-                    backpack_manger.Instancce.StoreItem(3);
-                    Destroy(gameObj);
-                    return;
-                }
-                
-                if (gameObj.tag == "pistol")
-                {
-                    
-                    backpack_manger.Instancce.StoreItem(6);
-                    Destroy(gameObj);
-                    return;
-                }
-                if (gameObj.tag == "Pistol cartridges")
-                {
-                    
-                    backpack_manger.Instancce.StoreItem(7);
-                    Destroy(gameObj);
-                    return;
-                }
-            }
+            m_AudioSource.clip = m_JumpSound;
+            m_AudioSource.Play();
         }
 
-    }
-    void FixedUpdate() 
-    { 
-
-    }
-    void Control()
-    {
-        float rh = Input.GetAxis("Mouse X");                    // 获得鼠标水平滑动的距离
-        float rv = Input.GetAxis("Mouse Y");                    // 获得鼠标垂直滑动的距离
-        m_camRot.x -= rv;
-        m_camRot.y += rh;
-        m_camRot.x = Mathf.Clamp(m_camRot.x, minX, maxX);       // 限制视觉范围
-        m_camTransform.eulerAngles = m_camRot;
-        Vector3 camRot = m_camTransform.eulerAngles;
-        camRot.x = 0;
-        camRot.z = 0;
-        m_transform.eulerAngles = camRot;
-        Vector3 pos = m_transform.position;
-        pos.y += m_camHeight;
-        m_camTransform.position = pos;
-
-        float xm = 0, ym = 0, zm = 0;
-        ym -= m_gravity * Time.deltaTime;
-        
-        if (Input.GetKey(KeyCode.W))                            // 前
+        private void PlayLandingSound()
         {
-            //PlayFootStepAudio();
+            m_AudioSource.clip = m_LandSound;
+            m_AudioSource.Play();
+            m_NextStep = m_StepCycle + .5f;
+        }
 
-            if (Input.GetKey(KeyCode.LeftShift))                // 跑
+        private void ProgressStepCycle(float speed)
+        {
+            if (m_ch.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
-                zm += m_runSpeed * Time.deltaTime;
-                hgyTime = hgyRunValue;
+                m_StepCycle += (m_ch.velocity.magnitude + (speed * (m_IsWalking ? 1f : m_RunstepLenghten))) *
+                             Time.fixedDeltaTime;
+            }
 
-                if (timer1 <= runcd)
-                {
-                    timer1 += 0.1f;
-                    timer2 = runcd;
-                    m_camTransform.Rotate(new Vector3(timer1 / 2, 0, -timer1));
-                }
-                else if (timer1 > runcd)
-                {
-                    timer2 -= 0.1f;
-                    m_camTransform.Rotate(new Vector3(timer2 / 2, 0, -timer2));
-                    if (timer2 < -runcd)
-                    {
-                        timer1 = -runcd;
-                    }
-                }                
-                
+            if (!(m_StepCycle > m_NextStep))
+            {
+                return;
+            }
+
+            m_NextStep = m_StepCycle + m_StepInterval;
+
+            PlayFootStepAudio();
+        }
+
+        private void PlayFootStepAudio()
+        {
+            if (!m_ch.isGrounded)
+            {
+                return;
+            }
+            // pick & play a random footstep sound from the array,
+            // excluding sound at index 0
+            int n = Random.Range(1, m_FootstepSounds.Length);
+            m_AudioSource.clip = m_FootstepSounds[n];
+            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+            // move picked sound to index 0 so it's not picked next time
+            m_FootstepSounds[n] = m_FootstepSounds[0];
+            m_FootstepSounds[0] = m_AudioSource.clip;
+        }
+
+        private void UpdateCameraPosition(float speed)
+        {
+            Vector3 newCameraPosition;
+            if (!m_UseHeadBob)
+            {
+                return;
+            }
+            if (m_ch.velocity.magnitude > 0 && m_ch.isGrounded)
+            {
+                m_Camera.transform.localPosition =
+                    m_HeadBob.DoHeadBob(m_ch.velocity.magnitude +
+                                      (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+                newCameraPosition = m_Camera.transform.localPosition;
+                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
             else
             {
-                zm += m_movSpeed * Time.deltaTime;
-                hgyTime = 10;
+                newCameraPosition = m_Camera.transform.localPosition;
+                newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
-                
-
-        }
-        else if (Input.GetKey(KeyCode.S))                       // 后
-        {
-            //PlayFootStepAudio();
-            zm -= m_movSpeed * Time.deltaTime;
+            m_Camera.transform.localPosition = newCameraPosition;
         }
 
-        if (Input.GetKey(KeyCode.A))                            // 左
+        private void GetInput(out float speed)
         {
-            //PlayFootStepAudio();
-            xm -= m_movSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.D))                       // 右
-        {
-            //PlayFootStepAudio();
-            xm += m_movSpeed * Time.deltaTime;
-        }
+            // Read input
+            float horizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+            float vertical = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
-        if (m_ch.isGrounded)                                    // 跳跃
-        {
-            m_movDirection.y = -m_StickToGroundForce;
+            bool waswalking = m_IsWalking;
 
-            if (m_Jump)
+#if !MOBILE_INPUT
+            // On standalone builds, walk/run speed is modified by a key press.
+            // keep track of whether or not the character is walking or running
+            m_IsWalking = !(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W));
+
+#endif
+            // set the desired speed to be walking or running
+            speed = m_IsWalking ? m_movSpeed : m_runSpeed;
+            m_Input = new Vector2(horizontal, vertical);
+
+            // normalize input if it exceeds 1 in combined length:
+            if (m_Input.sqrMagnitude > 1)
             {
-                PlayJumpSound();
-                m_movDirection.y = m_jumpSpeed;
-                m_Jump = false;
-                m_Jumping = true;
+                m_Input.Normalize();
+            }
+
+            // handle speed change to give an fov kick
+            // only if the player is going to a run, is running and the fovkick is to be used
+            if (m_IsWalking != waswalking && m_UseFovKick && m_ch.velocity.sqrMagnitude > 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
-        else
+
+        private void RotateView()
         {
-            m_movDirection += Physics.gravity * m_gravity * Time.deltaTime;
+            m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))               // 蹲
+        private void OnControllerColliderHit(ControllerColliderHit cchit)
         {
-            m_ch.height = m_Height - 0.8f - m_ch.skinWidth * 2;
-            m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y - (m_Height - 0.8f) * 0.75f), m_transform.position.z);
+            Rigidbody body = cchit.collider.attachedRigidbody;
+            //dont move the rigidbody if the character is on top of it
+            if (m_CollisionFlags == CollisionFlags.Below)
+            {
+                return;
+            }
+
+            if (body == null || body.isKinematic)
+            {
+                return;
+            }
+            body.AddForceAtPosition(m_ch.velocity * 0.1f, cchit.point, ForceMode.Impulse);
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
+
+        IEnumerator WaitAndPrintSetHgy(float waitTime)
         {
-            m_ch.height = m_Height;
-            m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + (m_Height - 0.8f) * 0.75f), m_transform.position.z);
+            yield return new WaitForSeconds(waitTime);
+
+            //等待之后执行的动作  
+            GameManager.Instance.SetHgy(hgyValue);
+
         }
-            
-        m_movDirection.y -= m_gravity * Time.deltaTime;
-        m_ch.Move(m_transform.TransformDirection(new Vector3(xm, ym, zm)));
-        m_ch.Move(m_movDirection * Time.deltaTime);
 
     }
-
-    public void OnDamage(int damage)
-    {
-        m_life -= damage;
-        GameManager.Instance.SetLife(m_life);
-        if (m_life <= 0)
-        {
-            Screen.lockCursor = false;
-        }
-    }
-
-    private void PlayJumpSound()
-    {
-        m_AudioSource.clip = m_JumpSound;
-        m_AudioSource.Play();
-    }
-
-    IEnumerator WaitAndPrintSetHgy(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-
-        //等待之后执行的动作  
-        GameManager.Instance.SetHgy(hgyValue);
-
-    }
-
-
 
 }

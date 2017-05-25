@@ -18,12 +18,22 @@ public class EnterWater : MonoBehaviour {
     Player m_player;
 
     private GameObject objs;
+    private float movSpeed;
+    private float runSpeed;
+    private float gravity;
+    private float jumpSpeed;
     private float t1 = 0;                                     // 计算在水中生命值的中间变量1
     private float t2 = 0;                                     // 计算在水中生命值的中间变量2
+    private float t3 = 0;
 
 	// Use this for initialization
 	void Start () {
         m_player = GetComponent<Player>();
+
+        movSpeed = m_player.m_movSpeed;
+        runSpeed = m_player.m_runSpeed;
+        gravity = m_player.m_gravity;
+        jumpSpeed = m_player.m_jumpSpeed;
         objs = GameObject.FindGameObjectWithTag("WaterAudio");
 	}
 	
@@ -56,16 +66,22 @@ public class EnterWater : MonoBehaviour {
             {
                 StartCoroutine(WaitAndPrintSetLife(timeWater));
             }
+            t3 = 1;
                      
         }
         else
         {
             enterwater.SetActive(false);
+            if (t3 == 1)
+            {
+                m_player.m_movSpeed = movSpeed;
+                t3 = 0;
+            }
 
-            m_player.m_movSpeed = 7;
-            m_player.m_runSpeed = 12;
-            m_player.m_gravity = 2;
-            m_player.m_jumpSpeed = 10;
+            //Debug.Log(m_player.m_squatSpeed);
+            m_player.m_runSpeed = runSpeed;
+            m_player.m_gravity = gravity;
+            m_player.m_jumpSpeed = jumpSpeed;
             m_player.m_FootstepSounds[0] = footstep01;
             m_player.m_FootstepSounds[1] = footstep02;
             m_player.m_JumpSound = jumpaudio;

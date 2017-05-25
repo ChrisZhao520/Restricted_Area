@@ -20,6 +20,8 @@ public class StartGraduallyActive : MonoBehaviour
         {
             gameObject.GetComponent<Image>().color = new Color(0, 0, 0, timer);
         }
+        else
+            Destroy(gameObject);
 	}
 
 }
