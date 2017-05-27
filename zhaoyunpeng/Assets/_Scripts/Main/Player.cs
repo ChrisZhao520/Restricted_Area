@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Utility;
 using UnityStandardAssets.CrossPlatformInput;
 using Random = UnityEngine.Random;
@@ -12,7 +13,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof(AudioSource))]
     public class Player : MonoBehaviour
     {
-
         public bool m_IsWalking;
         public Transform m_transform;
         public CharacterController m_ch;
@@ -49,6 +49,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip FlashAudioClip;
         public GameObject m_backpack;
         public float m_Raycastcd;                                // 拾取范围
+        public Image SightBead;                                  // 准星
+        public Sprite SightWait;                                 // 待机准星
+        public Sprite SightAttack;                               // 攻击准星
 
         private bool m_Jump;
         private bool m_Jumping;
@@ -129,8 +132,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             t += Time.deltaTime;
 
             m_shootTimer -= Time.deltaTime;
-            if (Input.GetMouseButton(0) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            if (Input.GetMouseButton(0) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
             {
+                SightBead.GetComponent<Image>().overrideSprite = SightAttack;
+
                 m_shootTimer = 0.1F;
                 m_AudioSource.PlayOneShot(m_shotAudio);
                 GameManager.Instance.SetAmmo(1);
@@ -148,10 +153,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         //Debug.Log("enemy's life -1");
                     }
                     else
+                    {
                         m_fx = m_BulletHole;
+                    }
+
                     Instantiate(m_fx, info.point, info.transform.rotation);
                 }
             }
+            else if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            {
+                SightBead.GetComponent<Image>().overrideSprite = SightWait;
+            }
+            else if (Input.GetMouseButtonUp(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            {
+                SightBead.GetComponent<Image>().overrideSprite = SightWait;
+            }
+                
 
             if (Input.GetKeyDown(KeyCode.H))                            // 打开关闭手电筒
             {
@@ -260,6 +277,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_movDirection.x = desiredMove.x * speed;
             m_movDirection.z = desiredMove.z * speed;
+
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space))
+            {
+                SightBead.GetComponent<Image>().overrideSprite = SightAttack;
+            }
+            else if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Space)) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+                SightBead.GetComponent<Image>().overrideSprite = SightWait;
 
             if (m_ch.isGrounded)                                    // 跳跃
             {
