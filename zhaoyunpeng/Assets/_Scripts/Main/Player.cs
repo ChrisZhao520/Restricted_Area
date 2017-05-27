@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityStandardAssets.Utility;
 using UnityStandardAssets.CrossPlatformInput;
 using Random = UnityEngine.Random;
+
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof(CharacterController))]
@@ -18,7 +19,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float m_movSpeed = 7.0f;                          // 角色移动速度
         public float m_runSpeed = 12.0f;                         // 角色奔跑速度
         public float m_squatSpeed = 4.0f;                        // 角色蹲走速度
-        [Range(0f, 1f)] public float m_RunstepLenghten;
+        [Range(0f, 1f)] public float m_RunstepLenghten;          // 走路和跑步时屏幕晃动值
+        [Range(0f, 1f)] public float m_ShotstepLenghten;         // 走路和跑步时屏幕晃动值
         public float m_gravity = 2.0f;                           // 重力
         public float m_jumpSpeed = 10.0f;                        // 跳跃速度
         public float m_StickToGroundForce = 20.0f;               // 跳跃时角色受的力
@@ -38,7 +40,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip m_JumpSound;
         public AudioClip m_LandSound;
         public LayerMask m_layer;
-        public Transform m_fx;
+        public Transform m_BulletHole;
+        public Transform m_Blood;
         public float m_shootcd;                                  // 射击距离
         public AudioClip m_shotAudio;                            // 枪声
         public GameObject flashlight;
@@ -59,10 +62,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float t = 0;                                     // 计算饱食度的中间变量
         private float ms = 7.0f;
         private Vector3 m_movDirection = Vector3.zero;
-        /*private Transform m_camTransform;
-        private Vector3 m_camRot;                                // 摄像机旋转
-        private float m_camHeight;*/
-        private Transform m_muzzlepoint;                         // 射线       
+        private Transform m_muzzlepoint;                         // 射线     
+        private Transform m_fx;
         private float m_shootTimer = 0;
         private CollisionFlags m_CollisionFlags;
         private AudioSource m_AudioSource;
@@ -77,25 +78,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle / 2f;
+            m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
 
-            /*m_camHeight = m_ch.height / 2;
-            m_camTransform = m_Camera.transform;                // 获取摄像机
-            Vector3 pos = m_transform.position;
-            pos.y += m_camHeight;
-            m_camTransform.position = pos;
-            m_camTransform.rotation = m_transform.rotation;
-            m_camRot = m_camTransform.eulerAngles;*/
-            m_OriginalCameraPosition = m_Camera.transform.localPosition;
             Screen.lockCursor = true;
-            m_muzzlepoint = m_Camera.transform.FindChild("M16/weapon/muzzlepoint").transform;
+            m_muzzlepoint = m_Camera.transform.FindChild("Rifle_FPS/ShootPoint").transform;
 
             m_AudioSource = GetComponent<AudioSource>();
-
-            /*timer1 = 0;
-            timer2 = 0;*/
-
             FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
             FlashAudioSource.clip = FlashAudioClip;
 
@@ -152,10 +142,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     //Debug.Log("Hit");
                     if (info.transform.tag.CompareTo("enemy") == 0)
                     {
+                        m_fx = m_Blood;
                         Enemy enemy = info.transform.GetComponent<Enemy>();
                         enemy.OnDamage(1);
                         //Debug.Log("enemy's life -1");
                     }
+                    else
+                        m_fx = m_BulletHole;
                     Instantiate(m_fx, info.point, info.transform.rotation);
                 }
             }
@@ -295,24 +288,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
         void Control()
         {
-            /*float rh = Input.GetAxisRaw("Mouse X");                    // 获得鼠标水平滑动的距离
-            float rv = Input.GetAxisRaw("Mouse Y");                    // 获得鼠标垂直滑动的距离
-            m_camRot.x -= rv;
-            m_camRot.y += rh;
-            m_camRot.x = Mathf.Clamp(m_camRot.x, minX, maxX);       // 限制视觉范围
-            m_camTransform.eulerAngles = m_camRot;
-            Vector3 camRot = m_camTransform.eulerAngles;
-            camRot.x = 0;
-            camRot.z = 0;
-            m_transform.eulerAngles = camRot;
-            Vector3 pos = m_transform.position;
-            pos.y += m_camHeight;
-            m_camTransform.position = pos;
-
-            float xm = 0, ym = 0, zm = 0;
-            ym -= m_gravity * Time.deltaTime;*/
-
-
             if (Input.GetKeyDown(KeyCode.LeftControl))               // 蹲
             {
                 m_UseHeadBob = false;
@@ -322,16 +297,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else if (Input.GetKeyUp(KeyCode.LeftControl))
             {
-                m_UseHeadBob = true;
+                
                 m_movSpeed = ms;
                 m_ch.height = m_Height;
                 m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + (m_Height - 0.8f) * 0.75f), m_transform.position.z);
+                StartCoroutine(WaitAndPrintSquat(0.4f));
+                
             }
-
-            /*m_movDirection.y -= m_gravity * Time.deltaTime;
-            m_ch.Move(m_transform.TransformDirection(new Vector3(xm, ym, zm)));
-            m_ch.Move(m_movDirection * Time.deltaTime);*/
-
         }
 
         public void OnDamage(int damage)
@@ -393,6 +365,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void UpdateCameraPosition(float speed)
         {
+
             Vector3 newCameraPosition;
             if (!m_UseHeadBob)
             {
@@ -403,6 +376,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_ch.velocity.magnitude +
                                       (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+                newCameraPosition = m_Camera.transform.localPosition;
+                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+            }
+            else if (Input.GetMouseButton(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            {
+                m_Camera.transform.localPosition =
+                    m_HeadBob.DoHeadBob(m_ch.velocity.magnitude +
+                                      (speed * (m_IsWalking ? 1f : m_ShotstepLenghten)));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
@@ -477,6 +458,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         }
 
+        IEnumerator WaitAndPrintSquat(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+
+            //等待之后执行的动作  
+            m_UseHeadBob = true;
+        }
     }
 
 }
