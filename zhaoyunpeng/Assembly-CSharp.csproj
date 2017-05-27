@@ -52,6 +52,9 @@
      <Compile Include="Assets\_Materials\Tasharen\Water Example\Scripts\ShaderQuality.cs" />
      <Compile Include="Assets\_Materials\Tasharen\Water Example\Scripts\TWTools.cs" />
      <Compile Include="Assets\_Materials\Tasharen\Water\TasharenWater.cs" />
+     <Compile Include="Assets\_Materials\[WA]AssaultRifle\Prefabs\Effects\TMPScripts\PinchRandomizer.cs" />
+     <Compile Include="Assets\_Materials\[WA]AssaultRifle\Prefabs\Effects\TMPScripts\SelfDestroy.cs" />
+     <Compile Include="Assets\_Materials\[WA]AssaultRifle\Prefabs\Effects\TMPScripts\SimpleShootingScript.cs" />
      <Compile Include="Assets\_Scripts\CursorTexture.cs" />
      <Compile Include="Assets\_Scripts\Death\DeathTxt.cs" />
      <Compile Include="Assets\_Scripts\Main\AutoDestroy.cs" />
@@ -90,9 +93,10 @@
      <Compile Include="Assets\_Scripts\Menu\quit.cs" />
      <Compile Include="Assets\_Scripts\Plot\FullScreen.cs" />
      <Compile Include="Assets\_Scripts\Plot\VideoScript.cs" />
-     <Compile Include="Assets\_Scripts\Welcome\Delay.cs" />
-     <Compile Include="Assets\_Scripts\Welcome\Loading.cs" />
-     <Compile Include="Assets\_Scripts\Welcome\Sliderbj.cs" />
+     <Compile Include="Assets\_Scripts\Welcome\WelcomeActive.cs" />
+     <Compile Include="Assets\_Scripts\Welcome\_Welcome\Delay.cs" />
+     <Compile Include="Assets\_Scripts\Welcome\_Welcome\Loading.cs" />
+     <Compile Include="Assets\_Scripts\Welcome\_Welcome\Sliderbj.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\water well\readme.txt" />
@@ -118,6 +122,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
+     <None Include="Assets\_Materials\[WA]AssaultRifle\Content\Shader\ColorSpecReflexive.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\_Materials\FreeMachineGun\Shader\BDCS.shader" />
      <None Include="Assets\_Materials\Tasharen\Water Example\Willow\Tree.shader" />

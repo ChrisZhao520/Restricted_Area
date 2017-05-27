@@ -150,6 +150,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
+     <None Include="Assets\_Materials\[WA]AssaultRifle\Content\Shader\ColorSpecReflexive.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\_Materials\FreeMachineGun\Shader\BDCS.shader" />
      <None Include="Assets\_Materials\Tasharen\Water Example\Willow\Tree.shader" />

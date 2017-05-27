@@ -43,7 +43,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Transform m_BulletHole;
         public Transform m_Blood;
         public float m_shootcd;                                  // 射击距离
-        public AudioClip m_shotAudio;                            // 枪声
         public GameObject flashlight;
         public GameObject flashlightaudio;
         public AudioClip FlashAudioClip;
@@ -137,7 +136,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 SightBead.GetComponent<Image>().overrideSprite = SightAttack;
 
                 m_shootTimer = 0.1F;
-                m_AudioSource.PlayOneShot(m_shotAudio);
                 GameManager.Instance.SetAmmo(1);
                 RaycastHit info;
                 bool hit = Physics.Raycast(m_muzzlepoint.position,
