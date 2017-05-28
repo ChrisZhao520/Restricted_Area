@@ -7,6 +7,7 @@ public class quit : MonoBehaviour {
     public GameObject objs;
     public GameObject quitWindow;
     public GameObject ButtonAudio;
+    public GameObject backgroundBlack;
 
     private AudioSource ButtonAudioSource;
 
@@ -25,7 +26,7 @@ public class quit : MonoBehaviour {
 
         ButtonAudioSource.Play();
         quitWindow.SetActive(true);
-        
+        backgroundBlack.GetComponent<Image>().enabled = true;
         foreach (Transform child in objs.transform)
         {
             //Debug.Log(child.GetComponent<Button>().interactable);
@@ -50,7 +51,7 @@ public class quit : MonoBehaviour {
 
         ButtonAudioSource.Play();
         quitWindow.SetActive(false);
-
+        backgroundBlack.GetComponent<Image>().enabled = false;
         foreach (Transform child in objs.transform)
         {
             //Debug.Log(child.GetComponent<Button>().interactable);

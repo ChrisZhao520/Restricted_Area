@@ -9,7 +9,6 @@ public class GameMenuManager : MonoBehaviour
 {
     Player m_player;
 
-    public GameObject objs;
     public GameObject quitWindow;
     public GameObject ButtonAudio;
     public GameObject Highlighted;

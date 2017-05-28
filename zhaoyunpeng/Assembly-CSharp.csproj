@@ -46,6 +46,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Materials\Ruins\Scripts\CameraShake.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\Decals\DS_DecalProjector.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\Decals\DS_DecalProjectorGroup.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\Decals\DS_Decals.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\Decals\Renderer\DS_DecalsMeshRenderer.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\SkinnedDecals\DS_SkinnedDecalProjector.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\SkinnedDecals\DS_SkinnedDecalProjectorGroup.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\SkinnedDecals\DS_SkinnedDecals.cs" />
+     <Compile Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Scripts\Decals\SkinnedDecals\Renderer\DS_SkinnedDecalsMeshRenderer.cs" />
      <Compile Include="Assets\_Materials\Tasharen\Water Example\Scripts\FullScreenOption.cs" />
      <Compile Include="Assets\_Materials\Tasharen\Water Example\Scripts\MergeMeshes.cs" />
      <Compile Include="Assets\_Materials\Tasharen\Water Example\Scripts\RandomGenerator.cs" />
@@ -98,35 +107,50 @@
      <Compile Include="Assets\_Scripts\Welcome\_Welcome\Loading.cs" />
      <Compile Include="Assets\_Scripts\Welcome\_Welcome\Sliderbj.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulance_Clean\Cabin_Clean_MAT.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-Alpha-Diffuse.shader" />
      <None Include="Assets\Standard Assets\water well\readme.txt" />
      <None Include="Assets\_Materials\Tasharen\Water Example\Brigantine\Hull.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
+     <None Include="Assets\_Materials\Ruins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowConeTap.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulance_Clean\Glass_MAT.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-Alpha-VertexLit.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Mobile\Mobile-Decal-AlphaTest-Bumped.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
      <None Include="Assets\_Shaders\SkyBoxBlended.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulanc_Abandoned\C_Ambu.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulanc_Abandoned\C_Ambu_Towing.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
+     <None Include="Assets\_Materials\Ruins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowCompose.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
+     <None Include="Assets\_Materials\Damaged_old_van\readme.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\_Materials\[WA]AssaultRifle\Content\Shader\ColorSpecReflexive.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-AlphaTest-VertexLit.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-AlphaTest-Diffuse.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Mobile\Mobile-Decal-Alpha-Diffuse.shader" />
      <None Include="Assets\_Materials\FreeMachineGun\Shader\BDCS.shader" />
      <None Include="Assets\_Materials\Tasharen\Water Example\Willow\Tree.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulanc_Abandoned\C_GlassWheel.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
+     <None Include="Assets\_Materials\Ruins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShift.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
@@ -134,8 +158,11 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\_Materials\ZombiesToAssetstore\readme.txt" />
+     <None Include="Assets\_Materials\Ruins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowEffectDownsample.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-Alpha-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-AlphaTest-Bumped.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\_Shaders\FontSet.shader" />
@@ -143,6 +170,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulanc_Abandoned\C_Ambu_Lights.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
@@ -150,6 +178,8 @@
      <None Include="Assets\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulance_Clean\Cabin_Light_Clean_MAT.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Mobile\Mobile-Decal-Alpha-Bumped.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
@@ -162,21 +192,31 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\DecalSystem.Runtime.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
+     <None Include="Assets\_Materials\Environment\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
+     <None Include="Assets\_Materials\Ambulance Set\Models\Materials\Material_Ambulance_Clean\Towing_Clean_MAT.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Mobile\Mobile-Decal-AlphaTest-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+     <None Include="Assets\_Materials\Ruins\Standard Assets\Image Based\DesaturateEffect.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-Alpha-Bumped.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Decal-AlphaTest-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Mobile\Mobile-Decal-AlphaTest-Diffuse.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\_Materials\Tasharen\Water\Tasharen Water.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\_Materials\Ruins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\EdgeDetectX.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+     <None Include="Assets\_Materials\Ruins\Scripts\Plugins\Decals\Shader\Mobile\Mobile-Decal-Alpha-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>D:/禁区 Restricted Area 项目实训/Restricted Area/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
@@ -198,6 +238,9 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/Unity3D/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="DecalSystem.Runtime">
+ <HintPath>D:/禁区 Restricted Area 项目实训/Restricted Area/Assets/_Materials/Ruins/Scripts/Plugins/Decals/DecalSystem.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

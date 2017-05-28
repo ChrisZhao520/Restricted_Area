@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class panel_manager : MonoBehaviour {
 
@@ -15,9 +16,10 @@ public class panel_manager : MonoBehaviour {
 	public Animator setpanleButton;
 	public Animator helppanleButton;
 	public Animator aboutpanleButton;
-	public GameObject audios;
-	public GameObject lights;
-	public GameObject cameras;
+	public GameObject audio;
+	public GameObject display;
+	public GameObject control;
+    public GameObject backgroundBlack;
 
     public GameObject ButtonAudio;
     private AudioSource ButtonAudioSource;
@@ -47,7 +49,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = true;
 		startButton.SetBool ("ishidden",true);
 		loadlistButton.SetBool ("ishidden", false);
 		loadpanleButton.SetBool ("ishidden", false);
@@ -60,7 +62,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = false;
         startButton.SetBool("ishidden", false);
         loadlistButton.SetBool("ishidden", true);
         loadpanleButton.SetBool("ishidden", true);
@@ -73,7 +75,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = true;
         startButton.SetBool("ishidden", true);
         savelistButton.SetBool("ishidden", false);
         savepanleButton.SetBool("ishidden", false);
@@ -86,7 +88,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = false;
         startButton.SetBool("ishidden", false);
         savelistButton.SetBool("ishidden", true);
         savepanleButton.SetBool("ishidden", true);
@@ -99,7 +101,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = true;
 		startButton.SetBool ("ishidden",true);
 		setlistButton.SetBool ("ishidden", false);
 		setpanleButton.SetBool ("ishidden", false);
@@ -111,7 +113,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = true;
 		startButton.SetBool ("ishidden",true);
 		helplistButton.SetBool ("ishidden", false);
 		helppanleButton.SetBool ("ishidden", false);
@@ -123,7 +125,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = true;
 		startButton.SetBool ("ishidden",true);
 		aboutlistButton.SetBool ("ishidden", false);
 		aboutpanleButton.SetBool ("ishidden", false);
@@ -136,10 +138,14 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = false;
 		startButton.SetBool ("ishidden",false);
 		setlistButton.SetBool ("ishidden", true);
 		setpanleButton.SetBool ("ishidden", true);
+
+        audio.SetActive(true);
+        display.SetActive(false);
+        control.SetActive(false);
 
         StartCoroutine(WaitAndPrint(0.3f));
 	}
@@ -148,7 +154,7 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = false;
 		startButton.SetBool ("ishidden",false);
 		helplistButton.SetBool ("ishidden", true);
 		helppanleButton.SetBool ("ishidden", true);
@@ -160,46 +166,43 @@ public class panel_manager : MonoBehaviour {
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
-
+        backgroundBlack.GetComponent<Image>().enabled = false;
 		startButton.SetBool ("ishidden",false);
 		aboutlistButton.SetBool ("ishidden", true);
 		aboutpanleButton.SetBool ("ishidden", true);
 
         StartCoroutine(WaitAndPrint(0.3f));
 	}
-	public void openaudios(){
-
+	public void openaudio(){
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
-		audios.gameObject.SetActive (true);
-		lights.gameObject.SetActive (false);
-		cameras.gameObject.SetActive (false);
+        audio.SetActive(true);
+        display.SetActive(false);
+        control.SetActive(false);
 
         StartCoroutine(WaitAndPrint(0.3f));
 	}
-	public void openlights(){
-
+	public void opendisplay(){
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
-		audios.gameObject.SetActive (false);
-		lights.gameObject.SetActive (true);
-		cameras.gameObject.SetActive (false);
+        audio.SetActive(false);
+        display.SetActive(true);
+        control.SetActive(false);
 
         StartCoroutine(WaitAndPrint(0.3f));
 	}
-	public void opencameras(){
-
+	public void opencontrol(){
 
         HighlightedAudioSource.Pause();
         ButtonAudioSource.Play();
 
-		audios.gameObject.SetActive (false);
-		lights.gameObject.SetActive (false);
-		cameras.gameObject.SetActive (true);
+        audio.SetActive(false);
+        display.SetActive(false);
+        control.SetActive(true);
 
         StartCoroutine(WaitAndPrint(0.3f));
 	}

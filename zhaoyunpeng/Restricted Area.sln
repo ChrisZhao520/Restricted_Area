@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restricted Area", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restricted Area", "Assembly-CSharp-Editor-firstpass.csproj", "{BD934B9E-987E-53B9-5485-402B9788B30A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restricted Area", "Assembly-CSharp-Editor.csproj", "{F418DD5E-DB97-BB78-A53F-901FFAA3C581}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{BD934B9E-987E-53B9-5485-402B9788B30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD934B9E-987E-53B9-5485-402B9788B30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD934B9E-987E-53B9-5485-402B9788B30A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F418DD5E-DB97-BB78-A53F-901FFAA3C581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F418DD5E-DB97-BB78-A53F-901FFAA3C581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F418DD5E-DB97-BB78-A53F-901FFAA3C581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F418DD5E-DB97-BB78-A53F-901FFAA3C581}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
