@@ -46,19 +46,12 @@ public class VideoScript : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Escape)) 
         {
-            movTexture.Stop();
-            SceneManager.LoadScene("Main");
-
-        }
-        
+            gameObject.GetComponent<EscClose>().enabled = true;
+        }       
     }
 
     void OnGUI()
     {
         movTexture.Play();
-        /*if (!movTexture.isPlaying)
-        {
-            SceneManager.LoadScene("Main");
-        }*/
     }
 }

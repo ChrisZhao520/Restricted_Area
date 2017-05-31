@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 1761571021}
   - component: {fileID: 1761571020}
   - component: {fileID: 1761571026}
+  - component: {fileID: 1761571027}
   m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
@@ -497,7 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movTexture: {fileID: 15200000, guid: c90c47777478fe9468d4ae424c11a68f, type: 3}
-  movieLength: 77.5
+  movieLength: 77
   graduallyActive: {fileID: 825619552}
 --- !u!82 &1761571021
 AudioSource:
@@ -655,3 +656,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45effa1d81102e4ea10c90b5881a9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1761571027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1761571019}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd22eb81ee81dd428a756b60d1511ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movTexture: {fileID: 15200000, guid: c90c47777478fe9468d4ae424c11a68f, type: 3}
+  graduallyActive: {fileID: 825619552}

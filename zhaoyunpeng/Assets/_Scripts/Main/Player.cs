@@ -42,6 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public LayerMask m_layer;
         public Transform m_BulletHole;
         public Transform m_Blood;
+        public GameObject m_gun;
         public float m_shootcd;                                  // 射击距离
         public GameObject flashlight;
         public GameObject flashlightaudio;
@@ -166,7 +167,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 SightBead.GetComponent<Image>().overrideSprite = SightWait;
             }
-                
+            if (Input.GetMouseButton(1) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0 && m_gun.GetComponent<Transform>().localPosition.x >= 0)
+            {
+                Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
+                if (m_gun.GetComponent<Transform>().localPosition.x >= 0)
+                {
+                    m_gun.GetComponent<Transform>().localPosition = new Vector3(m_gun.GetComponent<Transform>().localPosition.x - Time.deltaTime, m_gun.GetComponent<Transform>().localPosition.y, m_gun.GetComponent<Transform>().localPosition.z);
+                }
+                else
+                {
+                    m_gun.GetComponent<Transform>().localPosition = new Vector3(0, m_gun.GetComponent<Transform>().localPosition.y, m_gun.GetComponent<Transform>().localPosition.z);
+                }
+            }
+            
+
 
             if (Input.GetKeyDown(KeyCode.H))                            // 打开关闭手电筒
             {
@@ -323,8 +337,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_movSpeed = ms;
                 m_ch.height = m_Height;
                 m_transform.position = new Vector3(m_transform.position.x, (m_transform.position.y + (m_Height - 0.8f) * 0.75f), m_transform.position.z);
-                StartCoroutine(WaitAndPrintSquat(0.4f));
-                
+                //StartCoroutine(WaitAndPrintSquat(0.4f));
+                m_UseHeadBob = true;
             }
         }
 
@@ -480,13 +494,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         }
 
-        IEnumerator WaitAndPrintSquat(float waitTime)
+        /*IEnumerator WaitAndPrintSquat(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
 
             //等待之后执行的动作  
             m_UseHeadBob = true;
-        }
+        }*/
     }
 
 }

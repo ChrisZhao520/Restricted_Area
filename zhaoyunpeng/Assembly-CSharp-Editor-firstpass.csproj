@@ -224,6 +224,12 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/Unity3D/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+ <Reference Include="DecalSystem.Runtime">
+ <HintPath>D:/禁区 Restricted Area 项目实训/Restricted Area/Assets/_Materials/Ruins/Scripts/Plugins/Decals/DecalSystem.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="DecalSystem.Editor">
+ <HintPath>D:/禁区 Restricted Area 项目实训/Restricted Area/Assets/_Materials/Ruins/Scripts/Plugins/Editor/Decal System/DecalSystem.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:/Unity3D/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -232,12 +238,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity3D/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="DecalSystem.Editor">
- <HintPath>D:/禁区 Restricted Area 项目实训/Restricted Area/Assets/_Materials/Ruins/Scripts/Plugins/Editor/Decal System/DecalSystem.Editor.dll</HintPath>
- </Reference>
- <Reference Include="DecalSystem.Runtime">
- <HintPath>D:/禁区 Restricted Area 项目实训/Restricted Area/Assets/_Materials/Ruins/Scripts/Plugins/Decals/DecalSystem.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

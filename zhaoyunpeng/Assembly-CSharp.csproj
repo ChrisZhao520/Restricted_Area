@@ -100,6 +100,7 @@
      <Compile Include="Assets\_Scripts\Menu\ParticSystem.cs" />
      <Compile Include="Assets\_Scripts\Menu\panel_manager.cs" />
      <Compile Include="Assets\_Scripts\Menu\quit.cs" />
+     <Compile Include="Assets\_Scripts\Plot\EscClose.cs" />
      <Compile Include="Assets\_Scripts\Plot\FullScreen.cs" />
      <Compile Include="Assets\_Scripts\Plot\VideoScript.cs" />
      <Compile Include="Assets\_Scripts\Welcome\WelcomeActive.cs" />

@@ -14,6 +14,9 @@ public class FollowMe : MonoBehaviour
     public float timer;    
     public float _timerDis;                                     // 几秒后消失
     public float chixutimer;                                    // 动画持续的时间
+    public GameObject Jumpthing;
+    public GameObject Squartthing;
+    public GameObject Runthing;
 
     private int i;
     private float _timer;
@@ -34,6 +37,8 @@ public class FollowMe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(m_player.m_transform.position.z);
+        //Debug.Log(Squartthing.GetComponent<Transform>().position.z);
         _timer += Time.deltaTime;
         if (_timer >= chuxiantimer)
         {
@@ -90,9 +95,13 @@ public class FollowMe : MonoBehaviour
 
                 if (i == 4)                                                                 // Tip1
                 {
+                    
                     Destroy(GameObject.Find("Dangban"));
-                    if (m_player.m_transform.position.z < 41.7f || m_player.m_transform.position.z > 43.7f)
+                    if (m_player.m_transform.position.z < (Jumpthing.GetComponent<Transform>().position.z - 4) || m_player.m_transform.position.z > (Jumpthing.GetComponent<Transform>().position.z - 3))
                     {
+                        //Debug.Log(m_player.m_transform.position.z);
+                        //Debug.Log(Jumpthing.GetComponent<Transform>().position.z-4);
+                        //Debug.Log(Jumpthing.GetComponent<Transform>().position.z-3);
                         timer = 0;
                     }
                     else
@@ -114,7 +123,7 @@ public class FollowMe : MonoBehaviour
                         //Debug.Log(i);
                     }
                 }*/
-                if (m_player.m_transform.position.z > 43.75f && i == 5)                     // Junp
+                if (m_player.m_transform.position.z > (Jumpthing.GetComponent<Transform>().position.z - 2) && i == 5)                     // Jump
                 {
                     timer = 1;
                 }
@@ -122,7 +131,7 @@ public class FollowMe : MonoBehaviour
                 if (i == 6)                                                                 // Tip2
                 {
 
-                    if (m_player.m_transform.position.z < 56.5f || m_player.m_transform.position.z > 57.5f)
+                    if (m_player.m_transform.position.z < (Squartthing.GetComponent<Transform>().position.z - 2) || m_player.m_transform.position.z > Squartthing.GetComponent<Transform>().position.z)
                     {
                         timer = 0;
                     }
@@ -145,7 +154,7 @@ public class FollowMe : MonoBehaviour
                         //Debug.Log(i);
                     }
                 }*/
-                if (m_player.m_transform.position.z > 58.2f && i == 7)                      // Squat
+                if (m_player.m_transform.position.z > (Squartthing.GetComponent<Transform>().position.z + 1) && i == 7)                      // Squat
                 {
                     timer = 1;
                 }
