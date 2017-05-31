@@ -157,13 +157,13 @@ public class backpack_manger : MonoBehaviour {
     private void CreatNewItemPlane(item item)
     {
         
-        string src = "prefabs" + "/" + item.Id;
+        string src = "_Prefabs" + "/" + item.Id;
         GameObject Itemprefabs = Resources.Load<GameObject>(src);
         GameObject itemGo = GameObject.Instantiate(Itemprefabs);
         GameObject Parent = GameObject.FindGameObjectWithTag("boot");
         itemGo.transform.parent = Parent.transform;
         itemGo.transform.position = camera.transform.TransformPoint(0,0,1);
-        itemGo.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+        itemGo.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         
     }
 

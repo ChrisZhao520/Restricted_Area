@@ -20,7 +20,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float m_runSpeed = 12.0f;                         // 角色奔跑速度
         public float m_squatSpeed = 4.0f;                        // 角色蹲走速度
         [Range(0f, 1f)] public float m_RunstepLenghten;          // 走路和跑步时屏幕晃动值
-        [Range(0f, 1f)] public float m_ShotstepLenghten;         // 走路和跑步时屏幕晃动值
+        [Range(0f, 1f)] public float m_ShotstepLenghten;         // 开枪时屏幕晃动值
         public float m_gravity = 2.0f;                           // 重力
         public float m_jumpSpeed = 10.0f;                        // 跳跃速度
         public float m_StickToGroundForce = 20.0f;               // 跳跃时角色受的力
@@ -144,7 +144,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetMouseButton(0) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
             {
                 SightBead.GetComponent<Image>().overrideSprite = SightAttack;
-
+                //m_gun.GetComponent<Animator>().enabled = true;
                 m_shootTimer = 0.1F;
                 GameManager.Instance.SetAmmo(1);
                 RaycastHit info;
@@ -164,7 +164,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     {
                         m_fx = m_BulletHole;
                     }
-
                     Instantiate(m_fx, info.point, info.transform.rotation);
                 }
             }
@@ -174,6 +173,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else if (Input.GetMouseButtonUp(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
             {
+                m_gun.GetComponent<Animator>().enabled = false; 
                 SightBead.GetComponent<Image>().overrideSprite = SightWait;
             }
             if (Input.GetMouseButtonDown(1) && 

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
-
-public class GridUI : MonoBehaviour ,IPointerEnterHandler,IPointerExitHandler,IBeginDragHandler,IEndDragHandler,IDragHandler
+public class GridUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     #region enter&&exit
     public static Action<Transform> OnEnter;
@@ -11,7 +10,7 @@ public class GridUI : MonoBehaviour ,IPointerEnterHandler,IPointerExitHandler,IB
 	{
         if (eventData.pointerEnter.tag == "Grid")
         {
-            
+            Debug.LogWarning("111");
             if (OnEnter != null)
             {
                 OnEnter(transform);
