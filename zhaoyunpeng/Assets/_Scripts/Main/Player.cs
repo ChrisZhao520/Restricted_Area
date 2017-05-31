@@ -44,6 +44,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Transform m_Blood;
         public GameObject m_gun;
         public float m_shootcd;                                  // 射击距离
+        public bool m_aim;                                       // 瞄准
         public GameObject flashlight;
         public GameObject flashlightaudio;
         public AudioClip FlashAudioClip;
@@ -67,6 +68,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_movDirection = Vector3.zero;
         private Transform m_muzzlepoint;                         // 射线     
         private Transform m_fx;
+        private float m_gunposX;                                 // 枪最初的位置
+        private float m_gunposY;
+        private float m_gunposZ;
         private float m_shootTimer = 0;
         private CollisionFlags m_CollisionFlags;
         private AudioSource m_AudioSource;
@@ -88,6 +92,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             Screen.lockCursor = true;
             m_muzzlepoint = m_Camera.transform.FindChild("Rifle_FPS/ShootPoint").transform;
 
+            m_gunposX = m_gun.GetComponent<Transform>().localPosition.x;
+            m_gunposY = m_gun.GetComponent<Transform>().localPosition.y;
+            m_gunposZ = m_gun.GetComponent<Transform>().localPosition.z;
+
             m_AudioSource = GetComponent<AudioSource>();
             FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
             FlashAudioSource.clip = FlashAudioClip;
@@ -98,7 +106,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         void Update()
         {
             RotateView();
-
+            //Debug.Log(m_gun.GetComponent<Transform>().localPosition);
+            //Debug.Log(m_gunposX);
             if (m_life <= 0)
             {
                 return;
@@ -167,17 +176,32 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 SightBead.GetComponent<Image>().overrideSprite = SightWait;
             }
-            if (Input.GetMouseButton(1) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0 && m_gun.GetComponent<Transform>().localPosition.x >= 0)
+            if (Input.GetMouseButtonDown(1) && 
+                m_backpack.GetComponent<Canvas>().enabled == false && 
+                Time.timeScale != 0 && 
+                m_gun.GetComponent<Transform>().localPosition.x > 0 && 
+                m_gun.GetComponent<Transform>().localPosition.z > 0.04f && 
+                m_gun.GetComponent<Transform>().localPosition.y < -0.175 &&
+                !m_aim)
             {
-                Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
-                if (m_gun.GetComponent<Transform>().localPosition.x >= 0)
-                {
-                    m_gun.GetComponent<Transform>().localPosition = new Vector3(m_gun.GetComponent<Transform>().localPosition.x - Time.deltaTime, m_gun.GetComponent<Transform>().localPosition.y, m_gun.GetComponent<Transform>().localPosition.z);
-                }
-                else
-                {
-                    m_gun.GetComponent<Transform>().localPosition = new Vector3(0, m_gun.GetComponent<Transform>().localPosition.y, m_gun.GetComponent<Transform>().localPosition.z);
-                }
+                m_aim = true;
+                SightBead.GetComponent<Image>().enabled = false;
+                gameObject.GetComponent<Aim>().enabled = true;
+                //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
+            }
+            if (Input.GetMouseButtonDown(1) && 
+                m_backpack.GetComponent<Canvas>().enabled == false && 
+                Time.timeScale != 0 &&
+                m_gun.GetComponent<Transform>().localPosition.x < m_gunposX &&
+                m_gun.GetComponent<Transform>().localPosition.z < m_gunposZ &&
+                m_gun.GetComponent<Transform>().localPosition.y > m_gunposY &&
+                m_aim)
+            {
+                //Debug.Log("123");
+                m_aim = false;
+                SightBead.GetComponent<Image>().enabled = true;
+                gameObject.GetComponent<Aim>().enabled = true;
+                //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
             }
             
 
@@ -407,7 +431,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            if (m_ch.velocity.magnitude > 0 && m_ch.isGrounded)
+            if (m_ch.velocity.magnitude > 0 && m_ch.isGrounded && !m_aim)
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_ch.velocity.magnitude +
@@ -415,7 +439,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
-            else if (Input.GetMouseButton(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            else if (Input.GetMouseButton(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0 && !m_aim)
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_ch.velocity.magnitude +
@@ -428,7 +452,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
-            m_Camera.transform.localPosition = newCameraPosition;
+            if (!m_aim)
+            {
+                m_Camera.transform.localPosition = newCameraPosition;
+            }
         }
 
         private void GetInput(out float speed)

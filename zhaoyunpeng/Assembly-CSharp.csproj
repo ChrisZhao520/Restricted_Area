@@ -66,6 +66,7 @@
      <Compile Include="Assets\_Materials\[WA]AssaultRifle\Prefabs\Effects\TMPScripts\SimpleShootingScript.cs" />
      <Compile Include="Assets\_Scripts\CursorTexture.cs" />
      <Compile Include="Assets\_Scripts\Death\DeathTxt.cs" />
+     <Compile Include="Assets\_Scripts\Main\Aim.cs" />
      <Compile Include="Assets\_Scripts\Main\AutoDestroy.cs" />
      <Compile Include="Assets\_Scripts\Main\Backpack\backpack_manger.cs" />
      <Compile Include="Assets\_Scripts\Main\Backpack\common\Weapon.cs" />
