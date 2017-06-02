@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour {
             }
             else
             {
-                m_timer = 1;
+                m_timer = 0;
                 m_agent.SetDestination(m_player.m_transform.position);
                 m_ani.SetBool("walk", true);
             }
@@ -67,14 +67,14 @@ public class Enemy : MonoBehaviour {
             if (m_timer < 0)
             {
                 //Debug.Log(m_agent.speed);
-                m_agent.Resume();
+                //m_agent.Resume();
                 m_agent.SetDestination(m_player.m_transform.position);
-                m_timer = 1;
+                m_timer = 0;
             }
             if (Vector3.Distance(m_transform.position, m_player.m_transform.position) <= 30.0f)
             {
                 m_agent.speed += 4;
-                m_agent.Stop();
+                //m_agent.Stop();
                 m_ani.SetBool("run", true);
             }
         }
@@ -87,19 +87,19 @@ public class Enemy : MonoBehaviour {
             if (m_timer < 0)
             {
                 //Debug.Log(m_agent.speed);
-                m_agent.Resume();
+                //m_agent.Resume();
                 m_agent.SetDestination(m_player.m_transform.position);
-                m_timer = 1;
+                m_timer = 0;
             }
             if (Vector3.Distance(m_transform.position, m_player.m_transform.position) > 30.0f)
             {
                 m_agent.speed -= 4;
-                m_agent.Stop();
+                //m_agent.Stop();
                 m_ani.SetBool("walk", true);
             }
             if (Vector3.Distance(m_transform.position, m_player.m_transform.position) <= (2.0f + m_player.m_ch.skinWidth))
             {
-                m_agent.Stop();
+                //m_agent.Stop();
                 m_ani.SetBool("attack", true);
             }
         }
@@ -108,6 +108,7 @@ public class Enemy : MonoBehaviour {
         {
             RotateTo();
             m_ani.SetBool("attack", false);
+            
             if (stateInfo.normalizedTime >= 1.0f)
             {
                 m_ani.SetBool("run", true);

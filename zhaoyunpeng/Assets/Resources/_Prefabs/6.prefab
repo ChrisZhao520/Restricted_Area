@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4774662484025192}
   - component: {fileID: 33867846432855712}
   - component: {fileID: 23672557170548844}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: TrigerBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 54024633625924512}
   - component: {fileID: 65090880979021778}
   - component: {fileID: 23399045665330192}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: 6
   m_TagString: pistol
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4898544000504518}
   - component: {fileID: 33402130452406862}
   - component: {fileID: 23372570976251626}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SlideStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4525360342763414}
   - component: {fileID: 33632179509825188}
   - component: {fileID: 23270725402289002}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Hummer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4257858558225504}
   - component: {fileID: 33648221364290612}
   - component: {fileID: 23033629137133814}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4689749286027146}
   - component: {fileID: 33051415107584200}
   - component: {fileID: 23359069263936266}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4106952587021958}
   - component: {fileID: 33443560993997814}
   - component: {fileID: 23827106906384128}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,5 +512,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1.78, z: 2.56}
+  m_Size: {x: 0.2, y: 1.7, z: 2.48}
   m_Center: {x: 0, y: 0.36, z: 0.01}

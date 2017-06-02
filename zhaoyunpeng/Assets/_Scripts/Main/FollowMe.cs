@@ -9,7 +9,8 @@ public class FollowMe : MonoBehaviour
     Player m_player;
     Transform m_transform;
 
-    public GameObject []Control;
+    public GameObject[] Control;
+    public GameObject[] PickProps;
     public float chuxiantimer;                                  // 几秒后出现
     public float timer;    
     public float _timerDis;                                     // 几秒后消失
@@ -17,8 +18,11 @@ public class FollowMe : MonoBehaviour
     public GameObject Jumpthing;
     public GameObject Squartthing;
     public GameObject Runthing;
+    public bool Pickprops;
+    public bool FinishPick;
 
     private int i;
+    private int j;
     private float _timer;
     private float alpha1;
     private float alpha2;
@@ -27,6 +31,7 @@ public class FollowMe : MonoBehaviour
     void Start()
     {
         i = 0;
+        j = 0;
         alpha1 = 0;
         alpha2 = 1;
         _timer = 0;
@@ -40,6 +45,7 @@ public class FollowMe : MonoBehaviour
         //Debug.Log(m_player.m_transform.position.z);
         //Debug.Log(Squartthing.GetComponent<Transform>().position.z);
         _timer += Time.deltaTime;
+
         if (_timer >= chuxiantimer)
         {
 
@@ -184,16 +190,21 @@ public class FollowMe : MonoBehaviour
                     //Debug.Log(timer);
                 }
 
-                /*if (i == 11)
-                {
-                    ...
-                }*/
-
-                if (i == Control.Length-1)
+                if (i == 11)
                 {
                     timer += Time.deltaTime * 0.25f;
                 }
 
+                if (j == 0 && Pickprops)
+                {
+                    timer = 0;
+                    if (FinishPick)
+                    {
+                        timer = 1;
+                        FinishPick = false;
+                    }
+                    Pickprops = false;
+                }
             }
 
             else if (timer >= 1.0f && Control[i].GetComponent<Text>().color.a >= 0)
@@ -209,9 +220,13 @@ public class FollowMe : MonoBehaviour
                     _timer = 0;
                 }
 
-                if (i == Control.Length - 1)
+                if (i == 11)
                 {
                     chuxiantimer *= 2;
+                }
+                if (i == 12)
+                {
+                    chuxiantimer /= 2;
                 }
 
                 if (i == Control.Length)
@@ -219,6 +234,19 @@ public class FollowMe : MonoBehaviour
                     timer = -1;
                 }
                 //Debug.Log(i);
+            }
+            else if (timer >= 1.0f && PickProps[j].GetComponent<Text>().color.a >= 0)
+            {
+                //Debug.Log("123");
+                timer = 0f;
+                PickProps[j].GetComponent<Text>().color = new Color(220, 220, 220, 0);
+                PickProps[j].GetComponent<Text>().enabled = false;
+
+                if (j < PickProps.Length)
+                {
+                    j++;
+                    _timer = 0;
+                }
             }
         }  
     }
@@ -243,6 +271,30 @@ public class FollowMe : MonoBehaviour
                 alpha1 = 0;
                 alpha2 = 1;
             }
+        }
+
+        if (alpha1 <= 1 && j < PickProps.Length && Pickprops)
+        {
+            alpha1 += chixutimer;
+            alpha2 = 1;
+            PickProps[j].GetComponent<Text>().color = new Color(220, 220, 220, alpha1);
+            PickProps[j].GetComponent<Text>().enabled = true;
+        }
+        if (alpha1 > 1 && j < PickProps.Length && Pickprops)
+        {
+
+            alpha2 -= chixutimer;
+            PickProps[j].GetComponent<Text>().color = new Color(220, 220, 220, alpha2);
+
+            if (alpha2 < 0)
+            {
+                alpha1 = 0;
+                alpha2 = 1;
+            }
+        }
+        else if (!Pickprops)
+        {
+            PickProps[j].GetComponent<Text>().enabled = false;
         }
     }
 }

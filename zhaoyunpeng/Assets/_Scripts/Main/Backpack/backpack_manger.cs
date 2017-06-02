@@ -169,7 +169,7 @@ public class backpack_manger : MonoBehaviour {
 
     private void CreatNewItem(item item,Transform parent)
     {
-        GameObject Itemprefabs = Resources.Load<GameObject>("prefabs/Item");
+        GameObject Itemprefabs = Resources.Load<GameObject>("_Prefabs/Item");
         Itemprefabs.GetComponent<ItemUI>().updateItem(item.Name);
         GameObject itemGo = GameObject.Instantiate(Itemprefabs);
         itemGo.transform.SetParent(parent);
@@ -178,11 +178,5 @@ public class backpack_manger : MonoBehaviour {
         //存储数据
         Itemmodel.StoreItem(parent.name, item);
     }
-    protected void GridUI_OnDoubleClick(Transform pre) {
-        Debug.LogWarning("111111");
-        item item = Itemmodel.GetItem(pre.name);
-        if (item.Id == 3) {
-            Itemmodel.DeleteItem(pre.name);
-        } 
-    }
+    
 }

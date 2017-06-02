@@ -10,7 +10,6 @@ public class GridUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
 	{
         if (eventData.pointerEnter.tag == "Grid")
         {
-            Debug.LogWarning("111");
             if (OnEnter != null)
             {
                 OnEnter(transform);

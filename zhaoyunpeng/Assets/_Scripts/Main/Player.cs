@@ -50,9 +50,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip FlashAudioClip;
         public GameObject m_backpack;
         public float m_Raycastcd;                                // 拾取范围
+        public LayerMask m_Picklayer;
         public Image SightBead;                                  // 准星
         public Sprite SightWait;                                 // 待机准星
         public Sprite SightAttack;                               // 攻击准星
+        public GameObject followMe;
 
         private bool m_Jump;
         private bool m_Jumping;
@@ -89,12 +91,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
 
-            Screen.lockCursor = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             m_muzzlepoint = m_Camera.transform.FindChild("Rifle_FPS/ShootPoint").transform;
 
             m_gunposX = m_gun.GetComponent<Transform>().localPosition.x;
             m_gunposY = m_gun.GetComponent<Transform>().localPosition.y;
             m_gunposZ = m_gun.GetComponent<Transform>().localPosition.z;
+
+            m_Picklayer = 1 << (LayerMask.NameToLayer("pistol"));
 
             m_AudioSource = GetComponent<AudioSource>();
             FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
@@ -141,15 +146,49 @@ namespace UnityStandardAssets.Characters.FirstPerson
             t += Time.deltaTime;
 
             m_shootTimer -= Time.deltaTime;
-            if (Input.GetMouseButton(0) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            if (Input.GetMouseButton(0) && 
+                !Input.GetKey(KeyCode.LeftControl) && 
+                m_shootTimer < 0 && 
+                m_backpack.GetComponent<Canvas>().enabled == false && 
+                Time.timeScale != 0 &&
+                !m_aim)
             {
                 SightBead.GetComponent<Image>().overrideSprite = SightAttack;
-                //m_gun.GetComponent<Animator>().enabled = true;
+                m_gun.GetComponent<Animator>().enabled = true;
                 m_shootTimer = 0.1F;
                 GameManager.Instance.SetAmmo(1);
                 RaycastHit info;
-                bool hit = Physics.Raycast(m_muzzlepoint.position,
-                    m_Camera.transform.TransformDirection(Vector3.forward), out info, m_shootcd, m_layer);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
+                if (hit)                                                // 射击
+                {
+                    //Debug.Log("Hit");
+                    if (info.transform.tag.CompareTo("enemy") == 0)
+                    {
+                        m_fx = m_Blood;
+                        Enemy enemy = info.transform.GetComponent<Enemy>();
+                        enemy.OnDamage(1);
+                        //Debug.Log("enemy's life -1");
+                    }
+                    else
+                    {
+                        m_fx = m_BulletHole;
+                    }
+                    Instantiate(m_fx, info.point, info.transform.rotation);
+                }
+            }
+            else if (Input.GetMouseButton(0) &&
+                !Input.GetKey(KeyCode.LeftControl) &&
+                m_shootTimer < 0 &&
+                m_backpack.GetComponent<Canvas>().enabled == false &&
+                Time.timeScale != 0 &&
+                m_aim)
+            {
+                m_shootTimer = 0.1F;
+                GameManager.Instance.SetAmmo(1);
+                RaycastHit info;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
                 if (hit)                                                // 射击
                 {
                     //Debug.Log("Hit");
@@ -215,13 +254,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (flashlight.active == true)
                 {
                     //Debug.Log("Close");  
-                    flashlight.active = false;
+                    flashlight.SetActive(false);
                     FlashAudioSource.Play();
                 }
                 else
                 {
                     //Debug.Log("Open");
-                    flashlight.active = true;
+                    flashlight.SetActive(true);
                     FlashAudioSource.Play();
                 }
                 //Debug.Log(flashlightaudio.active);
@@ -232,26 +271,46 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (m_backpack.GetComponent<Canvas>().enabled == true)
                 {
 
-                    Screen.lockCursor = true;
+                    Cursor.visible = false; 
+                    Cursor.lockState = CursorLockMode.Locked;
                     m_backpack.GetComponent<Canvas>().enabled = false;
                 }
                 else
                 {
-                    Screen.lockCursor = false;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
                     m_backpack.GetComponent<Canvas>().enabled = true;
                 }
             }
 
-            if (Input.GetKey(KeyCode.F))                                // 拾取道具
+            RaycastHit infoF;
+            Ray raypick = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool hitF = Physics.Raycast(raypick, out infoF, m_Raycastcd/*, m_Picklayer*/);
+            if (hitF)
             {
+                GameObject gameObjF = infoF.collider.gameObject;
+                if (gameObjF.tag == "pistol")
+                {
+                    followMe.GetComponent<FollowMe>().Pickprops = true;
+                }
 
-                RaycastHit info;
-                bool hit = Physics.Raycast(m_muzzlepoint.position,
-                    m_Camera.transform.TransformDirection(Vector3.forward), out info, m_Raycastcd);
-                if (hit)
+                else if (gameObjF.tag == "Pistol cartridges")
+                {
+                    followMe.GetComponent<FollowMe>().Pickprops = true;
+                }
+                else
+                {
+                    followMe.GetComponent<FollowMe>().Pickprops = false;
+                }
+                    
+            }
+            if (Input.GetKeyDown(KeyCode.F))                                // 拾取道具
+            {
+                Debug.DrawLine(m_muzzlepoint.position, infoF.point, Color.red, 2);
+                if (hitF)
                 {
                     //划出射线，只有在scene视图中才能看到
-                    GameObject gameObj = info.collider.gameObject;
+                    GameObject gameObj = infoF.collider.gameObject;
                     if (gameObj.tag == "qiang")//当射线碰撞目标为qiang类型的物品 ，执行拾取操作
                     {
                         //Debug.Log(gameObj.tag);
@@ -259,13 +318,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         Destroy(gameObj);
                         return;
                     }
-                    if (gameObj.tag == "mubang")
-                    {
-                        //Debug.Log("pick up!");
-                        backpack_manger.Instancce.StoreItem(2);
-                        Destroy(gameObj);
-                        return;
-                    }
+
                     if (gameObj.tag == "bishou")
                     {
 
@@ -273,6 +326,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         Destroy(gameObj);
                         return;
                     }
+
+                    if (gameObj.tag == "mubang")
+                    {
+                        //Debug.Log("pick up!");
+                        backpack_manger.Instancce.StoreItem(2);
+                        Destroy(gameObj);
+                        return;
+                    }
+                    
                     if (gameObj.tag == "banzhuan")
                     {
 
@@ -283,9 +345,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                     if (gameObj.tag == "pistol")
                     {
-
                         backpack_manger.Instancce.StoreItem(6);
                         Destroy(gameObj);
+                        followMe.GetComponent<FollowMe>().FinishPick = true;
                         return;
                     }
                     if (gameObj.tag == "Pistol cartridges")
@@ -293,6 +355,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                         backpack_manger.Instancce.StoreItem(7);
                         Destroy(gameObj);
+                        followMe.GetComponent<FollowMe>().FinishPick = true;
                         return;
                     }
                 }
@@ -372,7 +435,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             GameManager.Instance.SetLife(m_life);
             if (m_life <= 0)
             {
-                Screen.lockCursor = false;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
 

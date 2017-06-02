@@ -38,7 +38,8 @@ public class PauseMenuManager : MonoBehaviour
             waterAudio.SetActive(false);
 
             BGMAudio.GetComponent<AudioSource>().Pause();
-            Screen.lockCursor = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             PauseMenu.SetActive(true);
         }
         else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && quitWindow.active == false && menuTimer == 0)
@@ -49,7 +50,8 @@ public class PauseMenuManager : MonoBehaviour
             waterAudio.SetActive(true);
 
             BGMAudio.GetComponent<AudioSource>().Play();
-            Screen.lockCursor = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             PauseMenu.SetActive(false);
         }
         if (Input.GetKeyUp(KeyCode.Escape) && quitWindow.active == true && menuTimer == 0)
@@ -98,7 +100,8 @@ public class PauseMenuManager : MonoBehaviour
 
         Time.timeScale = 1;                             // 继续
 
-        Screen.lockCursor = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         PauseMenu.SetActive(false);
 
         foreach (Transform child in objs.transform)
