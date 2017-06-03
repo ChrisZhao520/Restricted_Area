@@ -16,7 +16,6 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject BGMAudio;
     public GameObject Highlighted;
     public GameObject waterAudio;
-
     public float menuTimer = 0;
 
     private AudioSource ButtonAudioSource;

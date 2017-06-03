@@ -20,11 +20,11 @@ public class Aim : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (GetComponent<Player>().m_aim) {
-            if (m_gun.GetComponent<Transform>().localPosition.x > 0)
+            if (m_gun.GetComponent<Transform>().localPosition.x > 0.001)
             {
                 m_gun.GetComponent<Transform>().localPosition = new Vector3(m_gun.GetComponent<Transform>().localPosition.x - Time.deltaTime, m_gun.GetComponent<Transform>().localPosition.y, m_gun.GetComponent<Transform>().localPosition.z);
             }
-            if (m_gun.GetComponent<Transform>().localPosition.y < -0.175f)
+            if (m_gun.GetComponent<Transform>().localPosition.y < -0.17f)
             {
                 m_gun.GetComponent<Transform>().localPosition = new Vector3(m_gun.GetComponent<Transform>().localPosition.x, m_gun.GetComponent<Transform>().localPosition.y + Time.deltaTime * 0.2f, m_gun.GetComponent<Transform>().localPosition.z);
             }
@@ -36,13 +36,13 @@ public class Aim : MonoBehaviour {
             {
                 m_Camera.GetComponent<Camera>().fieldOfView -= Time.deltaTime * 50;
             }
-            if (m_gun.GetComponent<Transform>().localPosition.x <= 0 ||
-                m_gun.GetComponent<Transform>().localPosition.y >= -0.175f ||
+            if (m_gun.GetComponent<Transform>().localPosition.x <= 0.001 ||
+                m_gun.GetComponent<Transform>().localPosition.y >= -0.17f ||
                 m_gun.GetComponent<Transform>().localPosition.z <= 0.04f ||
                 m_Camera.GetComponent<Camera>().fieldOfView <= 45)
             {
                 //Debug.Log("123");
-                m_gun.GetComponent<Transform>().localPosition = new Vector3(0, -0.175f, 0.04f);
+                m_gun.GetComponent<Transform>().localPosition = new Vector3(0.001f, -0.17f, 0.04f);
                 m_Camera.GetComponent<Camera>().fieldOfView = 45;
                 GetComponent<Aim>().enabled = false;
             }

@@ -221,9 +221,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_gun.GetComponent<Transform>().localPosition.x > 0 && 
                 m_gun.GetComponent<Transform>().localPosition.z > 0.04f && 
                 m_gun.GetComponent<Transform>().localPosition.y < -0.175 &&
-                !m_aim)
+                !m_aim)                                                                     // 瞄准
             {
                 m_aim = true;
+                m_UseFovKick = false;
                 SightBead.GetComponent<Image>().enabled = false;
                 gameObject.GetComponent<Aim>().enabled = true;
                 //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
@@ -238,6 +239,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 //Debug.Log("123");
                 m_aim = false;
+                ///m_UseFovKick = true;
                 SightBead.GetComponent<Image>().enabled = true;
                 gameObject.GetComponent<Aim>().enabled = true;
                 //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
@@ -533,7 +535,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W));
+            m_IsWalking = !(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !m_aim);
 
 #endif
             // set the desired speed to be walking or running
