@@ -30,34 +30,37 @@ public class PauseMenuManager : MonoBehaviour
     {
         menuTimer = GetComponent<panel_manager>().timer;
         //Debug.Log(menuTimer);
-        if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == false && menuTimer == 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.active == false && menuTimer == 0)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;                             // 暂停
             m_player.enabled = false;
             waterAudio.SetActive(false);
-
             BGMAudio.GetComponent<AudioSource>().Pause();
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
             PauseMenu.SetActive(true);
+            //Debug.Log("暂停");
         }
-        else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && quitWindow.active == false && menuTimer == 0)
+        else if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.active == true && quitWindow.active == false && menuTimer == 0)
         {
-
-            Time.timeScale = 1;                             // 继续
-            m_player.enabled = true;
-            waterAudio.SetActive(true);
-
-            BGMAudio.GetComponent<AudioSource>().Play();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            /*if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Debug.Log("继续2");
+            }*/
+            m_player.enabled = true;
+            waterAudio.SetActive(true);
+            BGMAudio.GetComponent<AudioSource>().Play();
+            Time.timeScale = 1;                             // 继续
             PauseMenu.SetActive(false);
+            //Debug.Log("继续1");
         }
-        if (Input.GetKeyUp(KeyCode.Escape) && quitWindow.active == true && menuTimer == 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && quitWindow.active == true && menuTimer == 0)
         {
             GetComponent<quit>().QuitMenuClose();
         }
-        else if (Input.GetKeyUp(KeyCode.Escape) && PauseMenu.active == true && menuTimer != 0)
+        else if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.active == true && menuTimer != 0)
         {
 
             if (menuTimer == 1)
@@ -94,13 +97,13 @@ public class PauseMenuManager : MonoBehaviour
             child.GetComponent<Button>().interactable = false;
         }
 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         m_player.enabled = true;
         waterAudio.SetActive(true);
 
         Time.timeScale = 1;                             // 继续
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         PauseMenu.SetActive(false);
 
         foreach (Transform child in objs.transform)

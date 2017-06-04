@@ -272,7 +272,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (m_backpack.GetComponent<Canvas>().enabled == true)
                 {
-
                     Cursor.visible = false; 
                     Cursor.lockState = CursorLockMode.Locked;
                     m_backpack.GetComponent<Canvas>().enabled = false;
