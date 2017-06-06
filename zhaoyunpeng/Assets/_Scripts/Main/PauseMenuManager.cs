@@ -43,8 +43,16 @@ public class PauseMenuManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.active == true && quitWindow.active == false && menuTimer == 0)
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (m_player.m_backpack.GetComponent<Canvas>().enabled == false)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else 
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
             /*if (Cursor.lockState == CursorLockMode.Locked)
             {
                 Debug.Log("继续2");
@@ -97,8 +105,16 @@ public class PauseMenuManager : MonoBehaviour
             child.GetComponent<Button>().interactable = false;
         }
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (m_player.m_backpack.GetComponent<Canvas>().enabled == false)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
         m_player.enabled = true;
         waterAudio.SetActive(true);
 

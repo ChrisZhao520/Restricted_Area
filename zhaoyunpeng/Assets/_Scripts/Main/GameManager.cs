@@ -6,29 +6,29 @@ using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour {
-    public static GameManager Instance = null;
-    int m_destroyenemy = 0;
-    int m_maxsurvialday = 0;
-    int m_survialday = 0;
-    public int m_ammo;
-    public int m_maxammo;
+    public static GameManager Instance = null;  
+    public int m_minammo;                           // 显示的最小子弹数
+    public int m_maxammo;                           // 显示的最大子弹数
+    public int m_sumammo;                           // 枪总共子弹数
+    public int _ammo;                               // 弹夹容纳量
+    public Text Txt_ammo;
+    public Text Txt_destroyenemy;
+    public Text Txt_life;
+    public Text Txt_hgy;
+    public Text Txt_survialday;
+    public Text Txt_maxsurvialday;
 
     Player m_player;
-    Text Txt_ammo;
-    Text Txt_destroyenemy;
-    Text Txt_life;
-    Text Txt_hgy;
-    Text Txt_survialday;
-    Text Txt_maxsurvialday;
 
-    private int _ammo;
-    
+    private int m_destroyenemy = 0;
+    private int m_maxsurvialday = 0;
+    private int m_survialday = 0;
 
 	// Use this for initialization
 	void Start ()
     {
         Instance = this;
-        _ammo = m_ammo;                                     // 中间变量
+        _ammo = m_minammo;                                     // 中间变量
         //Debug.Log(m_maxsurvialday.ToString("f0"));
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         foreach (Transform t in this.transform.GetComponentsInChildren<Transform>())
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour {
     void Update()
     {
         m_survialday = GameObject.Find("GameTime").GetComponent<GameTime>()._survialday;
-
+        m_maxammo = m_sumammo - m_minammo;
         //Debug.Log(m_survialday);
     }
 
@@ -125,19 +125,27 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SetAmmo(int ammo)
-    {       
-        m_ammo -= ammo;
-        m_maxammo -= 1;
-
-        //Debug.Log(_ammo);
-        //Debug.Log(m_maxammo);
-
-        if (m_ammo <= 0)
+    {
+        if (m_minammo > 0 && m_maxammo >= 0)
         {
-            m_ammo = _ammo;
-
+            if (m_maxammo > 0)
+            {
+                m_minammo -= ammo;
+                m_sumammo -= 1;
+            }
+            else if (m_maxammo == 0)
+            {
+                m_minammo -= ammo;
+                m_sumammo = m_minammo;
+            }
+            if (!Input.GetKey(KeyCode.R))
+            {
+                Txt_ammo.text = m_minammo.ToString() + "/" + m_maxammo;
+            }
         }
-        Txt_ammo.text = m_ammo.ToString() + "/" + (m_maxammo - m_ammo);
+        //Debug.Log(_ammo);
+        //Debug.Log(m_sumammo);
+
     }
 
     public void SetLife(int life)

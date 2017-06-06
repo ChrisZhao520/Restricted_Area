@@ -88,6 +88,7 @@
      <Compile Include="Assets\_Scripts\Main\FollowMe.cs" />
      <Compile Include="Assets\_Scripts\Main\GameManager.cs" />
      <Compile Include="Assets\_Scripts\Main\GameTime.cs" />
+     <Compile Include="Assets\_Scripts\Main\GunHand.cs" />
      <Compile Include="Assets\_Scripts\Main\PauseMenuManager.cs" />
      <Compile Include="Assets\_Scripts\Main\Player.cs" />
      <Compile Include="Assets\_Scripts\Main\StartGraduallyActive.cs" />

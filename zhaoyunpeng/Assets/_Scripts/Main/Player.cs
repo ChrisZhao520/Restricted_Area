@@ -44,7 +44,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Transform m_Blood;
         public GameObject m_gun;
         public float m_shootcd;                                  // 射击距离
-        public bool m_aim;                                       // 瞄准
+        public bool m_aim;                                       // 瞄准镜头缩进
+        public GameObject shotAct;                               // 射击动画
+        public GameObject gameManager;
         public GameObject flashlight;
         public GameObject flashlightaudio;
         public AudioClip FlashAudioClip;
@@ -68,11 +70,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float t = 0;                                     // 计算饱食度的中间变量
         private float ms = 7.0f;
         private Vector3 m_movDirection = Vector3.zero;
-        private Transform m_muzzlepoint;                         // 射线     
-        private Transform m_fx;
         private float m_gunposX;                                 // 枪最初的位置
         private float m_gunposY;
         private float m_gunposZ;
+        private bool aiming;
+        private float[] AniCeil = new float[1000];
+        private bool drawed = true;
+        private bool playerview = true;
+        private Transform m_muzzlepoint;                         // 射线     
+        private Transform m_fx;
         private float m_shootTimer = 0;
         private CollisionFlags m_CollisionFlags;
         private AudioSource m_AudioSource;
@@ -91,14 +97,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
 
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            m_muzzlepoint = m_Camera.transform.FindChild("Rifle_FPS/ShootPoint").transform;
-
             m_gunposX = m_gun.GetComponent<Transform>().localPosition.x;
             m_gunposY = m_gun.GetComponent<Transform>().localPosition.y;
             m_gunposZ = m_gun.GetComponent<Transform>().localPosition.z;
 
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            m_muzzlepoint = m_Camera.transform.FindChild("Rifle_FPS/ShootPoint").transform;
             m_Picklayer = 1 << (LayerMask.NameToLayer("pistol"));
 
             m_AudioSource = GetComponent<AudioSource>();
@@ -111,8 +116,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         void Update()
         {
             RotateView();
-            //Debug.Log(m_gun.GetComponent<Transform>().localPosition);
-            //Debug.Log(m_gunposX);
             if (m_life <= 0)
             {
                 return;
@@ -146,126 +149,300 @@ namespace UnityStandardAssets.Characters.FirstPerson
             t += Time.deltaTime;
 
             m_shootTimer -= Time.deltaTime;
-            if (Input.GetMouseButton(0) && 
-                !Input.GetKey(KeyCode.LeftControl) && 
-                m_shootTimer < 0 && 
-                m_backpack.GetComponent<Canvas>().enabled == false && 
-                Time.timeScale != 0 &&
-                !m_aim)
+            if (m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
             {
-                SightBead.GetComponent<Image>().overrideSprite = SightAttack;
-                m_gun.GetComponent<Animator>().enabled = true;
-                m_shootTimer = 0.1F;
-                GameManager.Instance.SetAmmo(1);
-                RaycastHit info;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
-                if (hit)                                                // 射击
+                if (Input.GetMouseButton(0) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && !Input.GetKey(KeyCode.R) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && gameManager.GetComponent<GameManager>().m_minammo != 0 && !m_aim)
                 {
-                    //Debug.Log("Hit");
-                    if (info.transform.tag.CompareTo("enemy") == 0)
+                    SightBead.GetComponent<Image>().overrideSprite = SightAttack;
+                    m_shootTimer = 0.1F;
+                    GameManager.Instance.SetAmmo(1);
+                    RaycastHit info;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
+                    if (hit)                                                // 射击
                     {
-                        m_fx = m_Blood;
-                        Enemy enemy = info.transform.GetComponent<Enemy>();
-                        enemy.OnDamage(1);
-                        //Debug.Log("enemy's life -1");
+                        //Debug.Log("Hit");
+                        if (info.transform.tag.CompareTo("enemy") == 0)
+                        {
+                            m_fx = m_Blood;
+                            Enemy enemy = info.transform.GetComponent<Enemy>();
+                            enemy.OnDamage(1);
+                            //Debug.Log("enemy's life -1");
+                        }
+                        else
+                        {
+                            m_fx = m_BulletHole;
+                        }
+                        Instantiate(m_fx, info.point, info.transform.rotation);
+                    }
+                    //Debug.Log(aiming);
+                    if (!aiming)
+                    {
+                        m_gun.GetComponent<Animation>().Play("shotBurst");
+                    }
+                    if (gameManager.GetComponent<GameManager>().m_minammo == 0)
+                    {
+                        m_UseHeadBob = false;
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                        SightBead.GetComponent<Image>().overrideSprite = SightWait;
+                        m_gun.GetComponent<Animation>().Stop("shotBurst");
                     }
                     else
                     {
-                        m_fx = m_BulletHole;
+                        m_UseHeadBob = true;
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = true;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Play();
+                            }
+                        }
                     }
-                    Instantiate(m_fx, info.point, info.transform.rotation);
+
                 }
-            }
-            else if (Input.GetMouseButton(0) &&
-                !Input.GetKey(KeyCode.LeftControl) &&
-                m_shootTimer < 0 &&
-                m_backpack.GetComponent<Canvas>().enabled == false &&
-                Time.timeScale != 0 &&
-                m_aim)
-            {
-                m_shootTimer = 0.1F;
-                GameManager.Instance.SetAmmo(1);
-                RaycastHit info;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
-                if (hit)                                                // 射击
+                else if (Input.GetMouseButton(0) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && gameManager.GetComponent<GameManager>().m_minammo != 0 && m_aim)                                                              // 瞄准后开枪
                 {
-                    //Debug.Log("Hit");
-                    if (info.transform.tag.CompareTo("enemy") == 0)
+                    m_shootTimer = 0.1F;
+                    GameManager.Instance.SetAmmo(1);
+                    RaycastHit info;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
+                    if (hit)                                                // 射击
                     {
-                        m_fx = m_Blood;
-                        Enemy enemy = info.transform.GetComponent<Enemy>();
-                        enemy.OnDamage(1);
-                        //Debug.Log("enemy's life -1");
+                        //Debug.Log("Hit");
+                        if (info.transform.tag.CompareTo("enemy") == 0)
+                        {
+                            m_fx = m_Blood;
+                            Enemy enemy = info.transform.GetComponent<Enemy>();
+                            enemy.OnDamage(1);
+                            //Debug.Log("enemy's life -1");
+                        }
+                        else
+                        {
+                            m_fx = m_BulletHole;
+                        }
+                        Instantiate(m_fx, info.point, info.transform.rotation);
+                    }
+                }
+                else if (Input.GetMouseButton(0) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0)
+                {
+                    SightBead.GetComponent<Image>().overrideSprite = SightWait;
+                    m_shootTimer = 0.1F;
+                    GameManager.Instance.SetAmmo(1);
+                    RaycastHit info;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    bool hit = Physics.Raycast(ray, out info, m_shootcd, m_layer);
+                    if (hit)                                                                // 射击
+                    {
+                        //Debug.Log("Hit");
+                        if (info.transform.tag.CompareTo("enemy") == 0)
+                        {
+                            m_fx = m_Blood;
+                            Enemy enemy = info.transform.GetComponent<Enemy>();
+                            enemy.OnDamage(1);
+                            //Debug.Log("enemy's life -1");
+                        }
+                        else
+                        {
+                            m_fx = m_BulletHole;
+                        }
+                        Instantiate(m_fx, info.point, info.transform.rotation);
+                    }
+                    if (!aiming)
+                    {
+                        m_gun.GetComponent<Animation>().Play("shotBurst");
+                    }
+                    if (gameManager.GetComponent<GameManager>().m_minammo == 0)
+                    {
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                        m_gun.GetComponent<Animation>().Stop("shotBurst");
                     }
                     else
                     {
-                        m_fx = m_BulletHole;
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = true;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Play();
+                            }
+                        }
                     }
-                    Instantiate(m_fx, info.point, info.transform.rotation);
                 }
-            }
-            else if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
-            {
-                SightBead.GetComponent<Image>().overrideSprite = SightWait;
-            }
-            else if (Input.GetMouseButtonUp(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
-            {
-                m_gun.GetComponent<Animator>().enabled = false; 
-                SightBead.GetComponent<Image>().overrideSprite = SightWait;
-            }
-            if (Input.GetMouseButtonDown(1) && 
-                m_backpack.GetComponent<Canvas>().enabled == false && 
-                Time.timeScale != 0 && 
-                m_gun.GetComponent<Transform>().localPosition.x > 0 && 
-                m_gun.GetComponent<Transform>().localPosition.z > 0.04f && 
-                m_gun.GetComponent<Transform>().localPosition.y < -0.175 &&
-                !m_aim)                                                                     // 瞄准
-            {
-                m_aim = true;
-                m_UseFovKick = false;
-                SightBead.GetComponent<Image>().enabled = false;
-                gameObject.GetComponent<Aim>().enabled = true;
-                //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
-            }
-            if (Input.GetMouseButtonDown(1) && 
-                m_backpack.GetComponent<Canvas>().enabled == false && 
-                Time.timeScale != 0 &&
-                m_gun.GetComponent<Transform>().localPosition.x < m_gunposX &&
-                m_gun.GetComponent<Transform>().localPosition.z < m_gunposZ &&
-                m_gun.GetComponent<Transform>().localPosition.y > m_gunposY &&
-                m_aim)
-            {
-                //Debug.Log("123");
-                m_aim = false;
-                ///m_UseFovKick = true;
-                SightBead.GetComponent<Image>().enabled = true;
-                gameObject.GetComponent<Aim>().enabled = true;
-                //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
-            }
-            
-
-
-            if (Input.GetKeyDown(KeyCode.H))                            // 打开关闭手电筒
-            {
-                //Debug.Log("H");
-
-                //Debug.Log(flashlightaudio.active);
-
-                if (flashlight.active == true)
+                else if (Input.GetMouseButtonUp(0))
                 {
-                    //Debug.Log("Close");  
-                    flashlight.SetActive(false);
-                    FlashAudioSource.Play();
+                    SightBead.GetComponent<Image>().overrideSprite = SightWait;
+                    m_gun.GetComponent<Animation>().Stop("shotBurst");
                 }
-                else
+
+                if (Input.GetMouseButtonDown(1) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && !m_aim && !aiming)                         // 瞄准
                 {
-                    //Debug.Log("Open");
-                    flashlight.SetActive(true);
-                    FlashAudioSource.Play();
+                    m_gun.GetComponent<Animation>()["aimIN"].speed = 3;
+                    m_gun.GetComponent<Animation>().Play("aimIN");
+
+                    aiming = true;
+                    m_aim = true;
+                    m_UseFovKick = false;
+
+                    SightBead.GetComponent<Image>().enabled = false;
+                    gameObject.GetComponent<Aim>().enabled = true;
+                    //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
+
+                    if (gameManager.GetComponent<GameManager>().m_minammo == 0)
+                    {
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                        m_gun.GetComponent<Animation>().Stop("shotBurst");
+                    }
+                    else
+                    {
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = true;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Play();
+                            }
+                        }
+                    }
                 }
-                //Debug.Log(flashlightaudio.active);
+                else if (Input.GetMouseButtonDown(1) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && m_aim && aiming)
+                {
+                    m_gun.GetComponent<Animation>()["aimOUT"].speed = 3;
+                    m_gun.GetComponent<Animation>().Play("aimOUT");
+
+                    aiming = false;
+                    m_aim = false;
+                    //m_UseFovKick = true;
+
+                    m_gun.GetComponent<Animation>().CrossFade("idle", 1);
+                    
+                    SightBead.GetComponent<Image>().enabled = true;
+                    gameObject.GetComponent<Aim>().enabled = true;
+                    //Debug.Log(m_gun.GetComponent<Transform>().localPosition.x);
+
+                    if (gameManager.GetComponent<GameManager>().m_minammo == 0)
+                    {
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                        m_gun.GetComponent<Animation>().Stop("shotBurst");
+                    }
+                    else
+                    {
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = true;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Play();
+                            }
+                        }
+                    }
+                }
+
+                if (!m_IsWalking)                                           // 跑步动画
+                {
+                    if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetKey(KeyCode.R))
+                    {
+                        m_gun.GetComponent<Animation>().Play("running");
+                    }
+                    for (int i = 0; i < AniCeil.Length; i++)
+                    {
+                        AniCeil[i] = 0;
+                    }
+                }
+                else 
+                {
+                    AniCeil[(int)Mathf.Ceil(m_gun.GetComponent<Animation>()["running"].normalizedTime)] = Mathf.Ceil(m_gun.GetComponent<Animation>()["running"].normalizedTime);
+                    for (int i = 0; i <= (int)Mathf.Ceil(m_gun.GetComponent<Animation>()["running"].normalizedTime); i++)
+                    {
+                        if (AniCeil[i] != 0)
+                        {
+                            if (m_gun.GetComponent<Animation>().IsPlaying("running") && m_gun.GetComponent<Animation>()["running"].normalizedTime >= AniCeil[i])
+                            {
+                                m_gun.GetComponent<Animation>().Stop("running");
+                                m_gun.GetComponent<Animation>().CrossFade("idle", 7);
+                            }
+                        }
+                    }       
+                }
+
+                if (Input.GetKey(KeyCode.R))                                         // 加子弹（提交数据）
+                {
+                    if (GameManager.Instance.m_minammo != GameManager.Instance._ammo && GameManager.Instance.m_maxammo != 0) 
+                    {
+                        m_gun.GetComponent<Animation>()["reload"].speed = 1.5f;
+                        m_gun.GetComponent<Animation>().Play("reload");
+                        m_gun.GetComponent<Animation>().CrossFade("idle", 7);
+                        if (m_aim)
+                        {
+                            aiming = false;
+                            m_aim = false;
+                            gameObject.GetComponent<Aim>().enabled = true;
+                            SightBead.GetComponent<Image>().enabled = true;
+                        }
+                        if (GameManager.Instance.m_sumammo < GameManager.Instance._ammo)
+                        {
+                            GameManager.Instance.m_minammo = GameManager.Instance.m_sumammo;
+                            GameManager.Instance.Txt_ammo.text = GameManager.Instance.m_minammo.ToString() + "/" + 0;
+                        }
+                        else
+                        {
+                            GameManager.Instance.m_minammo = GameManager.Instance._ammo;
+                            GameManager.Instance.m_maxammo = GameManager.Instance.m_sumammo - GameManager.Instance._ammo;
+                            GameManager.Instance.Txt_ammo.text = GameManager.Instance.m_minammo.ToString() + "/" + GameManager.Instance.m_maxammo;
+                        }
+                    }
+                }
+
+                //Debug.Log(Mathf.Ceil(m_gun.GetComponent<Animation>()["running"].normalizedTime));
+                if (Input.GetKeyDown(KeyCode.H))                                             // 打开关闭手电筒
+                {
+                    //Debug.Log("H");
+
+                    //Debug.Log(flashlightaudio.active);
+
+                    if (flashlight.active == true)
+                    {
+                        //Debug.Log("Close");  
+                        flashlight.SetActive(false);
+                        FlashAudioSource.Play();
+                    }
+                    else
+                    {
+                        //Debug.Log("Open");
+                        flashlight.SetActive(true);
+                        FlashAudioSource.Play();
+                    }
+                    //Debug.Log(flashlightaudio.active);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.I))                            // 打开关闭背包
@@ -284,7 +461,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
-            RaycastHit infoF;
+            RaycastHit infoF;                                             // 拾取道具检测
             Ray raypick = Camera.main.ScreenPointToRay(Input.mousePosition);
             bool hitF = Physics.Raycast(raypick, out infoF, m_Raycastcd/*, m_Picklayer*/);
             if (hitF)
@@ -378,12 +555,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_movDirection.x = desiredMove.x * speed;
             m_movDirection.z = desiredMove.z * speed;
 
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space))
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space)) && !Input.GetKey(KeyCode.LeftControl))
             {
                 SightBead.GetComponent<Image>().overrideSprite = SightAttack;
             }
             else if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Space)) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
+            {
                 SightBead.GetComponent<Image>().overrideSprite = SightWait;
+            }
+              
 
             if (m_ch.isGrounded)                                    // 跳跃
             {
@@ -429,6 +609,38 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_UseHeadBob = true;
             }
         }
+
+
+        public void reload()
+        {
+            m_gun.GetComponent<Animation>()["reload"].speed = 1.5f;
+            m_gun.GetComponent<Animation>().Play("reload");
+            m_gun.GetComponent<Animation>().CrossFade("idle", 7);
+        }
+        public void draw()
+        {
+            if (drawed)
+            {
+                m_gun.GetComponent<Animation>()["holster"].speed = 5f;
+                m_gun.GetComponent<Animation>().Play("holster");
+                drawed = false;
+            }
+            else
+            {
+                m_gun.GetComponent<Animation>()["draw"].speed = 1.5f;
+                m_gun.GetComponent<Animation>().Play("draw");
+                drawed = true;
+                m_gun.GetComponent<Animation>().CrossFade("idle", 1.5f);
+            }
+        }
+        public void jump()
+        {
+            m_gun.GetComponent<Animation>()["friendlyAimIn"].speed = 4f;
+            m_gun.GetComponent<Animation>().Play("friendlyAimIn");
+
+        }
+
+
 
         public void OnDamage(int damage)
         {
@@ -534,8 +746,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !m_aim);
-
+            m_IsWalking = !(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !m_aim);
+            
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_movSpeed : m_runSpeed;
@@ -575,7 +787,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
             body.AddForceAtPosition(m_ch.velocity * 0.1f, cchit.point, ForceMode.Impulse);
-        }
+        } 
 
         IEnumerator WaitAndPrintSetHgy(float waitTime)
         {
