@@ -1,0 +1,1580 @@
+fileFormatVersion: 2
+guid: 794b9165f3e57d943880153a8348e0ba
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: hands
+    100002: //RootNode
+    100004: P_Hands_lf_clavicle_jnt
+    100006: P_Hands_lf_elbow_jnt
+    100008: P_Hands_lf_hand_jnt
+    100010: P_Hands_lf_index_a_jnt
+    100012: P_Hands_lf_index_b_jnt
+    100014: P_Hands_lf_index_c_jnt
+    100016: P_Hands_lf_middle_a_jnt
+    100018: P_Hands_lf_middle_b_jnt
+    100020: P_Hands_lf_middle_c_jnt
+    100022: P_Hands_lf_pinky_a_jnt
+    100024: P_Hands_lf_pinky_b_jnt
+    100026: P_Hands_lf_pinky_c_jnt
+    100028: P_Hands_lf_pinkyCup_jnt
+    100030: P_Hands_lf_ring_a_jnt
+    100032: P_Hands_lf_ring_b_jnt
+    100034: P_Hands_lf_ring_c_jnt
+    100036: P_Hands_lf_ringCup_jnt
+    100038: P_Hands_lf_thumb_a_jnt
+    100040: P_Hands_lf_thumb_b_jnt
+    100042: P_Hands_lf_thumb_c_jnt
+    100044: P_Hands_lf_upArm_jnt
+    100046: P_Hands_lf_wrist_jnt
+    100048: P_Hands_rt_clavicle_jnt
+    100050: P_Hands_rt_elbow_jnt
+    100052: P_Hands_rt_hand_jnt
+    100054: P_Hands_rt_index_a_jnt
+    100056: P_Hands_rt_index_b_jnt
+    100058: P_Hands_rt_index_c_jnt
+    100060: P_Hands_rt_middle_a_jnt
+    100062: P_Hands_rt_middle_b_jnt
+    100064: P_Hands_rt_middle_c_jnt
+    100066: P_Hands_rt_pinky_a_jnt
+    100068: P_Hands_rt_pinky_b_jnt
+    100070: P_Hands_rt_pinky_c_jnt
+    100072: P_Hands_rt_pinkyCup_jnt
+    100074: P_Hands_rt_ring_a_jnt
+    100076: P_Hands_rt_ring_b_jnt
+    100078: P_Hands_rt_ring_c_jnt
+    100080: P_Hands_rt_ringCup_jnt
+    100082: P_Hands_rt_thumb_a_jnt
+    100084: P_Hands_rt_thumb_b_jnt
+    100086: P_Hands_rt_thumb_c_jnt
+    100088: P_Hands_rt_upArm_jnt
+    100090: P_Hands_rt_wrist_jnt
+    100092: P_Hands_spine_end_jnt
+    100094: rifle08_charger
+    100096: rifle08_m4
+    400000: hands
+    400002: //RootNode
+    400004: P_Hands_lf_clavicle_jnt
+    400006: P_Hands_lf_elbow_jnt
+    400008: P_Hands_lf_hand_jnt
+    400010: P_Hands_lf_index_a_jnt
+    400012: P_Hands_lf_index_b_jnt
+    400014: P_Hands_lf_index_c_jnt
+    400016: P_Hands_lf_middle_a_jnt
+    400018: P_Hands_lf_middle_b_jnt
+    400020: P_Hands_lf_middle_c_jnt
+    400022: P_Hands_lf_pinky_a_jnt
+    400024: P_Hands_lf_pinky_b_jnt
+    400026: P_Hands_lf_pinky_c_jnt
+    400028: P_Hands_lf_pinkyCup_jnt
+    400030: P_Hands_lf_ring_a_jnt
+    400032: P_Hands_lf_ring_b_jnt
+    400034: P_Hands_lf_ring_c_jnt
+    400036: P_Hands_lf_ringCup_jnt
+    400038: P_Hands_lf_thumb_a_jnt
+    400040: P_Hands_lf_thumb_b_jnt
+    400042: P_Hands_lf_thumb_c_jnt
+    400044: P_Hands_lf_upArm_jnt
+    400046: P_Hands_lf_wrist_jnt
+    400048: P_Hands_rt_clavicle_jnt
+    400050: P_Hands_rt_elbow_jnt
+    400052: P_Hands_rt_hand_jnt
+    400054: P_Hands_rt_index_a_jnt
+    400056: P_Hands_rt_index_b_jnt
+    400058: P_Hands_rt_index_c_jnt
+    400060: P_Hands_rt_middle_a_jnt
+    400062: P_Hands_rt_middle_b_jnt
+    400064: P_Hands_rt_middle_c_jnt
+    400066: P_Hands_rt_pinky_a_jnt
+    400068: P_Hands_rt_pinky_b_jnt
+    400070: P_Hands_rt_pinky_c_jnt
+    400072: P_Hands_rt_pinkyCup_jnt
+    400074: P_Hands_rt_ring_a_jnt
+    400076: P_Hands_rt_ring_b_jnt
+    400078: P_Hands_rt_ring_c_jnt
+    400080: P_Hands_rt_ringCup_jnt
+    400082: P_Hands_rt_thumb_a_jnt
+    400084: P_Hands_rt_thumb_b_jnt
+    400086: P_Hands_rt_thumb_c_jnt
+    400088: P_Hands_rt_upArm_jnt
+    400090: P_Hands_rt_wrist_jnt
+    400092: P_Hands_spine_end_jnt
+    400094: rifle08_charger
+    400096: rifle08_m4
+    2300000: rifle08_charger
+    2300002: rifle08_m4
+    3300000: rifle08_charger
+    3300002: rifle08_m4
+    4300000: rifle08_m4
+    4300002: rifle08_charger
+    4300004: hands
+    7400000: idle
+    7400002: aimIN
+    7400004: aimOUT
+    7400006: friendlyAimIn
+    7400008: friendlyAimOut
+    7400010: running
+    7400012: shotSingle
+    7400014: shotBurst
+    7400016: reload
+    7400018: holster
+    7400020: draw
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: hands
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 200
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimIN
+      takeName: Take 001
+      firstFrame: 201
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimOUT
+      takeName: Take 001
+      firstFrame: 241
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: friendlyAimIn
+      takeName: Take 001
+      firstFrame: 281
+      lastFrame: 310
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: friendlyAimOut
+      takeName: Take 001
+      firstFrame: 311
+      lastFrame: 340
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: running
+      takeName: Take 001
+      firstFrame: 341
+      lastFrame: 370
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shotSingle
+      takeName: Take 001
+      firstFrame: 380
+      lastFrame: 390
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shotBurst
+      takeName: Take 001
+      firstFrame: 394
+      lastFrame: 400
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: reload
+      takeName: Take 001
+      firstFrame: 401
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: holster
+      takeName: Take 001
+      firstFrame: 501
+      lastFrame: 525
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: draw
+      takeName: Take 001
+      firstFrame: 526
+      lastFrame: 560
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hands
+        weight: 1
+      - path: P_Hands_spine_end_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_index_a_jnt/P_Hands_lf_index_b_jnt/P_Hands_lf_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_middle_a_jnt/P_Hands_lf_middle_b_jnt/P_Hands_lf_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_pinkyCup_jnt/P_Hands_lf_pinky_a_jnt/P_Hands_lf_pinky_b_jnt/P_Hands_lf_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_ringCup_jnt/P_Hands_lf_ring_a_jnt/P_Hands_lf_ring_b_jnt/P_Hands_lf_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_lf_clavicle_jnt/P_Hands_lf_upArm_jnt/P_Hands_lf_elbow_jnt/P_Hands_lf_wrist_jnt/P_Hands_lf_hand_jnt/P_Hands_lf_thumb_a_jnt/P_Hands_lf_thumb_b_jnt/P_Hands_lf_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_index_a_jnt/P_Hands_rt_index_b_jnt/P_Hands_rt_index_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_middle_a_jnt/P_Hands_rt_middle_b_jnt/P_Hands_rt_middle_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_pinkyCup_jnt/P_Hands_rt_pinky_a_jnt/P_Hands_rt_pinky_b_jnt/P_Hands_rt_pinky_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_ringCup_jnt/P_Hands_rt_ring_a_jnt/P_Hands_rt_ring_b_jnt/P_Hands_rt_ring_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/P_Hands_rt_thumb_a_jnt/P_Hands_rt_thumb_b_jnt/P_Hands_rt_thumb_c_jnt
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4
+        weight: 1
+      - path: P_Hands_spine_end_jnt/P_Hands_rt_clavicle_jnt/P_Hands_rt_upArm_jnt/P_Hands_rt_elbow_jnt/P_Hands_rt_wrist_jnt/P_Hands_rt_hand_jnt/rifle08_m4/rifle08_charger
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.02
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
