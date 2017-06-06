@@ -46,6 +46,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float m_shootcd;                                  // 射击距离
         public bool m_aim;                                       // 瞄准镜头缩进
         public GameObject shotAct;                               // 射击动画
+        public GameObject WeaponCanvas;                          // 画布中的枪支
         public GameObject gameManager;
         public GameObject flashlight;
         public GameObject flashlightaudio;
@@ -76,7 +77,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool aiming;
         private float[] AniCeil = new float[1000];
         private bool drawed = true;
-        private bool playerview = true;
         private Transform m_muzzlepoint;                         // 射线     
         private Transform m_fx;
         private float m_shootTimer = 0;
@@ -151,7 +151,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_shootTimer -= Time.deltaTime;
             if (m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0)
             {
-                if (Input.GetMouseButton(0) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && !Input.GetKey(KeyCode.R) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && gameManager.GetComponent<GameManager>().m_minammo != 0 && !m_aim)
+                if (Input.GetMouseButton(0) && 
+                    (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                    (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) && 
+                    !Input.GetKey(KeyCode.R) && 
+                    !Input.GetKey(KeyCode.LeftControl) && 
+                    m_shootTimer < 0 && 
+                    gameManager.GetComponent<GameManager>().m_minammo != 0 && 
+                    drawed &&
+                    !m_aim)
                 {
                     SightBead.GetComponent<Image>().overrideSprite = SightAttack;
                     m_shootTimer = 0.1F;
@@ -183,7 +191,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     if (gameManager.GetComponent<GameManager>().m_minammo == 0)
                     {
                         m_UseHeadBob = false;
-                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        StartCoroutine(WaitAndReload(0.05f));
                         foreach (Transform child in shotAct.transform)
                         {
                             if (child.GetComponent<ParticleSystem>())
@@ -208,7 +216,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
 
                 }
-                else if (Input.GetMouseButton(0) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && gameManager.GetComponent<GameManager>().m_minammo != 0 && m_aim)                                                              // 瞄准后开枪
+                else if (Input.GetMouseButton(0) && 
+                    (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                    (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
+                    !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 && 
+                    gameManager.GetComponent<GameManager>().m_minammo != 0 &&
+                    drawed &&
+                    m_aim)                                                              // 瞄准后开枪
                 {
                     m_shootTimer = 0.1F;
                     GameManager.Instance.SetAmmo(1);
@@ -231,8 +245,38 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         }
                         Instantiate(m_fx, info.point, info.transform.rotation);
                     }
+                    if (gameManager.GetComponent<GameManager>().m_minammo == 0)
+                    {
+                        m_UseHeadBob = false;
+                        StartCoroutine(WaitAndReload(0.05f));
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                        m_gun.GetComponent<Animation>().Stop("shotBurst");
+                    }
+                    else
+                    {
+                        m_UseHeadBob = true;
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = true;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Play();
+                            }
+                        }
+                    }
                 }
-                else if (Input.GetMouseButton(0) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0)
+                else if (Input.GetMouseButton(0) && 
+                    (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                    (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
+                    Input.GetKey(KeyCode.LeftControl) &&
+                    drawed &&
+                    m_shootTimer < 0)
                 {
                     SightBead.GetComponent<Image>().overrideSprite = SightWait;
                     m_shootTimer = 0.1F;
@@ -262,7 +306,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
                     if (gameManager.GetComponent<GameManager>().m_minammo == 0)
                     {
-                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        StartCoroutine(WaitAndReload(0.05f));
                         foreach (Transform child in shotAct.transform)
                         {
                             if (child.GetComponent<ParticleSystem>())
@@ -290,7 +334,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_gun.GetComponent<Animation>().Stop("shotBurst");
                 }
 
-                if (Input.GetMouseButtonDown(1) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && !m_aim && !aiming)                         // 瞄准
+                if (Input.GetMouseButtonDown(1) &&
+                    (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
+                    (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                    drawed &&
+                    !m_aim && 
+                    !aiming
+                    )                         // 瞄准
                 {
                     m_gun.GetComponent<Animation>()["aimIN"].speed = 3;
                     m_gun.GetComponent<Animation>().Play("aimIN");
@@ -305,6 +355,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                     if (gameManager.GetComponent<GameManager>().m_minammo == 0)
                     {
+                        
                         shotAct.GetComponent<SimpleShootingScript>().enabled = false;
                         foreach (Transform child in shotAct.transform)
                         {
@@ -327,7 +378,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         }
                     }
                 }
-                else if (Input.GetMouseButtonDown(1) && (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) && m_aim && aiming)
+                else if (Input.GetMouseButtonDown(1) &&
+                    (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
+                    (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                    drawed &&
+                    m_aim && 
+                    aiming)
                 {
                     m_gun.GetComponent<Animation>()["aimOUT"].speed = 3;
                     m_gun.GetComponent<Animation>().Play("aimOUT");
@@ -367,9 +423,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
                 }
 
-                if (!m_IsWalking)                                           // 跑步动画
+                if (!m_IsWalking)                                                            // 跑步动画
                 {
-                    if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetKey(KeyCode.R))
+                    if (!Input.GetMouseButton(0) && 
+                        !Input.GetMouseButton(1) && 
+                        !Input.GetKey(KeyCode.R) &&
+                        (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
+                        (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                        drawed)
                     {
                         m_gun.GetComponent<Animation>().Play("running");
                     }
@@ -394,13 +455,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }       
                 }
 
-                if (Input.GetKey(KeyCode.R))                                         // 加子弹（提交数据）
-                {
-                    if (GameManager.Instance.m_minammo != GameManager.Instance._ammo && GameManager.Instance.m_maxammo != 0) 
-                    {
+                if (Input.GetKey(KeyCode.R) || 
+                    (GameManager.Instance.m_minammo == 0 && Input.GetMouseButtonUp(0)) || 
+                    (GameManager.Instance.m_minammo == 0 && Input.GetKey(KeyCode.W)) &&
+                    drawed)
+                {                                                                                       
+                    if (GameManager.Instance.m_minammo != GameManager.Instance._ammo && GameManager.Instance.m_maxammo != 0)
+                    {                                                                               // 加子弹（提交数据）
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+
                         m_gun.GetComponent<Animation>()["reload"].speed = 1.5f;
                         m_gun.GetComponent<Animation>().Play("reload");
                         m_gun.GetComponent<Animation>().CrossFade("idle", 7);
+
                         if (m_aim)
                         {
                             aiming = false;
@@ -421,8 +495,37 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         }
                     }
                 }
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!有问题
+                if (Input.GetKeyDown(KeyCode.G))                                                // 丢弃道具
+                {
+                    
+                    if (drawed)
+                    {
+                        m_gun.GetComponent<Animation>()["holster"].speed = 5f;
+                        m_gun.GetComponent<Animation>().Play("holster");
+                        drawed = false;
+                        m_UseHeadBob = false;
+                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        foreach (Transform child in shotAct.transform)
+                        {
+                            if (child.GetComponent<ParticleSystem>())
+                            {
+                                child.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                        WeaponCanvas.SetActive(false);
+                    }
+                    else
+                    {
+                        m_gun.GetComponent<Animation>()["draw"].speed = 1.5f;
+                        m_gun.GetComponent<Animation>().Play("draw");
+                        drawed = true;
+                        m_UseHeadBob = true;
+                        WeaponCanvas.SetActive(true);
+                        m_gun.GetComponent<Animation>().CrossFade("idle", 1.5f);
+                    }
+                }
 
-                //Debug.Log(Mathf.Ceil(m_gun.GetComponent<Animation>()["running"].normalizedTime));
                 if (Input.GetKeyDown(KeyCode.H))                                             // 打开关闭手电筒
                 {
                     //Debug.Log("H");
@@ -538,7 +641,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
                 }
             }
-
         }
         void FixedUpdate()
         {
@@ -610,13 +712,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-
-        public void reload()
-        {
-            m_gun.GetComponent<Animation>()["reload"].speed = 1.5f;
-            m_gun.GetComponent<Animation>().Play("reload");
-            m_gun.GetComponent<Animation>().CrossFade("idle", 7);
-        }
         public void draw()
         {
             if (drawed)
@@ -795,6 +890,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             //等待之后执行的动作  
             GameManager.Instance.SetHgy(hgyValue);
+
+        }
+
+        IEnumerator WaitAndReload(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+
+            //等待之后执行的动作  
+            shotAct.GetComponent<SimpleShootingScript>().enabled = false;
 
         }
 

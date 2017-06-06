@@ -35,6 +35,7 @@ public class PauseMenuManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;                             // 暂停
+            m_player.m_gun.GetComponent<Animation>().Stop("shotBurst");
             m_player.enabled = false;
             waterAudio.SetActive(false);
             BGMAudio.GetComponent<AudioSource>().Pause();
