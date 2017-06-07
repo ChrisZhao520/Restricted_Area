@@ -43,9 +43,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Transform m_BulletHole;
         public Transform m_Blood;
         public GameObject m_gun;
-        public float m_shootcd;                                  // 射击距离
+        public GameObject m__gun;
+        public float m_shootcd;                                  // 射击距离                               
         public bool m_aim;                                       // 瞄准镜头缩进
         public GameObject shotAct;                               // 射击动画
+        public GameObject shot_Act;                              
         public GameObject WeaponCanvas;                          // 画布中的枪支
         public GameObject gameManager;
         public GameObject flashlight;
@@ -71,6 +73,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float t = 0;                                     // 计算饱食度的中间变量
         private float ms = 7.0f;
         private Vector3 m_movDirection = Vector3.zero;
+        private GameObject m___gun;
+        private GameObject __shotAct;
         private float m_gunposX;                                 // 枪最初的位置
         private float m_gunposY;
         private float m_gunposZ;
@@ -331,6 +335,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 else if (Input.GetMouseButtonUp(0))
                 {
                     SightBead.GetComponent<Image>().overrideSprite = SightWait;
+                    foreach (Transform child in shotAct.transform)
+                    {
+                        if (child.GetComponent<ParticleSystem>())
+                        {
+                            child.GetComponent<ParticleSystem>().Stop();
+                        }
+                    }
                     m_gun.GetComponent<Animation>().Stop("shotBurst");
                 }
 
@@ -460,9 +471,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     (GameManager.Instance.m_minammo == 0 && Input.GetKey(KeyCode.W)) &&
                     drawed)
                 {                                                                                       
-                    if (GameManager.Instance.m_minammo != GameManager.Instance._ammo && GameManager.Instance.m_maxammo != 0)
+                    if (GameManager.Instance.m_minammo != GameManager.Instance._ammo && GameManager.Instance.m_maxammo != 0 && (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1))
                     {                                                                               // 加子弹（提交数据）
                         shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        m_UseHeadBob = false;
+
                         foreach (Transform child in shotAct.transform)
                         {
                             if (child.GetComponent<ParticleSystem>())
@@ -495,17 +508,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         }
                     }
                 }
-                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!有问题
-                if (Input.GetKeyDown(KeyCode.G))                                                // 丢弃道具
+
+                if (Input.GetKeyDown(KeyCode.G) && !Input.GetMouseButton(0))                                                // 丢弃道具
                 {
                     
                     if (drawed)
                     {
                         m_gun.GetComponent<Animation>()["holster"].speed = 5f;
                         m_gun.GetComponent<Animation>().Play("holster");
+
                         drawed = false;
                         m_UseHeadBob = false;
-                        shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                        
+                        if (m_aim && aiming)
+                        {
+                            aiming = false;
+                            m_aim = false;
+                            SightBead.GetComponent<Image>().enabled = true;
+                            gameObject.GetComponent<Aim>().enabled = true;
+                        }
+
                         foreach (Transform child in shotAct.transform)
                         {
                             if (child.GetComponent<ParticleSystem>())
@@ -517,12 +539,32 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
                     else
                     {
+                        m_gun.SetActive(false);
+                        m___gun = m_gun;
+                        GetComponent<Aim>().m_gun = m__gun;
+                        m_gun = m__gun;
+                        m__gun = m___gun;
+
+                        __shotAct = shotAct;
+                        shotAct = shot_Act;
+                        shot_Act = __shotAct;
+
+                        m_gun.SetActive(true);
                         m_gun.GetComponent<Animation>()["draw"].speed = 1.5f;
                         m_gun.GetComponent<Animation>().Play("draw");
                         drawed = true;
                         m_UseHeadBob = true;
                         WeaponCanvas.SetActive(true);
                         m_gun.GetComponent<Animation>().CrossFade("idle", 1.5f);
+
+                    }
+                    shotAct.GetComponent<SimpleShootingScript>().enabled = false;
+                    foreach (Transform child in shotAct.transform)
+                    {
+                        if (child.GetComponent<ParticleSystem>())
+                        {
+                            child.GetComponent<ParticleSystem>().Stop();
+                        }
                     }
                 }
 

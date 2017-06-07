@@ -32,6 +32,7 @@ public class PauseMenuManager : MonoBehaviour
         //Debug.Log(menuTimer);
         if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.active == false && menuTimer == 0)
         {
+            Debug.Log("暂停界面显示");
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;                             // 暂停
@@ -44,6 +45,7 @@ public class PauseMenuManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.active == true && quitWindow.active == false && menuTimer == 0)
         {
+            Debug.Log("暂停界面隐藏");
             if (m_player.m_backpack.GetComponent<Canvas>().enabled == false)
             {
                 Cursor.visible = false;
