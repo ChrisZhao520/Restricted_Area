@@ -5,8 +5,16 @@ using UnityEngine.UI;
 
 public class ItemUI : MonoBehaviour {
 
-	public Text Itemname;
-	public void updateItem(string name){
-        Itemname.text = name;
-	}
+    private Sprite sp;
+    private string icon;
+    public Image img;
+    public void updateItem(int id)
+    {
+
+        icon = "_Images" + "/" + id;
+        Debug.LogWarning(icon);
+        sp = Resources.Load(icon, typeof(Sprite)) as Sprite;
+        img.sprite = sp;
+    }
+
 }

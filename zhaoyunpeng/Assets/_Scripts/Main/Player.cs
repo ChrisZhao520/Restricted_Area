@@ -108,8 +108,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             m_muzzlepoint = m_Camera.transform.FindChild("Rifle_FPS/ShootPoint").transform;
-            m_Picklayer = 1 << (LayerMask.NameToLayer("pistol"));
-
+            
             m_AudioSource = GetComponent<AudioSource>();
             FlashAudioSource = flashlightaudio.GetComponent<AudioSource>();
             FlashAudioSource.clip = FlashAudioClip;
@@ -498,13 +497,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         if (GameManager.Instance.m_sumammo < GameManager.Instance._ammo)
                         {
                             GameManager.Instance.m_minammo = GameManager.Instance.m_sumammo;
-                            GameManager.Instance.Txt_ammo.text = GameManager.Instance.m_minammo.ToString() + "/" + 0;
+                            GameManager.Instance.Txt_ammo.text = GameManager.Instance.m_minammo.ToString() + "/ " + 0;
                         }
                         else
                         {
                             GameManager.Instance.m_minammo = GameManager.Instance._ammo;
                             GameManager.Instance.m_maxammo = GameManager.Instance.m_sumammo - GameManager.Instance._ammo;
-                            GameManager.Instance.Txt_ammo.text = GameManager.Instance.m_minammo.ToString() + "/" + GameManager.Instance.m_maxammo;
+                            GameManager.Instance.Txt_ammo.text = GameManager.Instance.m_minammo.ToString() + "/ " + GameManager.Instance.m_maxammo;
                         }
                     }
                 }
@@ -608,18 +607,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             RaycastHit infoF;                                             // 拾取道具检测
             Ray raypick = Camera.main.ScreenPointToRay(Input.mousePosition);
-            bool hitF = Physics.Raycast(raypick, out infoF, m_Raycastcd/*, m_Picklayer*/);
+            bool hitF = Physics.Raycast(raypick, out infoF, m_Raycastcd, m_Picklayer);
+            //Debug.Log(m_Picklayer);
             if (hitF)
             {
                 GameObject gameObjF = infoF.collider.gameObject;
-                if (gameObjF.tag == "pistol")
+                //Debug.Log(gameObjF.layer);
+                if (gameObjF.layer == 11)
                 {
-                    followMe.GetComponent<FollowMe>().Pickprops = true;
-                }
-
-                else if (gameObjF.tag == "Pistol cartridges")
-                {
-                    followMe.GetComponent<FollowMe>().Pickprops = true;
+                    //Debug.Log("123");
+                    followMe.GetComponent<FollowMe>().FinishPick = true;
                 }
                 else
                 {
@@ -634,7 +631,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     //划出射线，只有在scene视图中才能看到
                     GameObject gameObj = infoF.collider.gameObject;
-                    if (gameObj.tag == "qiang")//当射线碰撞目标为qiang类型的物品 ，执行拾取操作
+                    if (gameObj.tag == "M4A1")
                     {
                         //Debug.Log(gameObj.tag);
                         backpack_manger.Instancce.StoreItem(0);
@@ -670,7 +667,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     {
                         backpack_manger.Instancce.StoreItem(6);
                         Destroy(gameObj);
-                        followMe.GetComponent<FollowMe>().FinishPick = true;
                         return;
                     }
                     if (gameObj.tag == "Pistol cartridges")
@@ -678,8 +674,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                         backpack_manger.Instancce.StoreItem(7);
                         Destroy(gameObj);
-                        followMe.GetComponent<FollowMe>().FinishPick = true;
                         return;
+                    }
+
+                    if (gameObj.layer == 11)
+                    {
+                        //Debug.Log("123");
+                        followMe.GetComponent<FollowMe>().FinishPick = true;
+                    }
+                    else
+                    {
+                        followMe.GetComponent<FollowMe>().Pickprops = false;
                     }
                 }
             }
@@ -753,31 +758,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_UseHeadBob = true;
             }
         }
-
-        public void draw()
-        {
-            if (drawed)
-            {
-                m_gun.GetComponent<Animation>()["holster"].speed = 5f;
-                m_gun.GetComponent<Animation>().Play("holster");
-                drawed = false;
-            }
-            else
-            {
-                m_gun.GetComponent<Animation>()["draw"].speed = 1.5f;
-                m_gun.GetComponent<Animation>().Play("draw");
-                drawed = true;
-                m_gun.GetComponent<Animation>().CrossFade("idle", 1.5f);
-            }
-        }
-        public void jump()
-        {
-            m_gun.GetComponent<Animation>()["friendlyAimIn"].speed = 4f;
-            m_gun.GetComponent<Animation>().Play("friendlyAimIn");
-
-        }
-
-
 
         public void OnDamage(int damage)
         {

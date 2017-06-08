@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour {
     public Text Txt_survialday;
     public Text Txt_maxsurvialday;
 
+    public GameObject HP;
+    public GameObject HY;
+
     Player m_player;
 
     private int m_destroyenemy = 0;
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour {
             if (t.name.CompareTo("Txt_ammo") == 0)
             {
                 Txt_ammo = t.GetComponent<Text>();
-                Txt_ammo.text = m_minammo.ToString() + "/" + m_maxammo;
+                Txt_ammo.text = m_minammo.ToString() + "/ " + m_maxammo;
             }
             else if (t.name.CompareTo("Txt_destroyenemy") == 0)
             {
@@ -141,7 +144,7 @@ public class GameManager : MonoBehaviour {
             }
             if (!Input.GetKey(KeyCode.R))
             {
-                Txt_ammo.text = m_minammo.ToString() + "/" + m_maxammo;
+                Txt_ammo.text = m_minammo.ToString() + "/ " + m_maxammo;
             }
         }
         //Debug.Log(_ammo);
@@ -155,6 +158,7 @@ public class GameManager : MonoBehaviour {
         {
             life = 0;
         }
+        HP.GetComponent<Image>().fillAmount = life * 0.01f;
         Txt_life.text = life.ToString();
         if (m_player.m_life <= 0)
         {
@@ -166,6 +170,7 @@ public class GameManager : MonoBehaviour {
     public void SetHgy(int hungry)
     {
         m_player.m_hungry -= hungry;
+        HY.GetComponent<Image>().fillAmount = m_player.m_hungry * 0.01f;
         Txt_hgy.text = m_player.m_hungry.ToString();
 
         //Debug.Log(m_player.m_hungry);

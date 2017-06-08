@@ -27,6 +27,7 @@ TagManager:
   - Pistol cartridges
   - Mcollider
   - LootPoint
+  - M4A1
   layers:
   - Default
   - TransparentFX
@@ -39,8 +40,8 @@ TagManager:
   - enemy
   - level
   - Weapon
-  - pistol
-  - Pistol cartridges
+  - Tools
+  - 
   - 
   - 
   - 
