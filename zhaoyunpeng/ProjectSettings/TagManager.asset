@@ -17,10 +17,6 @@ TagManager:
   - Lamp_Close
   - Grid
   - Backpack
-  - mubang
-  - qiang
-  - banzhuan
-  - bishou
   - boot
   - tag1
   - pistol
@@ -28,6 +24,7 @@ TagManager:
   - Mcollider
   - LootPoint
   - M4A1
+  - Target
   layers:
   - Default
   - TransparentFX

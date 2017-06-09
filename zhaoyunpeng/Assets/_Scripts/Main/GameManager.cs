@@ -7,11 +7,12 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance = null;  
-    public int m_minammo;                           // 显示的最小子弹数
-    public int m_maxammo;                           // 显示的最大子弹数
-    public int m_sumammo;                           // 枪总共子弹数
-    public int _ammo;                               // 弹夹容纳量
-    public Text Txt_ammo;
+    public int []m_minammo;                           // 显示的最小子弹数
+    public int []m_maxammo;                           // 显示的最大子弹数
+    public int []m_sumammo;                           // 枪总共子弹数
+    public int []_ammo;                               // 弹夹容纳量
+    public Text Txt_minammo;
+    public Text Txt_maxammo;
     public Text Txt_destroyenemy;
     public Text Txt_life;
     public Text Txt_hgy;
@@ -30,49 +31,67 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        Instance = this;
-        _ammo = m_minammo;                                     // 中间变量
-        //Debug.Log(m_maxsurvialday.ToString("f0"));
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        foreach (Transform t in this.transform.GetComponentsInChildren<Transform>())
+        Instance = this;
+                                           
+        //Debug.Log(m_maxsurvialday.ToString("f0"));
+        for (int i = 0; i < m_minammo.Length; i++)
         {
-            if (t.name.CompareTo("Txt_ammo") == 0)
+            if (m_player.m_gun.GetComponent<GunProperties>().GunNum == i)
             {
-                Txt_ammo = t.GetComponent<Text>();
-                Txt_ammo.text = m_minammo.ToString() + "/ " + m_maxammo;
-            }
-            else if (t.name.CompareTo("Txt_destroyenemy") == 0)
-            {
-                Txt_destroyenemy = t.GetComponent<Text>();
-                Txt_destroyenemy.text = "消灭敌人数: " + m_destroyenemy;
-            }
-            else if (t.name.CompareTo("Txt_life") == 0)
-            {
-                Txt_life = t.GetComponent<Text>();
-            }
-            else if (t.name.CompareTo("Txt_hgy") == 0)
-            {
-                Txt_hgy = t.GetComponent<Text>();
-            }
-            else if (t.name.CompareTo("Txt_survialday") == 0)
-            {
-                //Debug.Log(m_survialday);
-                Txt_survialday = t.GetComponent<Text>();
-                
-            }
-            else if (t.name.CompareTo("Txt_maxsurvialday") == 0)
-            {
-                Txt_maxsurvialday = t.GetComponent<Text>();
-                
+                foreach (Transform t in this.transform.GetComponentsInChildren<Transform>())
+                {
+                    if (t.name.CompareTo("Txt_minammo") == 0)
+                    {
+                        Txt_minammo = t.GetComponent<Text>();
+                        Txt_minammo.text = m_minammo[i].ToString();
+                    }
+                    else if (t.name.CompareTo("Txt_maxammo") == 0)
+                    {
+                        Txt_maxammo = t.GetComponent<Text>();
+                        Txt_maxammo.text = m_maxammo[i].ToString();
+                    }
+                    else if (t.name.CompareTo("Txt_destroyenemy") == 0)
+                    {
+                        Txt_destroyenemy = t.GetComponent<Text>();
+                        Txt_destroyenemy.text = "消灭敌人数: " + m_destroyenemy;
+                    }
+                    else if (t.name.CompareTo("Txt_life") == 0)
+                    {
+                        Txt_life = t.GetComponent<Text>();
+                    }
+                    else if (t.name.CompareTo("Txt_hgy") == 0)
+                    {
+                        Txt_hgy = t.GetComponent<Text>();
+                    }
+                    else if (t.name.CompareTo("Txt_survialday") == 0)
+                    {
+                        //Debug.Log(m_survialday);
+                        Txt_survialday = t.GetComponent<Text>();
+
+                    }
+                    else if (t.name.CompareTo("Txt_maxsurvialday") == 0)
+                    {
+                        Txt_maxsurvialday = t.GetComponent<Text>();
+
+                    }
+                }
+                //PlayerPrefs.DeleteAll();              // 重置最高天数
             }
         }
-        //PlayerPrefs.DeleteAll();              // 重置最高天数
 	}
 
     void Update()
     {
         m_survialday = GameObject.Find("GameTime").GetComponent<GameTime>()._survialday;
-        m_maxammo = m_sumammo - m_minammo;
+        for (int i = 0; i < m_minammo.Length; i++)
+        {
+            if (m_player.m_gun.GetComponent<GunProperties>().GunNum == i)
+            {
+                m_maxammo[i] = m_sumammo[i] - m_minammo[i];
+            }
+        }
+        
         //Debug.Log(m_survialday);
     }
 
@@ -130,23 +149,48 @@ public class GameManager : MonoBehaviour {
 
     public void SetAmmo(int ammo)
     {
-        if (m_minammo > 0 && m_maxammo >= 0)
+        for (int i = 0; i < m_minammo.Length; i++)
         {
-            if (m_maxammo > 0)
+            if (m_player.m_gun.GetComponent<GunProperties>().GunNum == i)
             {
-                m_minammo -= ammo;
-                m_sumammo -= 1;
-            }
-            else if (m_maxammo == 0)
-            {
-                m_minammo -= ammo;
-                m_sumammo = m_minammo;
-            }
-            if (!Input.GetKey(KeyCode.R))
-            {
-                Txt_ammo.text = m_minammo.ToString() + "/ " + m_maxammo;
+                if (m_minammo[i] > 0 && m_maxammo[i] >= 0)
+                {
+                    if (m_maxammo[i] > 0)
+                    {
+                        m_minammo[i] -= ammo;
+                        m_sumammo[i] -= 1;
+                        /*if (!PlayerPrefs.HasKey("Txt_minammo"))
+                        {
+                            PlayerPrefs.SetInt("Txt_minammo", m_minammo[i]);
+                        }
+                        if (!PlayerPrefs.HasKey("Txt_maxammo"))
+                        {
+                            PlayerPrefs.SetInt("Txt_maxammo", m_maxammo[i]);
+                        }*/
+                    }
+                    else if (m_maxammo[i] == 0)
+                    {
+                        m_minammo[i] -= ammo;
+                        m_sumammo[i] = m_minammo[i];
+                        /*if (!PlayerPrefs.HasKey("Txt_minammo"))
+                        {
+                            PlayerPrefs.SetInt("Txt_minammo", m_minammo[i]);
+                        }
+                        if (!PlayerPrefs.HasKey("Txt_maxammo"))
+                        {
+                            PlayerPrefs.SetInt("Txt_maxammo", m_maxammo[i]);
+                        }*/
+                    }
+                    if (!Input.GetKey(KeyCode.R))
+                    {
+                        Txt_minammo.text = m_minammo[i].ToString();
+                        Txt_maxammo.text = m_maxammo[i].ToString();
+                    }
+                }
             }
         }
+
+        
         //Debug.Log(_ammo);
         //Debug.Log(m_sumammo);
 
