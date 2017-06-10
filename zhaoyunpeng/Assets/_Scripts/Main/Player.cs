@@ -42,8 +42,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public LayerMask m_layer;
         public Transform m_BulletHole;
         public Transform m_Blood;
+        public GameObject m_GunAndHand;
+        public bool m_IsGunAndHand;
         public GameObject m_gun;
         public GameObject m__gun;
+        public GameObject click;
         public float m_shootSpeedCD;
         public float m_shootcd;                                  // 射击距离                               
         public bool m_aim;                                       // 瞄准镜头缩进
@@ -151,7 +154,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StartCoroutine(WaitAndPrintSetHgy(hgyValue));
             }
             t += Time.deltaTime;
-            
+
+            int countChild = 0;
+            foreach (Transform child in m_GunAndHand.transform)
+            {
+                //Debug.Log(child.childCount);
+                if (child.gameObject.active == false)
+                {
+                    countChild++;
+                }
+                if (countChild == child.childCount)
+                {
+                    m_IsGunAndHand = false;
+                }
+                else
+                {
+                    m_IsGunAndHand = true;
+                }
+            }
+
+
             for (int n = 0; n < gameManager.GetComponent<GameManager>().m_minammo.Length; n++)
             {
                 if (m_gun.GetComponent<GunProperties>().GunNum == n)
@@ -166,6 +188,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             !Input.GetKey(KeyCode.LeftControl) && 
                             m_shootTimer < 0 && 
                             gameManager.GetComponent<GameManager>().m_minammo[n] != 0 && 
+                            m_IsGunAndHand &&
                             drawed &&
                             !m_aim)
                         {
@@ -243,6 +266,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
                             !Input.GetKey(KeyCode.LeftControl) && m_shootTimer < 0 &&
                             gameManager.GetComponent<GameManager>().m_minammo[n] != 0 &&
+                            m_IsGunAndHand &&
                             drawed &&
                             m_aim)                                                            
                         {
@@ -306,6 +330,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
                             (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
                             Input.GetKey(KeyCode.LeftControl) &&
+                            m_IsGunAndHand &&
                             drawed &&
                             m_shootTimer < 0)
                         {
@@ -379,6 +404,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         if (Input.GetMouseButtonDown(1) &&
                             (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
                             (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                            m_IsGunAndHand &&
                             drawed &&
                             !m_aim && 
                             !aiming
@@ -424,6 +450,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         else if (Input.GetMouseButtonDown(1) &&
                             (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
                             (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
+                            m_IsGunAndHand &&
                             drawed &&
                             m_aim && 
                             aiming)
@@ -472,6 +499,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             if (!Input.GetMouseButton(0) && 
                                 !Input.GetMouseButton(1) && 
                                 !Input.GetKey(KeyCode.R) &&
+                                m_backpack.GetComponent<Canvas>().enabled == false &&
                                 (m_gun.GetComponent<Animation>()["draw"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["draw"].normalizedTime == 1) &&
                                 (m_gun.GetComponent<Animation>()["reload"].normalizedTime == 0 || m_gun.GetComponent<Animation>()["reload"].normalizedTime == 1) &&
                                 drawed)
@@ -502,6 +530,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         if (Input.GetKey(KeyCode.R) || 
                             (GameManager.Instance.m_minammo[n] == 0 && Input.GetMouseButtonUp(0)) || 
                             (GameManager.Instance.m_minammo[n] == 0 && Input.GetKey(KeyCode.W)) &&
+                            m_IsGunAndHand &&
                             drawed)
                         {
                             //Reload();                                                                       // 加子弹
@@ -545,7 +574,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             }
                         }
 
-                        if (Input.GetKeyDown(KeyCode.G) && !Input.GetMouseButton(0))                                                
+                        if (Input.GetKeyDown(KeyCode.G) && !Input.GetMouseButton(0) && m_IsGunAndHand)                                                
                         {
                             //DrawTools();                                                                    // 丢弃道具
                             if (drawed)
@@ -575,11 +604,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 {
                                     AmmoCanvas[i].SetActive(false);
                                 }
-
+                                if (m_gun.GetComponent<Animation>()["holster"].normalizedTime > 0.8f)
+                                {
+                                    m_gun.SetActive(false);
+                                }
                             }
                             else
                             {
-                                m_gun.SetActive(false);
                                 m___gun = m_gun;
                                 GetComponent<Aim>().m_gun = m__gun;
                                 m_gun = m__gun;
@@ -611,38 +642,59 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                     child.GetComponent<ParticleSystem>().Stop();
                                 }
                             }
-                            /*if (!Input.GetMouseButton(0))
-                            {
-                                foreach (Transform child in shotAct.transform)
-                                {
-                                    if (child.GetComponent<ParticleSystem>())
-                                    {
-                                        child.GetComponent<ParticleSystem>().Play();
-                                    }
-                                }
-                            }*/
                         }
 
-                        if (Input.GetKeyDown(KeyCode.H))                                             // 打开关闭手电筒
+                        if (click.GetComponent<click>().GridsFour[0].childCount != 0 && m_gun.active == false && !m_IsGunAndHand)
                         {
-                            //Debug.Log("H");
-
-                            //Debug.Log(flashlightaudio.active);
-
-                            if (flashlight.active == true)
+                                                                                                        // 道具栏与手中物体
+                            //Debug.Log("使用1号位枪");
+                            m_gun.SetActive(true);
+                            m_gun.GetComponent<Animation>()["draw"].speed = 1.5f;
+                            m_gun.GetComponent<Animation>().Play("draw");
+                            Debug.Log(m_gun.GetComponent<Animation>()["draw"].normalizedTime);
+                            for (int i = 0; i < AmmoCanvas.Length; i++)
                             {
-                                //Debug.Log("Close");  
-                                flashlight.SetActive(false);
-                                FlashAudioSource.Play();
+                                AmmoCanvas[i].SetActive(true);
                             }
-                            else
-                            {
-                                //Debug.Log("Open");
-                                flashlight.SetActive(true);
-                                FlashAudioSource.Play();
-                            }
-                            //Debug.Log(flashlightaudio.active);
                         }
+                        else if (click.GetComponent<click>().GridsFour[0].childCount == 0 && m_gun.active == true && m_IsGunAndHand)
+                        {
+                            //Debug.Log("取消1号位枪");
+                            m_gun.GetComponent<Animation>()["holster"].speed = 5f;
+                            m_gun.GetComponent<Animation>().Play("holster");
+                            
+                           
+                            //Debug.Log(m_gun.GetComponent<Animation>()["holster"].normalizedTime);
+                            if (m_gun.GetComponent<Animation>()["holster"].normalizedTime > 0.8f)
+                            {
+                                m_gun.SetActive(false);
+                                for (int i = 0; i < AmmoCanvas.Length; i++)
+                                {
+                                    AmmoCanvas[i].SetActive(false);
+                                }
+                            }
+                        }           
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.H))                                             // 打开关闭手电筒
+                    {
+                        //Debug.Log("H");
+
+                        //Debug.Log(flashlightaudio.active);
+
+                        if (flashlight.active == true)
+                        {
+                            //Debug.Log("Close");  
+                            flashlight.SetActive(false);
+                            FlashAudioSource.Play();
+                        }
+                        else
+                        {
+                            //Debug.Log("Open");
+                            flashlight.SetActive(true);
+                            FlashAudioSource.Play();
+                        }
+                        //Debug.Log(flashlightaudio.active);
                     }
 
                     if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.I))                            // 打开关闭背包
@@ -669,7 +721,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     {
                         GameObject gameObjF = infoF.collider.gameObject;
                         //Debug.Log(gameObjF.layer);
-                        if (gameObjF.layer == 11)
+                        if (gameObjF.layer == 11 && m_backpack.GetComponent<Canvas>().enabled == false)
                         {
                             //Debug.Log("123");
                             followMe.GetComponent<FollowMe>().Pickprops = true;
@@ -683,9 +735,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     if (Input.GetKeyDown(KeyCode.F))                                // 拾取道具
                     {
                         Debug.DrawLine(m_muzzlepoint.position, infoF.point, Color.red, 2);
-                        if (hitF)
+                        //划出射线，只有在scene视图中才能看到
+                        if (hitF && m_backpack.GetComponent<Canvas>().enabled == false)
                         {
-                            //划出射线，只有在scene视图中才能看到
+                             
                             GameObject gameObj = infoF.collider.gameObject;
                             if (gameObj.tag == "M4A1")
                             {
@@ -695,7 +748,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 return;
                             }
 
-                            if (gameObj.tag == "bishou")
+                            if (gameObj.tag == "CQ-A")
                             {
 
                                 backpack_manger.Instancce.StoreItem(1);
@@ -1269,7 +1322,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
-            else if (Input.GetMouseButton(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0 && !m_aim)
+            else if (Input.GetMouseButton(0) && m_backpack.GetComponent<Canvas>().enabled == false && Time.timeScale != 0 && !m_aim && m_IsGunAndHand)
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_ch.velocity.magnitude +

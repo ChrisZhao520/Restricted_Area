@@ -25,6 +25,7 @@ TagManager:
   - LootPoint
   - M4A1
   - Target
+  - CQ-A
   layers:
   - Default
   - TransparentFX

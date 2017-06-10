@@ -12,7 +12,7 @@ public class ItemUI : MonoBehaviour {
     {
 
         icon = "_Images" + "/" + id;
-        Debug.LogWarning(icon);
+        //Debug.LogWarning(icon);
         sp = Resources.Load(icon, typeof(Sprite)) as Sprite;
         img.sprite = sp;
     }

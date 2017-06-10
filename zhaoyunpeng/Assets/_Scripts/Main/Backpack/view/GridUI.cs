@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
-public class GridUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class GridUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
-    #region enter&&exit
+    #region 鼠标移入移出
     public static Action<Transform> OnEnter;
 	public static Action OnExit;
 	public void OnPointerEnter (PointerEventData eventData )
@@ -30,13 +30,16 @@ public class GridUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     }
     #endregion
 
-
+    #region  拖拽
     public static Action<Transform> OnLeftBeginDrag;
     public static Action<Transform, Transform> OnLeftEndDrag;
     //public static Action DoubleClick;
-    public void OnBeginDrag(PointerEventData eventData){
-        if (eventData.button == PointerEventData.InputButton.Left) {
-            if (OnLeftBeginDrag != null) {
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (OnLeftBeginDrag != null)
+            {
                 OnLeftBeginDrag(transform);
             }
         }
@@ -64,6 +67,33 @@ public class GridUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
             }
         }
     }
+    #endregion
+
+    #region    背包点击
+    public static Action<Transform> clickItem;
+    public static Action<Transform> zbdaoju;
+    public static Action<Transform> xianshi;
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (zbdaoju != null)
+            {
+                xianshi(transform);
+                zbdaoju(transform);
+            }
+        }
+        else if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (clickItem != null)
+            {
+
+                clickItem(transform);
+            }
+        }
+    }
+    #endregion
+
 
 
     

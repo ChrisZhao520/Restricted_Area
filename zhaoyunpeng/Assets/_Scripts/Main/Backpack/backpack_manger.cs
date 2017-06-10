@@ -6,21 +6,30 @@ using System;
 
 public class backpack_manger : MonoBehaviour {
 
-	private static backpack_manger _instancce;
 	public static backpack_manger Instancce{get{ return _instancce;}}
 	public gridpanelUI GridpanelUI;
     public Animator GridPanel;
 	public TooltipUI TooltipUI;
+    public Beibaoyiman Beibaoyiman;
     public DragItemUI DragItemUI;
-    private bool isDrag = false;
-    private bool isShow = false;
+    public int FirstgunNum;
+    public int SecondgunNum;
+    public int ThirdgunNum;
+    public int FourthgunNum;
     public float doubeClickDelay = 0.4f;
     public bool firstClick = false;
     public float firstClickTime;
     public int targetDisplay;
     public GameObject camera;
-    public string src;
-    public Dictionary<int,item>ItemList=new Dictionary<int,item>();
+    public float time = 0;
+    public Dictionary<int, item> ItemList = new Dictionary<int, item>();
+
+    private static backpack_manger _instancce;
+    private bool isDrag = false;
+    private bool isShow = false;
+    private string src;
+    private bool isbeibao = false;
+    
 	void Awake(){
 		//单例
 		_instancce = this;
@@ -32,6 +41,7 @@ public class backpack_manger : MonoBehaviour {
 		GridUI.OnExit += GridUI_OnExit;
         GridUI.OnLeftBeginDrag += GridUI_OnLeftBeginDrag;
         GridUI.OnLeftEndDrag += GridUI_OnLeftEndDrag;
+        GridUI.xianshi += GridUI_xianshi;
         //GridUI.OnDoubleClick += GridUI_OnDoubleClick;
 	}
     void Update() {
@@ -46,7 +56,22 @@ public class backpack_manger : MonoBehaviour {
             TooltipUI.show();
             TooltipUI.SetLocalPosition(position);
         }
-       
+
+        if (isbeibao)
+        {
+            Beibaoyiman.show();
+            time += 1 * Time.deltaTime;
+            if (time > 3)
+            {
+                Beibaoyiman.hidden();
+                isbeibao = false;
+                time = 0;
+            }
+        }
+        else
+        {
+            Beibaoyiman.hidden();
+        }
     }
 
     //存储物体
@@ -56,6 +81,7 @@ public class backpack_manger : MonoBehaviour {
         Transform emptyGrid = GridpanelUI.GetEmptyGrid();
         if (emptyGrid == null)
         {
+            isbeibao = true;
             return;
         }
         item temp = ItemList[itemId];
@@ -65,7 +91,7 @@ public class backpack_manger : MonoBehaviour {
 	private void load(){
         ItemList = new Dictionary<int, item>();
         Weapon w1 = new Weapon(0,"M4A1","伤害力普通","");
-        Weapon w2 = new Weapon(1, "匕首", "伤害力一般","");
+        Weapon w2 = new Weapon(1, "CQ-A", "伤害力普通","");
         Weapon w3 = new Weapon(2, "木棒", "伤害力普通","");
         Weapon w4 = new Weapon(3, "板砖", "伤害力弱","");
         consumable w5 = new consumable(4, "血药", "加血", " ", 20 ,0);
@@ -98,12 +124,33 @@ public class backpack_manger : MonoBehaviour {
         isShow = false;
         TooltipUI.hidden();
 	}
+    private void GridUI_xianshi(Transform xs)
+    {
+        item i = Itemmodel.GetItem(xs.name);
+        if (xs.childCount == 0)
+        {
+            return;
+        }
+        else
+        {
+            if (i.Id >= 0 && i.Id <= FourthgunNum)
+            {
+                isShow = false;
+                TooltipUI.hidden();
+            }
+        }
+
+    }
     private void GridUI_OnLeftBeginDrag(Transform gridTransform)
     {
         if (gridTransform.childCount == 0){
             return;
         }
         else{
+            Image image = gridTransform.GetComponent<Image>();
+            Sprite right = Resources.Load("_Images/grid", typeof(Sprite)) as Sprite;
+            image.sprite = right;
+
             item item = Itemmodel.GetItem(gridTransform.name);
 
             //Debug.Log("123");
@@ -128,13 +175,13 @@ public class backpack_manger : MonoBehaviour {
             
 
             }
-            else if (eventtransform.tag == "Grid") {//拖到另一个格子或者当前格子
+            else if (eventtransform.tag == "Grid") 
+            {//拖到另一个格子或者当前格子
                      if (eventtransform.childCount == 0)//直接扔进去
                      {
                          item item = Itemmodel.GetItem(prevtransform.name);
-                         this.CreatNewItem(item, eventtransform);
                          Itemmodel.DeleteItem(prevtransform.name);
-                     
+                         this.CreatNewItem(item, eventtransform);
                      }
                      else //交换
                      {
